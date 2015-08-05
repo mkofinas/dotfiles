@@ -1,0 +1,23 @@
+[global_config]
+[keybindings]
+  next_tab = <Ctrl><Shift>Right
+  prev_tab = <Ctrl><Shift>Left
+[profiles]
+  [[default]]
+    use_system_font = False
+    background_darkness = 0.48
+    background_type = image
+    background_image = /home/miltos/Pictures/ring5.jpg
+    scroll_background = False
+    font = DejaVu Sans Mono for Powerline 10
+    background_color = "#300a24"
+    foreground_color = "#ffffff"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

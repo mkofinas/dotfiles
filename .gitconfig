@@ -1,0 +1,22 @@
+[user]
+    name = Miltos Kofinas
+    email = mkofinas@gmail.com
+
+[color]
+    ui = true
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red
+    new = green
+
+[log]
+  decorate = full
+
+[push]
+  default = tracking
+
+[alias]
+  tree = log --oneline --graph --all
+  diffw = diff --word-diff

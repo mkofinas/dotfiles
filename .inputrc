@@ -1,0 +1,45 @@
+#"\e[5~": history-search-backward
+#"\e[6~": history-search-forward
+
+# Use Vi, not Emacs, style editing
+set editing-mode vi
+
+# Ignore case
+set completion-ignore-case on
+
+# List all matches in case multiple possible completions are possible
+#set show-all-if-ambiguous on
+
+# on menu-complete, first display the common prefix, then cycle through the
+# options when hitting TAB
+set menu-complete-display-prefix on
+
+# Show extra file information when completing, like `ls -F` does
+set visible-stats on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+
+#################################################################
+# Keymaps for when we're in command mode (e.g., after hitting ESC)
+set keymap vi-command
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"k": history-search-backward
+"j": history-search-forward
+
+###############################################################
+# Keymaps for when we're in insert (i.e., typing stuff in) mode
+set keymap vi-insert
+
+# Vim style history search
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+"\e[C": forward-char
+"\e[D": backward-char
