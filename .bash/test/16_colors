@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Background
+for background_color in 40 100 41 101 42 102 43 103 44 104 45 105 46 106 47 107 49 ; do
+  # Foreground
+  for foreground_color in {0..7} ; do
+    # Formatting
+    for attribute in 0 1 2 4 ; do
+      color1=$((30+foreground_color))
+      color2=$((90+foreground_color))
+      echo -en "\e[${attribute};${background_color};${color1}m^[${attribute};${background_color};${color1}m \e[0m"
+      echo -en "\e[${attribute};${background_color};${color2}m^[${attribute};${background_color};${color2}m \e[0m"
+    done
+    echo ""
+  done
+done
+
+exit 0
+

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Background Colors
+for background_color in 256 233 254 ; do
+  # Foreground Colors
+  for foreground_color in {0..256} ; do
+    echo -en "\e[48;5;${background_color}m\e[38;5;${foreground_color}m ${foreground_color}\t\e[0m"
+    # Display 10 colors per line
+    if [[ $((($foreground_color + 1) % 10)) == 0 ]] ; then
+      echo ""
+    fi
+  done
+  echo ""
+done
+
+exit 0

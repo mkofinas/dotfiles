@@ -113,7 +113,8 @@ set switchbuf=useopen,usetab
 
 " this makes sure that shell scripts are highlighted
 " as bash scripts and not sh scripts
-let g:is_posix = 1
+let g:is_bash = 1
+" let g:is_posix = 1
 
 " " With a map leader it's possible to do extra key combinations
 " " like <leader>w saves the current file

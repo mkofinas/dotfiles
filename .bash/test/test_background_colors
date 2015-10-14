@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source $current_directory"/../colors/background_colors.bash"
+source $current_directory"/../box_drawing/box_it"
+
+echo "╭─────────────────────╮"
+echo "│  Background Colors  │"
+echo "╰─────────────────────╯"
+
+num_rows=16
+num_cols=2
+background_matrix_elements=("Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ..."\
+  "Lorem ipsum dolor sit amet, conseteturV ...")
+
+background_matrix_elements_colors=($on_black $black_on_black $on_dark_gray $black_on_dark_gray\
+  $on_red $black_on_red $on_light_red $black_on_light_red\
+  $on_green $black_on_green $on_light_green $black_on_light_green\
+  $on_yellow $black_on_yellow $on_light_yellow $black_on_light_yellow\
+  $on_blue $black_on_blue $on_light_blue $black_on_light_blue\
+  $on_purple $black_on_purple $on_light_purple $black_on_light_purple\
+  $on_cyan $black_on_cyan $on_light_cyan $black_on_light_cyan\
+  $on_light_gray $black_on_light_gray $on_white $black_on_white)
+
+box_it "$num_rows" "$num_cols" "${background_matrix_elements[@]}" "${background_matrix_elements_colors[@]}"
+

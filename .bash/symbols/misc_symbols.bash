@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+asterism="⁂ "
+much_greater_than="⋙ "
+therefore="∴"
+comet="☄"
+die_six="⚅"
+atom="⚛"
+check_mark="✓"
+ballot_x="✗"
+square="▪"
+rhombus="❖"
+clock="⌚"
+hourglass="⌛"
+ellipsis="…"
+staff_of_asclepius="⚕"

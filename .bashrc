@@ -105,57 +105,30 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-source /opt/ros/hydro/setup.bash
-source /home/miltos/catkin_ws/devel/setup.bash
-source /home/miltos/pandora_ws/devel/setup.bash --extend
+
+# ROS Setup
+if [ -f /opt/ros/hydro/setup.bash ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/catkin_ws/devel/setup.bash ]; then
+    . ~/catkin_ws/devel/setup.bash
+fi
+
+if [ -f ~/pandora_ws/devel/setup.bash ]; then
+    . ~/pandora_ws/devel/setup.bash --extend
+fi
 
 export TERM=xterm-256color
 
-############################ Git highlighting script ###########################
+################################## Bash Theme ##################################
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM="auto"
 
-function proml {
-local          BLUE="\[\033[0;34m\]"
-local    LIGHT_BLUE="\[\033[1;34m\]"
-local           RED="\[\033[0;31m\]"
-local     LIGHT_RED="\[\033[1;31m\]"
-local         GREEN="\[\033[0;32m\]"
-local   LIGHT_GREEN="\[\033[1;32m\]"
-local        YELLOW="\[\033[1;33m\]"
-local  LIGHT_YELLOW="\[\033[1;33m\]"
-local          CYAN="\[\033[0;36m\]"
-local    LIGHT_CYAN="\[\033[1;36m\]"
-local       MAGENTA="\[\033[0;35m\]"
-local LIGHT_MAGENTA="\[\033[1;35m\]"
-local         WHITE="\[\033[1;37m\]"
-local    LIGHT_GRAY="\[\033[0;37m\]"
-local       DEFAULT="\[\033[0m\]"
+if [ -f ~/.dotfiles/.bash/themes/custom_theme.bash ]; then
+    . ~/.dotfiles/.bash/themes/custom_theme.bash
+fi
 
-local          start_angle="┌─"
-local         start_smooth="╭"
-
-local    stop_angle_square="└─▪"
-local   stop_smooth_square="╰▪"
-
-local     stop_angle_arrow="└─→"
-local    stop_smooth_arrow="╰→"
-
-local   stop_angle_rhombus="└─❖"
-local  stop_smooth_rhombus="╰❖"
-
-# More symbols at:
-# http://www.sabinanore.com/design/html-special-symbols/
-# http://panmental.de/symbols/info.htm
-
-#PS1="\u@\h:\w$LIGHT_RED\$(__git_ps1)$DEFAULT\$ "
-
-#PS1="$LIGHT_CYAN\u$LIGHT_RED@$LIGHT_MAGENTA\h$LIGHT_RED:$LIGHT_BLUE[\w$LIGHT_YELLOW\$(__git_ps1)$LIGHT_BLUE]\n$LIGHT_GREEN>>> $DEFAULT"
-
-#PS1="$LIGHT_GREEN$start_smooth_square$LIGHT_CYAN\u$LIGHT_RED@$LIGHT_MAGENTA\h$LIGHT_RED:$LIGHT_BLUE\w$YELLOW\$(__git_ps1)$DEFAULT$LIGHT_YELLOW\$\n$LIGHT_GREEN$stop_smooth_square$DEFAULT "
-
-PS1="$LIGHT_YELLOW$start_smooth$LIGHT_CYAN\u$LIGHT_YELLOW@$LIGHT_MAGENTA\h$LIGHT_YELLOW:$LIGHT_RED[\w]$LIGHT_YELLOW\$(__git_ps1)$DEFAULT\n$LIGHT_YELLOW$stop_smooth_rhombus$DEFAULT "
-}
-proml
+custom_theme_prompt

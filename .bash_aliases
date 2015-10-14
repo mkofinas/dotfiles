@@ -30,16 +30,16 @@ alias grep-in-files='grep -hHIrFn'
 
 alias regvim='gvim --remote-silent'
 
-alias cd..='cd ..'
-alias cd..2='cd ../..'
-alias cd..3='cd ../../..'
-alias cd..4='cd ../../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
-alias disk_st='df --human-readable '
+alias disk_status='df --human-readable '
 
 ############################## Configuration Files #############################
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
-alias sbashrc='source ~/.bashrc'
-
+alias sbash='source ~/.bashrc'
+alias bash_theme='vim ~/.dotfiles/.bash/themes/custom_theme.bash'

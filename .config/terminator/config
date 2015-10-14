@@ -6,12 +6,28 @@
   [[default]]
     use_system_font = False
     background_darkness = 0.48
-    background_type = image
     background_image = /home/miltos/Pictures/ring5.jpg
     scroll_background = False
     font = DejaVu Sans Mono for Powerline 10
-    background_color = "#300a24"
+    background_color = "#141414"
     foreground_color = "#ffffff"
+    scrollback_infinite = True
+  [[purple_ring]]
+    use_system_font = False
+    background_type = image
+    background_image = /home/miltos/Pictures/ring5.jpg
+    foreground_color = "#ffffff"
+    font = DejaVu Sans Mono for Powerline 10
+    background_color = "#300a24"
+    scrollback_infinite = True
+  [[gray_ring]]
+    use_system_font = False
+    background_type = image
+    background_image = /home/miltos/Pictures/ring5.jpg
+    foreground_color = "#ffffff"
+    font = DejaVu Sans Mono for Powerline 10
+    background_color = "#141414"
+    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
