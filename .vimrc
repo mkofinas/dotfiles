@@ -42,11 +42,12 @@ Plugin 'Valloric/MatchTagAlways' "https://github.com/Valloric/MatchTagAlways
 Plugin 'easymotion/vim-easymotion' "https://github.com/easymotion/vim-easymotion
 Plugin 'Shougo/vimproc.vim' "https://github.com/Shougo/vimproc.vim
 Plugin 'Shougo/vimshell.vim' "https://github.com/Shougo/vimshell.vim
+Plugin 'LaTeX-Box-Team/LaTeX-Box' "https://github.com/LaTeX-Box-Team/LaTeX-Box
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -237,6 +238,8 @@ endif
 " set spell checking for certain filetypes
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
+autocmd FileType tex setlocal spell
+autocmd FileType tex set spelllang=el,en
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** Filetype SETTINGS **************************** "
@@ -244,6 +247,10 @@ autocmd FileType gitcommit setlocal spell
 
 " add custom filetypes
 autocmd BufNewFile,BufRead *.launch set filetype=xml " this is probably handled by vim-ros plugin
+
+autocmd FileType tex filetype plugin on
+let g:tex_comment_nospell=1
+let g:tex_flavor='latex'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ****************************** CUSTOM MAPPINGS ***************************** "
@@ -516,6 +523,15 @@ nnoremap <leader>vss :VimShell -split<CR>
 nnoremap <leader>vsp :VimShellInteractive ipython<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" **************************** LaTeX-Box SETTINGS **************************** "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" let g:LatexBox_latexmk_async=1
+let g:LatexBox_latexmk_preview_continuously=1
+let g:LatexBox_quickfix=2
+let g:LaTeXBox_output_type='' "Let latexmkrc choose the type
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " *************************** Colorscheme SETTINGS *************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -529,9 +545,9 @@ highlight Normal ctermfg=white ctermbg=234
 " highlight CursorLine cterm=bold cterm=bold ctermbg=darkred ctermfg=3
 " highlight CursorColumn cterm=bold cterm=bold ctermbg=darkred ctermfg=3
 
-" if has('gui_running')
-  " colorscheme molokai
-" endif
+if has('gui_running')
+  colorscheme molokai
+endif
 
 " Highlight comments
 highlight Comment term=bold cterm=bold ctermfg=1
