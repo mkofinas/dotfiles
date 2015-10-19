@@ -239,7 +239,7 @@ endif
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 autocmd FileType tex setlocal spell
-autocmd FileType tex set spelllang=el,en
+autocmd FileType tex setlocal spelllang=el,en
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** Filetype SETTINGS **************************** "
@@ -251,6 +251,7 @@ autocmd BufNewFile,BufRead *.launch set filetype=xml " this is probably handled 
 autocmd FileType tex filetype plugin on
 let g:tex_comment_nospell=1
 let g:tex_flavor='latex'
+set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ****************************** CUSTOM MAPPINGS ***************************** "
