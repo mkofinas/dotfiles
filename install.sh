@@ -3,7 +3,7 @@
 # Install Vim Plugins and create symlinks to the desired dotfiles.
 
 dotfiles=$(pwd)
-dotfiles_backup=$dotfiles"_backup"
+dotfiles_backup=$dotfiles".bak"
 files=".bash .vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/config .ipython/profile_mkofinas/ipython_config.py"
 
 # Clone Vundle first
@@ -27,8 +27,10 @@ echo "Created backup directory "$dotfiles_backup
 # Create symbolic links
 cd ~/
 for file in $files; do
-  echo "Moving existing $file file to $dotfiles_backup"
-  mv $file $dotfiles_backup/
+  if [ -e "$file" ]; then
+    echo "Moving existing $file file to $dotfiles_backup"
+    mv $file $dotfiles_backup/
+  fi
   echo "Creating symlink to $file in home directory"
   ln -s $dotfiles/$file $file
 done
