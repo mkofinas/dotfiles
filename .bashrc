@@ -122,4 +122,6 @@ if [ -f ~/.dotfiles/.bash/themes/custom_theme.bash ]; then
     . ~/.dotfiles/.bash/themes/custom_theme.bash
 fi
 
-custom_theme_prompt
+if [ -f ~/.dotfiles/.bash/themes/theme_plugins.bash ]; then
+    . ~/.dotfiles/.bash/themes/theme_plugins.bash
+fi

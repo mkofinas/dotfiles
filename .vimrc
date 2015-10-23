@@ -43,6 +43,7 @@ Plugin 'easymotion/vim-easymotion' "https://github.com/easymotion/vim-easymotion
 Plugin 'Shougo/vimproc.vim' "https://github.com/Shougo/vimproc.vim
 Plugin 'Shougo/vimshell.vim' "https://github.com/Shougo/vimshell.vim
 Plugin 'LaTeX-Box-Team/LaTeX-Box' "https://github.com/LaTeX-Box-Team/LaTeX-Box
+Plugin 'ryanoasis/vim-webdevicons' "https://github.com/ryanoasis/vim-devicons
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -584,4 +585,5 @@ highlight Statement term=bold cterm=bold
 " Highlight errors and style errors
 highlight SpellBad term=bold cterm=bold ctermbg=124
 highlight SpellCap term=bold cterm=bold ctermbg=208
+
 

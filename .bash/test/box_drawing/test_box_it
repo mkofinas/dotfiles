@@ -2,7 +2,7 @@
 
 current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source $current_directory"/../box_drawing/box_it"
+source $current_directory"/../../plugins/box_drawing/box_it"
 
 num_rows=4
 num_cols=4

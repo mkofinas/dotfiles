@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 asterism="⁂ "
-much_greater_than="⋙ "
+very_much_greater_than="⋙ "
 therefore="∴"
 comet="☄"
 die_six="⚅"
@@ -13,4 +13,3 @@ rhombus="❖"
 clock="⌚"
 hourglass="⌛"
 ellipsis="…"
-staff_of_asclepius="⚕"

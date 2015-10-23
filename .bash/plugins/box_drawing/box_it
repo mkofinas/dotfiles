@@ -26,13 +26,13 @@
 #   Kofinas Miltiadis <mkofinas@gmail.com>
 
 # This function creates elegant borders around the elements of a matrix.
-# To see a demo of its use, run the "test_box_it" script in the "../Test"
+# To see a demo of its use, run the "test_box_it" script in the "../../Test"
 # folder.
 
 current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source $current_directory"/../colors/foreground_colors.bash"
-source $current_directory"/../symbols/box_drawing_symbols.bash"
+source $current_directory"/../../colors/foreground_colors.bash"
+source $current_directory"/../../symbols/box_drawing_symbols.bash"
 
 box_it() {
   local num_rows=$1

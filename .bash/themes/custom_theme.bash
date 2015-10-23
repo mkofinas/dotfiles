@@ -22,13 +22,10 @@ if [ -f $current_directory"/../symbols/misc_symbols.bash" ]; then
   . $current_directory"/../symbols/misc_symbols.bash"
 fi
 
-function custom_theme_prompt {
+function prompt_command() {
   local start_smooth=$arc_down_and_right
   local stop_smooth_square=$arc_up_and_right$square
-  local stop_smooth_arrow=$arc_up_and_right$right_arrow
   local stop_smooth_rhombus=$arc_up_and_right$rhombus
-  local stop_smooth_therefore=$arc_up_and_right$therefore
-  local snake="∿〜~<"
 
   local echo_bold_light_yellow="\[$bold_light_yellow\]"
   local echo_bold_blue="\[$bold_blue\]"
@@ -55,9 +52,14 @@ function custom_theme_prompt {
   PS1+="$echo_bold_light_yellow:"
   PS1+="$echo_bold_light_red[\w]"
   PS1+="$echo_bold_light_yellow"'$(__git_ps1 " ( %s)")'"$echo_color_off\n"
-  PS1+="$echo_bold_light_green$heavy_long_right_arrow$echo_color_off "
+  if [[ $system_exit_wrong == 1 ]]; then
+      PS1+="$echo_bold_light_red$heavy_long_right_arrow$echo_color_off "
+  else
+      PS1+="$echo_bold_light_green$heavy_long_right_arrow$echo_color_off "
+  fi
 
   PS2="$echo_bold_light_green$heavy_long_right_arrow $echo_bold_white...$echo_color_off "
 
   # PS2="$echo_bold_light_green$asterism$echo_color_off "
 }
+PROMPT_COMMAND=prompt_command;

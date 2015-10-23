@@ -17,7 +17,7 @@ if [ -e $dotfiles/.vim/bundle/YouCompleteMe/install.sh ]
 then
   echo "Compiling YouCompleteMe!"
   cd $dotfiles/.vim/bundle/YouCompleteMe/
-  ./install.sh --clang-completer
+  ./install.py --clang-completer
 fi
 
 # Create backup directory to store the old dotfiles

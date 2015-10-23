@@ -8,7 +8,7 @@
     background_darkness = 0.48
     background_image = /home/miltos/Pictures/ring5.jpg
     scroll_background = False
-    font = DejaVu Sans Mono for Powerline 10
+    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
     background_color = "#141414"
     foreground_color = "#ffffff"
     scrollback_infinite = True
