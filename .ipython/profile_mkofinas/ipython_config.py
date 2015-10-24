@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # Configuration file for ipython.
 
 #------------------------------------------------------------------------------
@@ -326,7 +329,7 @@
 # This is the primary interface for producing IPython's prompts.
 
 # Output prompt. '\#' will be transformed to the prompt number
-c.PromptManager.out_template = r'<\#> '
+c.PromptManager.out_template = u'{color.Blue} ' + r'{color.Red}|\#> '
 
 # Continuation prompt.
 # c.PromptManager.in2_template = '   .\\D.: '
@@ -335,7 +338,10 @@ c.PromptManager.out_template = r'<\#> '
 c.PromptManager.color_scheme = 'Linux'
 
 # Input prompt.  '\#' will be transformed to the prompt number
-c.PromptManager.in_template = r'{color.LightCyan}\u{color.LightGreen}@{color.LightPurple}\h{color.LightGreen}:{color.LightRed}[\Y1]\n{color.Green}|\#> '
+c.PromptManager.in_template = r'{color.LightCyan}\u{color.LightGreen}@'\
+                               '{color.LightPurple}\h{color.LightGreen}:'\
+                               '{color.LightRed}[\Y1]\n' + \
+                               u'{color.Yellow} {color.Green}|\#> '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
 # c.PromptManager.justify = True
