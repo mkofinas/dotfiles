@@ -36,8 +36,12 @@
 # c.InteractiveShellApp.exec_PYTHONSTARTUP = True
 
 # lines of code to run at IPython startup.
-# c.InteractiveShellApp.exec_lines = traitlets.Undefined
-
+c.InteractiveShellApp.exec_lines = [
+    'import os',
+    'import sys',
+    'import math',
+    'import numpy as np',
+]
 # Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'osx',
 # 'pyglet', 'qt', 'qt5', 'tk', 'wx').
 # c.InteractiveShellApp.gui = None
@@ -144,7 +148,7 @@
 # c.TerminalIPythonApp.force_interact = False
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
+c.TerminalIPythonApp.display_banner = True
 
 # Start IPython quickly by skipping the loading of config files.
 # c.TerminalIPythonApp.quick = False
@@ -181,7 +185,7 @@
 # c.InteractiveShell.display_page = False
 
 # Autoindent IPython code entered interactively.
-# c.InteractiveShell.autoindent = True
+c.InteractiveShell.autoindent = True
 
 #
 # c.InteractiveShell.separate_in = '\n'
@@ -314,10 +318,10 @@
 # Set to confirm when you try to exit IPython with an EOF (Control-D in Unix,
 # Control-Z/Enter in Windows). By typing 'exit' or 'quit', you can force a
 # direct exit without any confirmation.
-# c.TerminalInteractiveShell.confirm_exit = True
+c.TerminalInteractiveShell.confirm_exit = False
 
 # Set the editor used by IPython (default to $EDITOR/vi/notepad).
-# c.TerminalInteractiveShell.editor = 'vi'
+c.TerminalInteractiveShell.editor = 'vim'
 
 # The shell program to be used for paging.
 # c.TerminalInteractiveShell.pager = 'less'
@@ -329,22 +333,22 @@
 # This is the primary interface for producing IPython's prompts.
 
 # Output prompt. '\#' will be transformed to the prompt number
-c.PromptManager.out_template = u'{color.Blue} ' + r'{color.Red}|\#> '
+c.PromptManager.out_template = u'{color.Blue} {color.Red}|\#|──▶ '
 
 # Continuation prompt.
-# c.PromptManager.in2_template = '   .\\D.: '
+c.PromptManager.in2_template = u'{color.Yellow} ' + '{color.Green}|\#|.\D: '
 
 #
 c.PromptManager.color_scheme = 'Linux'
 
 # Input prompt.  '\#' will be transformed to the prompt number
-c.PromptManager.in_template = r'{color.LightCyan}\u{color.LightGreen}@'\
-                               '{color.LightPurple}\h{color.LightGreen}:'\
+c.PromptManager.in_template = r'{color.LightCyan}\u{color.Yellow}@'\
+                               '{color.LightPurple}\h{color.Yellow}:'\
                                '{color.LightRed}[\Y1]\n' + \
-                               u'{color.Yellow} {color.Green}|\#> '
+                               u'{color.Yellow} {color.Green}|\#|──▶ '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
-# c.PromptManager.justify = True
+c.PromptManager.justify = False
 
 #------------------------------------------------------------------------------
 # HistoryAccessorBase configuration
@@ -474,20 +478,20 @@ c.PromptManager.in_template = r'{color.LightCyan}\u{color.LightGreen}@'\
 # documentation of :mod:`IPython.lib.pretty` for details on how to write pretty
 # printers.  Here is a simple example::
 #
-#     def dtype_pprinter(obj, p, cycle):
-#         if cycle:
-#             return p.text('dtype(...)')
-#         if hasattr(obj, 'fields'):
-#             if obj.fields is None:
-#                 p.text(repr(obj))
-#             else:
-#                 p.begin_group(7, 'dtype([')
-#                 for i, field in enumerate(obj.descr):
-#                     if i > 0:
-#                         p.text(',')
-#                         p.breakable()
-#                     p.pretty(field)
-#                 p.end_group(7, '])')
+#  def dtype_pprinter(obj, p, cycle):
+    #  if cycle:
+        #  return p.text('dtype(...)')
+    #  if hasattr(obj, 'fields'):
+        #  if obj.fields is None:
+            #  p.text(repr(obj))
+        #  else:
+            #  p.begin_group(7, 'dtype([')
+            #  for i, field in enumerate(obj.descr):
+                #  if i > 0:
+                    #  p.text(',')
+                    #  p.breakable()
+                #  p.pretty(field)
+            #  p.end_group(7, '])')
 
 #
 # c.PlainTextFormatter.newline = '\n'
@@ -507,7 +511,7 @@ c.PromptManager.in_template = r'{color.LightCyan}\u{color.LightGreen}@'\
 # c.PlainTextFormatter.max_width = 79
 
 #
-# c.PlainTextFormatter.pprint = True
+c.PlainTextFormatter.pprint = True
 
 #------------------------------------------------------------------------------
 # Completer configuration
