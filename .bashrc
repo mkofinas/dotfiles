@@ -99,7 +99,7 @@ fi
 
 # ROS Setup
 if [ -f /opt/ros/hydro/setup.bash ]; then
-    . ~/.bash_aliases
+    . /opt/ros/hydro/setup.bash
 fi
 
 if [ -f ~/catkin_ws/devel/setup.bash ]; then
@@ -118,10 +118,14 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM="auto"
 
-if [ -f ~/.dotfiles/.bash/themes/custom_theme.bash ]; then
-    . ~/.dotfiles/.bash/themes/custom_theme.bash
+BASH_THEME="two_sides_background"
+
+if [ -f ~/.dotfiles/.bash/themes/two_sides_background.theme.bash ]; then
+    . ~/.dotfiles/.bash/themes/two_sides_background.theme.bash
 fi
 
 if [ -f ~/.dotfiles/.bash/themes/theme_plugins.bash ]; then
     . ~/.dotfiles/.bash/themes/theme_plugins.bash
 fi
+PROMPT_DIRTRIM=3
+

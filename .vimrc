@@ -534,6 +534,16 @@ let g:LatexBox_quickfix=2
 let g:LaTeXBox_output_type='' "Let latexmkrc choose the type
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" *************************** Vim-Devicons SETTINGS ************************** "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['bash'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['zsh'] = ''
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " *************************** Colorscheme SETTINGS *************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

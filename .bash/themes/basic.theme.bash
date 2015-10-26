@@ -43,23 +43,32 @@ function prompt_command() {
 
   # PS1="$bold_light_yellow$start_smooth$bold_light_cyan\u$bold_light_yellow@$bold_light_purple\h$bold_light_yellow$hourglass$bold_blue|\t|$bold_light_yellow:$bold_light_red[\w]$bold_light_yellow\$(__git_ps1)$color_off\n$bold_light_yellow$stop_smooth_square$color_off "
 
-  PS1="$echo_bold_light_yellow$clock"
-  PS1+="$echo_bold_blue|\t|"
-  PS1+="$echo_bold_light_yellow$down_zigzag_arrow"
-  PS1+="$echo_bold_light_cyan\u"
-  PS1+="$echo_bold_light_yellow@"
-  PS1+="$echo_bold_light_purple\h"
-  PS1+="$echo_bold_light_yellow:"
-  PS1+="$echo_bold_light_red[\w]"
-  PS1+="$echo_bold_light_yellow"'$(__git_ps1 " ( %s)")'"$echo_color_off\n"
+  local git_status
+  git_status=$(__git_ps1 " ( %s)")
+
+  L1_PROMPT_LEFT="$echo_bold_light_yellow$clock"
+  L1_PROMPT_LEFT+="$echo_bold_blue|\t|"
+  L1_PROMPT_LEFT+="$echo_bold_light_yellow$down_zigzag_arrow"
+  L1_PROMPT_LEFT+="$echo_bold_light_cyan\u"
+  L1_PROMPT_LEFT+="$echo_bold_light_yellow@"
+  L1_PROMPT_LEFT+="$echo_bold_light_purple\h"
+  L1_PROMPT_LEFT+="$echo_bold_light_yellow:"
+  L1_PROMPT_LEFT+="$echo_bold_light_red[\w]"
+  L1_PROMPT_LEFT+="$echo_bold_light_yellow$git_status"
+
+  L1_PROMPT="$L1_PROMPT_LEFT$echo_color_off\n"
+
+  # Second Prompt Line
   if [[ $system_exit_wrong == 1 ]]; then
-      PS1+="$echo_bold_light_red$heavy_long_right_arrow$echo_color_off "
+      L2_PROMPT="$echo_bold_light_red$heavy_long_right_arrow$echo_color_off "
   else
-      PS1+="$echo_bold_light_green$heavy_long_right_arrow$echo_color_off "
+      L2_PROMPT="$echo_bold_light_green$heavy_long_right_arrow$echo_color_off "
   fi
 
-  PS2="$echo_bold_light_green$heavy_long_right_arrow $echo_bold_white...$echo_color_off "
+  PS1=$L1_PROMPT$L2_PROMPT
 
+  # Continuation Prompt
+  PS2="$echo_bold_light_green$heavy_long_right_arrow $echo_bold_white...$echo_color_off "
   # PS2="$echo_bold_light_green$asterism$echo_color_off "
 }
 PROMPT_COMMAND=prompt_command;

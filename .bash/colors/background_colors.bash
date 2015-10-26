@@ -3,6 +3,9 @@
 # Reset
 color_off='\e[0m'                     # Text Reset
 
+# Clear to end of line
+clear_eol='\e[K'
+
 # Background (White Letters)
 on_black='\e[40m'                     # Black
 on_red='\e[41m'                       # Red
