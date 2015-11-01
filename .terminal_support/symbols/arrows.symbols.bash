@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# Arrow Symbols
 
 down_zigzag_arrow="↯"
 right_arrow="→"

@@ -1,75 +1,62 @@
 #!/usr/bin/env bash
 
-current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-if [ -f $current_directory"/../colors/foreground_colors.bash" ]; then
-  . $current_directory"/../colors/foreground_colors.bash"
-fi
-
-if [ -f $current_directory"/../colors/background_colors.bash" ]; then
-  . $current_directory"/../colors/background_colors.bash"
-fi
-
-if [ -f $current_directory"/../symbols/box_drawing_symbols.bash" ]; then
-  . $current_directory"/../symbols/box_drawing_symbols.bash"
-fi
-
-if [ -f $current_directory"/../symbols/arrow_symbols.bash" ]; then
-  . $current_directory"/../symbols/arrow_symbols.bash"
-fi
-
-if [ -f $current_directory"/../symbols/misc_symbols.bash" ]; then
-  . $current_directory"/../symbols/misc_symbols.bash"
-fi
-
 function prompt_command() {
-  local echo_bold_light_yellow="\[$bold_light_yellow\]"
-  local echo_bold_blue="\[$bold_blue\]"
-  local echo_bold_light_cyan="\[$bold_light_cyan\]"
-  local echo_bold_light_purple="\[$bold_light_purple\]"
-  local echo_bold_light_red="\[$bold_light_red\]"
-  local echo_bold_light_green="\[$bold_light_green\]"
-  local echo_color_off="\[$color_off\]"
-  local echo_on_black="\[$on_black\]"
 
   local git_status
   git_status=$(__git_ps1 " ( %s)")
 
-  BG_PROMPT="$echo_on_black$clear_eol"
-  L1_PROMPT_LEFT="$echo_bold_light_yellow$user"
-  L1_PROMPT_LEFT+="$echo_bold_light_cyan\u"
-  L1_PROMPT_LEFT+="$echo_bold_light_yellow@"
-  L1_PROMPT_LEFT+="$echo_bold_light_purple\h"
-  L1_PROMPT_LEFT+="$echo_bold_light_yellow:"
-  L1_PROMPT_LEFT+="$echo_bold_light_red[\w]"
-  L1_PROMPT_LEFT+="$echo_bold_light_yellow$git_status"
+  local OFF
+  OFF="${PROMPT_EMPHASIS["REGULAR"]}"
+  local BOLD
+  BOLD="${PROMPT_EMPHASIS["BOLD"]}"
+  local DIM
+  DIM="${PROMPT_EMPHASIS["DIM"]}"
 
+  local BG_PROMPT
+  BG_PROMPT="$BOLD${PROMPT_FG["DEFAULT"]}${PROMPT_BG["BLACK"]}$PROMPT_CLEAR_EOL"
+
+  local L1_PROMPT_LEFT
+  L1_PROMPT_LEFT="$BOLD${PROMPT_FG["YELLOW"]}$user"
+  L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["CYAN"]}\u"
+  L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["YELLOW"]}@"
+  L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["MAGENTA"]}\h"
+  L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["YELLOW"]}:"
+  L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["RED"]}[\w]"
+  L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["YELLOW"]}$git_status"
+
+  local L1_PROMPT_LEFT_SIZE
   L1_PROMPT_LEFT_SIZE=`expand_prompt "$L1_PROMPT_LEFT"`
 
   local right_text
-  right_text="\t"
+  right_text="\A"
+
+  local L1_PROMPT_RIGHT
+  local L1_PROMPT_RIGHT_SIZE
   L1_PROMPT_RIGHT="\$(write_at_end_of_line "$right_text")"
   L1_PROMPT_RIGHT_SIZE=`expand_prompt "$right_text"`
-  L1_PROMPT_RIGHT="$echo_bold_light_blue$L1_PROMPT_RIGHT"
+  L1_PROMPT_RIGHT="$BOLD${PROMPT_FG["YELLOW"]}$L1_PROMPT_RIGHT"
 
   local available_width
   available_width=$((`tput cols` - $L1_PROMPT_LEFT_SIZE))
+
+  local L1_PROMPT
   if [[ $available_width -ge $L1_PROMPT_RIGHT_SIZE ]]; then
-    L1_PROMPT="$L1_PROMPT_LEFT$L1_PROMPT_RIGHT$echo_color_off\n"
+    L1_PROMPT="$L1_PROMPT_LEFT$L1_PROMPT_RIGHT$OFF\n"
   else
-    L1_PROMPT="$L1_PROMPT_LEFT$echo_color_off\n"
+    L1_PROMPT="$L1_PROMPT_LEFT$OFF\n"
   fi
 
+  local L2_PROMPT
   # Second Prompt Line
   if [[ $system_exit_wrong == 1 ]]; then
-      L2_PROMPT="$echo_bold_light_red$heavy_long_right_arrow$echo_color_off "
+      L2_PROMPT="$DIM${PROMPT_FG["RED"]}$heavy_long_right_arrow$OFF "
   else
-      L2_PROMPT="$echo_bold_light_green$heavy_long_right_arrow$echo_color_off "
+      L2_PROMPT="$DIM${PROMPT_FG["GREEN"]}$heavy_long_right_arrow$OFF "
   fi
 
   PS1=$BG_PROMPT$L1_PROMPT$L2_PROMPT
 
   # Continuation Prompt
-  PS2="$echo_bold_light_green$heavy_long_right_arrow $echo_bold_white...$echo_color_off "
+  PS2="$DIM${PROMPT_FG["GREEN"]}$heavy_long_right_arrow $BOLD${PROMPT_FG["WHITE"]}...$OFF "
 }
 PROMPT_COMMAND=prompt_command;

@@ -46,6 +46,9 @@ alias .....='cd ../../../..'
 
 alias disk_status='df --human-readable '
 
+alias o="gnome-open"
+alias v="vim"
+
 #################################### IPython ###################################
 
 alias ipy='ipython'
@@ -56,4 +59,4 @@ alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias ipyrc='vim ~/.dotfiles/.ipython/profile_default/ipython_config.py'
 alias sbash='source ~/.bashrc'
-alias bash_theme="vim ~/.dotfiles/.bash/themes/$BASH_THEME.theme.bash"
+alias bash_theme="vim ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"

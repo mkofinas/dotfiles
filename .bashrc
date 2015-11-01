@@ -81,15 +81,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -120,8 +111,8 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 
 BASH_THEME="two_sides_background"
 
-if [ -f ~/.dotfiles/.bash/themes/two_sides_background.theme.bash ]; then
-    . ~/.dotfiles/.bash/themes/two_sides_background.theme.bash
+if [ -f ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash ]; then
+    . ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash
 fi
 
 if [ -f ~/.dotfiles/.bash/themes/theme_plugins.bash ]; then
@@ -129,3 +120,11 @@ if [ -f ~/.dotfiles/.bash/themes/theme_plugins.bash ]; then
 fi
 PROMPT_DIRTRIM=3
 
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi

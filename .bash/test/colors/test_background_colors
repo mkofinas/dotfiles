@@ -2,8 +2,8 @@
 
 current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source $current_directory"/../../colors/background_colors.bash"
-source $current_directory"/../../plugins/box_drawing/box_it"
+source $current_directory"/../../../.terminal_support/colors/full_colors.colors.bash"
+source $current_directory"/../../plugins/box_drawing/box_it.bash"
 
 echo "╭─────────────────────╮"
 echo "│  Background Colors  │"
@@ -44,14 +44,38 @@ background_matrix_elements=("Lorem ipsum dolor sit amet, conseteturV ..."\
   "Lorem ipsum dolor sit amet, conseteturV ..."\
   "Lorem ipsum dolor sit amet, conseteturV ...")
 
-background_matrix_elements_colors=($on_black $black_on_black $on_dark_gray $black_on_dark_gray\
-  $on_red $black_on_red $on_light_red $black_on_light_red\
-  $on_green $black_on_green $on_light_green $black_on_light_green\
-  $on_yellow $black_on_yellow $on_light_yellow $black_on_light_yellow\
-  $on_blue $black_on_blue $on_light_blue $black_on_light_blue\
-  $on_purple $black_on_purple $on_light_purple $black_on_light_purple\
-  $on_cyan $black_on_cyan $on_light_cyan $black_on_light_cyan\
-  $on_light_gray $black_on_light_gray $on_white $black_on_white)
+background_matrix_elements_colors=(${COLORS["WHITE_ON_BLACK"]}\
+    ${COLORS["BLACK_ON_BLACK"]}\
+    ${COLORS["WHITE_ON_LIGHT_BLACK"]}\
+    ${COLORS["BLACK_ON_LIGHT_BLACK"]}\
+    ${COLORS["WHITE_ON_RED"]}\
+    ${COLORS["BLACK_ON_RED"]}\
+    ${COLORS["WHITE_ON_LIGHT_RED"]}\
+    ${COLORS["BLACK_ON_LIGHT_RED"]}\
+    ${COLORS["WHITE_ON_GREEN"]}\
+    ${COLORS["BLACK_ON_GREEN"]}\
+    ${COLORS["WHITE_ON_LIGHT_GREEN"]}\
+    ${COLORS["BLACK_ON_LIGHT_GREEN"]}\
+    ${COLORS["WHITE_ON_YELLOW"]}\
+    ${COLORS["BLACK_ON_YELLOW"]}\
+    ${COLORS["WHITE_ON_LIGHT_YELLOW"]}\
+    ${COLORS["BLACK_ON_LIGHT_YELLOW"]}\
+    ${COLORS["WHITE_ON_BLUE"]}\
+    ${COLORS["BLACK_ON_BLUE"]}\
+    ${COLORS["WHITE_ON_LIGHT_BLUE"]}\
+    ${COLORS["BLACK_ON_LIGHT_BLUE"]}\
+    ${COLORS["WHITE_ON_MAGENTA"]}\
+    ${COLORS["BLACK_ON_MAGENTA"]}\
+    ${COLORS["WHITE_ON_LIGHT_MAGENTA"]}\
+    ${COLORS["BLACK_ON_LIGHT_MAGENTA"]}\
+    ${COLORS["WHITE_ON_CYAN"]}\
+    ${COLORS["BLACK_ON_CYAN"]}\
+    ${COLORS["WHITE_ON_LIGHT_CYAN"]}\
+    ${COLORS["BLACK_ON_LIGHT_CYAN"]}\
+    ${COLORS["WHITE_ON_WHITE"]}\
+    ${COLORS["BLACK_ON_WHITE"]}\
+    ${COLORS["WHITE_ON_LIGHT_WHITE"]}\
+    ${COLORS["BLACK_ON_LIGHT_WHITE"]})
 
 box_it "$num_rows" "$num_cols" "${background_matrix_elements[@]}" "${background_matrix_elements_colors[@]}"
 

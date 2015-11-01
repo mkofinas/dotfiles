@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+# Letter Symbols
 
 calligraphic_capital_z="𝒁"

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# Box Drawing Symbols
 
 right_angle_down_and_right="┌"
 right_angle_down_and_left="┐"

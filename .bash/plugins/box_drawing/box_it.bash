@@ -31,8 +31,7 @@
 
 current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source $current_directory"/../../colors/foreground_colors.bash"
-source $current_directory"/../../symbols/box_drawing_symbols.bash"
+source $current_directory"/../../../.terminal_support/symbols/box_drawing.symbols.bash"
 
 box_it() {
   local num_rows=$1
@@ -147,7 +146,7 @@ box_it() {
       color_element=${matrix_elements_colors[$linear_index]}
       element_length=${#element}
       padded_spaces=$((max_col_lengths[j]-element_length+1))
-      line_to_print+="$color_element$element$color_off"
+      line_to_print+="$color_element$element$COLOR_OFF"
       for (( k = 0; k < padded_spaces; k++ )); do
         line_to_print+="$space_str"
       done

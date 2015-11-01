@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# Misc Symbols
 
 asterism="⁂ "
 very_much_greater_than="⋙ "
