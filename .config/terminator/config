@@ -2,38 +2,45 @@
 [keybindings]
   next_tab = <Ctrl><Shift>Right
   prev_tab = <Ctrl><Shift>Left
-[profiles]
-  [[default]]
-    use_system_font = False
-    background_darkness = 0.48
-    background_image = /home/miltos/Pictures/ring5.jpg
-    scroll_background = False
-    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
-    background_color = "#141414"
-    foreground_color = "#ffffff"
-    scrollback_infinite = True
-  [[purple_ring]]
-    use_system_font = False
-    background_type = image
-    background_image = /home/miltos/Pictures/ring5.jpg
-    foreground_color = "#ffffff"
-    font = DejaVu Sans Mono for Powerline 10
-    background_color = "#300a24"
-    scrollback_infinite = True
-  [[gray_ring]]
-    use_system_font = False
-    background_type = image
-    background_image = /home/miltos/Pictures/ring5.jpg
-    foreground_color = "#ffffff"
-    font = DejaVu Sans Mono for Powerline 10
-    background_color = "#141414"
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#190e18"
+    background_image = None
+    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
+    foreground_color = "#a39e7c"
+    scrollback_infinite = True
+    use_system_font = False
+  [[gray]]
+    background_color = "#141414"
+    background_darkness = 0.48
+    background_image = None
+    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
+    foreground_color = "#ffffff"
+    scroll_background = False
+    scrollback_infinite = True
+    use_system_font = False
+  [[gray_ring]]
+    background_color = "#141414"
+    background_image = /home/miltos/Pictures/ring5.jpg
+    background_type = image
+    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
+    use_system_font = False
+  [[purple_ring]]
+    background_color = "#300a24"
+    background_image = /home/miltos/Pictures/ring5.jpg
+    background_type = image
+    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
+    use_system_font = False

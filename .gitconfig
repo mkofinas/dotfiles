@@ -1,15 +1,15 @@
 [user]
-    name = Miltos Kofinas
-    email = mkofinas@gmail.com
+  name = Miltos Kofinas
+  email = mkofinas@gmail.com
 
 [color]
-    ui = true
+  ui = true
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red
-    new = green
+  meta = yellow bold
+  frag = magenta bold
+  old = red
+  new = green
 
 [log]
   decorate = full
