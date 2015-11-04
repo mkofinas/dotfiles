@@ -349,7 +349,7 @@ let g:airline_powerline_fonts = 1
 
 " change default font for gvim to enable powerline symbols
 if has('gui_running')
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ 10
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

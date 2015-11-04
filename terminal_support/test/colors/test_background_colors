@@ -2,8 +2,8 @@
 
 current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source $current_directory"/../../../.terminal_support/colors/full_colors.colors.bash"
-source $current_directory"/../../plugins/box_drawing/box_it.bash"
+source $current_directory"/../../colors/full_colors.colors.bash"
+source $current_directory"/../../../.bash/plugins/box_drawing/box_it.bash"
 
 echo "╭─────────────────────╮"
 echo "│  Background Colors  │"

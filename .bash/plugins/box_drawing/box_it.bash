@@ -31,7 +31,7 @@
 
 current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source $current_directory"/../../../.terminal_support/symbols/box_drawing.symbols.bash"
+source $current_directory"/../../../terminal_support/symbols/box_drawing.symbols.bash"
 
 box_it() {
   local num_rows=$1

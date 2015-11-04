@@ -2,6 +2,9 @@
   name = Miltos Kofinas
   email = mkofinas@gmail.com
 
+[core]
+  editor=vim
+
 [color]
   ui = true
 
