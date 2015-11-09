@@ -1,5 +1,6 @@
 source ~/.dotfiles/.bash/plugins/system/system.plugin.bash
 source ~/.dotfiles/.bash/plugins/prompt/prompt.plugin.bash
+source ~/.dotfiles/.bash/plugins/cpu_temperature/cpu_temperature.plugin.bash
 
 source ~/.dotfiles/terminal_support/colors/simple_colors.colors.bash
 
