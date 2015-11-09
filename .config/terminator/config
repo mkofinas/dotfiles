@@ -1,5 +1,6 @@
 [global_config]
 [keybindings]
+  full_screen = <Super>f
   next_tab = <Ctrl><Shift>Right
   prev_tab = <Ctrl><Shift>Left
 [layouts]

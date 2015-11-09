@@ -293,7 +293,8 @@ set matchtime=2 " reduces matching paren blink time from the 5[00]ms def
 set ttimeoutlen=50 " remove delay detween insert and normal mode
 " set title " show file in titlebar
 set showcmd " show typed command in status bar
-set number " Display line numbers on the left
+set number " Display absolute line numbers on the left
+set relativenumber
 
 set noshowmode " don't show vim's insert mode
 set laststatus=2 " the statusline is now always shown

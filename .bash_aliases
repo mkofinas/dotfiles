@@ -27,8 +27,8 @@ alias make_motion='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_v
 ##################################### Linux ####################################
 
 # ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
+alias ll='ls -alhF'
+alias la='ls -lAh'
 alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -48,6 +48,11 @@ alias disk_status='df --human-readable '
 
 alias o="gnome-open"
 alias v="vim"
+alias c="clear"
+
+################################## Youtube-DL ##################################
+
+alias dlmusic='youtube-dl --output "%(title)s.%(ext)s" -x --audio-format mp3'
 
 #################################### IPython ###################################
 
@@ -60,3 +65,6 @@ alias bashrc='vim ~/.bashrc'
 alias ipyrc='vim ~/.dotfiles/.ipython/profile_default/ipython_config.py'
 alias sbash='source ~/.bashrc'
 alias bash_theme="vim ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
+
+alias zshrc='vim ~/.zshrc'
+alias szsh='source ~/.zshrc'

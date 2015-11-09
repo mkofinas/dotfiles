@@ -94,9 +94,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# ROS Setup
-if [ -f /opt/ros/hydro/setup.bash ]; then
-    . /opt/ros/hydro/setup.bash
+###################################### ROS #####################################
+
+if [ -f /opt/ros/indigo/setup.bash ]; then
+    . /opt/ros/indigo/setup.bash
 fi
 
 if [ -f ~/catkin_ws/devel/setup.bash ]; then
@@ -126,10 +127,7 @@ if [ -f ~/.dotfiles/.bash/themes/theme_plugins.bash ]; then
 fi
 PROMPT_DIRTRIM=3
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+################################## Bash Alias ##################################
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
