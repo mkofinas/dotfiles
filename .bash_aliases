@@ -37,8 +37,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias grep-in-files='grep -hHIrFn'
 
-alias regvim='gvim --remote-silent'
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'

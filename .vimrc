@@ -23,6 +23,7 @@ Plugin 'scrooloose/syntastic' "https://github.com/scrooloose/syntastic
 " Requires 'exuberant-ctags'
 Plugin 'majutsushi/tagbar' "https://github.com/majutsushi/tagbar
 Plugin 'bling/vim-airline' "https://github.com/bling/vim-airline
+Plugin 'altercation/vim-colors-solarized' "https://github.com/altercation/vim-colors-solarized
 Plugin 'flazz/vim-colorschemes' "https://github.com/flazz/vim-colorschemes
 Plugin 'tpope/vim-fugitive' "https://github.com/tpope/vim-fugitive
 Plugin 'taketwo/vim-ros' "https://github.com/taketwo/vim-ros
@@ -559,7 +560,7 @@ highlight Normal ctermfg=white ctermbg=234
 " highlight CursorColumn cterm=bold cterm=bold ctermbg=darkred ctermfg=3
 
 if has('gui_running')
-  colorscheme molokai
+  colorscheme solarized
 endif
 
 " Highlight comments
