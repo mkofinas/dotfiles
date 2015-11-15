@@ -333,10 +333,10 @@ c.TerminalInteractiveShell.editor = 'vim'
 # This is the primary interface for producing IPython's prompts.
 
 # Output prompt. '\#' will be transformed to the prompt number
-c.PromptManager.out_template = u'{color.Blue} {color.Red}|\#|──▶ '
+c.PromptManager.out_template = u'{color.Yellow} {color.Red}├──▶ '
 
 # Continuation prompt.
-c.PromptManager.in2_template = u'{color.Yellow} ' + '{color.Green}|\#|.\D: '
+c.PromptManager.in2_template = u'{color.Yellow} {color.Green}│.\D: '
 
 #
 c.PromptManager.color_scheme = 'Linux'
@@ -345,7 +345,7 @@ c.PromptManager.color_scheme = 'Linux'
 c.PromptManager.in_template = r'{color.LightCyan}\u{color.Yellow}@'\
                                '{color.LightPurple}\h{color.Yellow}:'\
                                '{color.LightRed}[\Y1]\n' + \
-                               u'{color.Yellow} {color.Green}|\#|──▶ '
+                               u'{color.Yellow} {color.Green}├──▶ '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
 c.PromptManager.justify = False
