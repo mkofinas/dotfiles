@@ -118,12 +118,12 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 
 BASH_THEME="two_sides_background"
 
-if [ -f ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash ]; then
-    . ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash
+if [ -f ~/.dotfiles/bash-themes/${BASH_THEME}.theme.bash ]; then
+    . ~/.dotfiles/bash-themes/${BASH_THEME}.theme.bash
 fi
 
-if [ -f ~/.dotfiles/.bash/themes/theme_plugins.bash ]; then
-    . ~/.dotfiles/.bash/themes/theme_plugins.bash
+if [ -f ~/.dotfiles/bash-themes/theme_plugins.bash ]; then
+    . ~/.dotfiles/bash-themes/theme_plugins.bash
 fi
 PROMPT_DIRTRIM=3
 

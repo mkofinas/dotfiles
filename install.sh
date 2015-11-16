@@ -4,7 +4,7 @@
 
 dotfiles=$(pwd)
 dotfiles_backup=$dotfiles".bak"
-files=".bash .vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/config .ipython/profile_default/ipython_config.py"
+files=".vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/config .ipython/profile_default/ipython_config.py"
 
 # Clone Vundle first
 git clone https://github.com/VundleVim/Vundle.vim.git $dotfiles/.vim/bundle/Vundle.vim
