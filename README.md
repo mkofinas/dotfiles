@@ -3,9 +3,13 @@ Configuration files for vim, git and other tools, stored in my home directory.
 
 ## Dependencies
 Some configuration files rely on external modules in order to work
-appropriately. For example, in order to use the suggested bash prompt, you have
-to download [a set of support scripts](https://github.com/mkofinas/prompt-support)
-and [a set of themes](https://github.com/mkofinas/bash-themes).
+appropriately. For example, in order to use the suggested bash prompt,
+[a set of support scripts](https://github.com/mkofinas/prompt-support)
+and [a set of themes](https://github.com/mkofinas/bash-themes) have to be
+downloaded. Additionally, in many cases, such as vim and bash prompt,
+[nerd-fonts](https://github.com/ryanoasis/nerd-fonts) are used. The dependencies
+listed above are downloaded automatically using the install script explained
+below.
 
 ## Suggested usage
 Clone the repo to your home directory and use the `install.sh` script in order to configure and install everything.
@@ -14,12 +18,11 @@ Clone the repo to your home directory and use the `install.sh` script in order t
 ```sh
 git clone https://github.com/mkofinas/dotfiles.git .dotfiles
 cd .dotfiles
-git clone https://github.com/mkofinas/bash-themes.git
-git clone https://github.com/mkofinas/prompt-support.git
 ./install.sh
 ```
 
-To actually use the configuration files, `install.sh` needs to create symbolic links to the right place.
+To actually use the configuration files, `install.sh` creates a backup of the
+already existing dotfiles and then creates symbolic links to the right place.
  If your configuration differs take a look at the script and modify it accordingly.
 
 ## Adding new vim plugins

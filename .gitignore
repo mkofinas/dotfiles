@@ -2,5 +2,6 @@
 *.pyc
 *~
 
-bash-themes/
-prompt-support/
+bash-themes
+prompt-support
+nerd-fonts
