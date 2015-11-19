@@ -598,4 +598,7 @@ highlight Statement term=bold cterm=bold
 highlight SpellBad term=bold cterm=bold ctermbg=124
 highlight SpellCap term=bold cterm=bold ctermbg=208
 
+"
+highlight LineNr ctermfg=150 ctermbg=235
+
 
