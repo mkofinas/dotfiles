@@ -303,8 +303,7 @@ set noshowmode " don't show vim's insert mode
 set laststatus=2 " the statusline is now always shown
 
 " show whitespace in cpph files
-set list listchars=tab:>-,trail:_,extends:>
-" set list listchars=tab:▸\ ,trail:·,extends:>,eol:¬
+set list listchars=tab:▸-,trail:_,extends:>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " **************************************************************************** "
@@ -401,6 +400,7 @@ let g:clang_format#style_options = {
         \ "NamespaceIndentation" : "None",
         \ "AccessModifierOffset" : -1,
         \ "AllowShortIfStatementsOnASingleLine" : "false",
+        \ "AllowShortLoopsOnASingleLine" : "false",
         \ "AlwaysBreakTemplateDeclarations" : "true",
         \ "ConstructorInitializerIndentWidth" : 2,
         \ "ColumnLimit" : 80,
