@@ -30,13 +30,13 @@ Plugin 'taketwo/vim-ros' "https://github.com/taketwo/vim-ros
 Plugin 'mhinz/vim-startify' "https://github.com/mhinz/vim-startify
 Plugin 'ntpeters/vim-better-whitespace' "https://github.com/ntpeters/vim-better-whitespace
 " Requires 'clang-format-3.4'
-" Plugin 'rhysd/vim-clang-format' "https://github.com/rhysd/vim-clang-format
+Plugin 'rhysd/vim-clang-format' "https://github.com/rhysd/vim-clang-format
 Plugin 'octol/vim-cpp-enhanced-highlight' "https://github.com/octol/vim-cpp-enhanced-highlight
 Plugin 'SirVer/ultisnips' "https://github.com/SirVer/ultisnips
 Plugin 'mkofinas/vim-snippets' "https://github.com/mkofinas/vim-snippets
 Plugin 'davidhalter/jedi-vim' "https://github.com/davidhalter/jedi-vim
 Plugin 'airblade/vim-gitgutter' "https://github.com/airblade/vim-gitgutter
-Plugin 'kien/ctrlp.vim' "https://github.com/kien/ctrlp.vim
+Plugin 'ctrlpvim/ctrlp.vim' "https://github.com/ctrlpvim/ctrlp.vim
 Plugin 'sjl/gundo.vim' "https://github.com/sjl/gundo.vim
 Plugin 'tpope/vim-surround' "https://github.com/tpope/vim-surround
 Plugin 'Valloric/MatchTagAlways' "https://github.com/Valloric/MatchTagAlways
@@ -45,6 +45,7 @@ Plugin 'Shougo/vimproc.vim' "https://github.com/Shougo/vimproc.vim
 Plugin 'Shougo/vimshell.vim' "https://github.com/Shougo/vimshell.vim
 Plugin 'LaTeX-Box-Team/LaTeX-Box' "https://github.com/LaTeX-Box-Team/LaTeX-Box
 Plugin 'ryanoasis/vim-webdevicons' "https://github.com/ryanoasis/vim-devicons
+Plugin 'junegunn/vim-easy-align' "https://github.com/junegunn/vim-easy-align
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -249,6 +250,7 @@ autocmd FileType tex setlocal spelllang=el,en
 
 " add custom filetypes
 autocmd BufNewFile,BufRead *.launch set filetype=xml " this is probably handled by vim-ros plugin
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 autocmd FileType tex filetype plugin on
 let g:tex_comment_nospell=1
@@ -393,33 +395,47 @@ nnoremap <F1> :Startify<CR>
 " *************************** Clang-format SETTINGS ************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:clang_format#command = "clang-format-3.4"
-" let g:clang_format#code_style = "google"
-" let g:clang_format#style_options = {
-      " \ "ConstructorInitializerIndentWidth" : 2,
-      " \ "ColumnLimit" : 120,
-      " \ "BreakBeforeBraces" : "Stroustrup"}
+let g:clang_format#command = "clang-format-3.4"
+let g:clang_format#code_style = "google"
+let g:clang_format#style_options = {
+        \ "NamespaceIndentation" : "None",
+        \ "AccessModifierOffset" : -1,
+        \ "AllowShortIfStatementsOnASingleLine" : "false",
+        \ "AlwaysBreakTemplateDeclarations" : "true",
+        \ "ConstructorInitializerIndentWidth" : 2,
+        \ "ColumnLimit" : 80,
+        \ "BreakBeforeBraces" : "Allman",
+        \ "Standard" : "C++03"}
+        \ "PointerAlignment" : "Left"
+        \ "IndentWidth" : 2,
+        \ "MaxEmptyLinesToKeep" : 1,
+        \ "ContinuationIndentWidth" : 4,
+        \ "AlignAfterOpenBracket" : "Align",
+        \ "BreakBeforeBinaryOperators" : "None"}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ************************** NERDCommenter SETTINGS ************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " leave space after comment
-let g:NERDSpaceDelims = 1
+" let g:NERDSpaceDelims = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** Syntastic SETTINGS *************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = '✠'
-let g:syntastic_warning_symbol = '☣'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol = ' '
+let g:syntastic_style_error_symbol = ' '
+let g:syntastic_warning_symbol = ' '
+let g:syntastic_style_warning_symbol = ' '
 
 let g:syntastic_c_include_dirs = ['../../../include', '../../include', '../include', 'include']
 let g:syntastic_c_check_header = 1
 let g:syntastic_cpp_include_dirs = ['../../../include', '../../include', '../include', 'include']
 let g:syntastic_cpp_check_header = 1
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 " Stop YCM from performing diagnostics
 let g:ycm_show_diagnostics_ui = 0
@@ -430,6 +446,8 @@ let g:syntastic_check_on_wq = 0
 " Python Coding Standards
 let g:syntastic_python_checkers = ['pep8', 'flake8']
 let g:syntastic_python_python_exec = '/usr/bin/python2/'
+
+let g:syntastic_cpp_checkers = ['clang_check', 'gcc']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ****************************** Tagbar SETTINGS ***************************** "
@@ -546,6 +564,16 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['bash'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['zsh'] = ''
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ************************** Vim-Gitgutter SETTINGS ************************** "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:gitgutter_sign_added = ' '
+let g:gitgutter_sign_modified = ' '
+let g:gitgutter_sign_removed = ' '
+let g:gitgutter_sign_removed_first_line = ' '
+let g:gitgutter_sign_modified_removed = ' '
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " *************************** Colorscheme SETTINGS *************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -601,4 +629,9 @@ highlight SpellCap term=bold cterm=bold ctermbg=208
 "
 highlight LineNr ctermfg=150 ctermbg=235
 
+" Syntastic Highlight Settings
+highlight SyntasticErrorSign ctermfg=232 ctermbg=160
+highlight SyntasticWarningSign ctermfg=235 ctermbg=220
+highlight SyntasticStyleErrorSign ctermfg=226 ctermbg=88
+highlight SyntasticStyleWarningSign ctermfg=208 ctermbg=235
 
