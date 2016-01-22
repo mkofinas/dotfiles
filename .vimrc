@@ -251,6 +251,8 @@ autocmd FileType tex setlocal spelllang=el,en
 " add custom filetypes
 autocmd BufNewFile,BufRead *.launch set filetype=xml " this is probably handled by vim-ros plugin
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.glsl set filetype=cpp
+autocmd BufNewFile,BufRead *.*.glsl set filetype=cpp
 
 autocmd FileType tex filetype plugin on
 let g:tex_comment_nospell=1
