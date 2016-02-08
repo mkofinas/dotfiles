@@ -4,7 +4,7 @@
 
 dotfiles=$(pwd)
 dotfiles_backup=$dotfiles".bak"
-files=".vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/config .ipython/profile_default/ipython_config.py"
+files=".vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/config .ipython/profile_default/ipython_config.py .zshrc"
 
 # Fetch Dependencies
 # - nerd-fonts

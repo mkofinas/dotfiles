@@ -1,5 +1,5 @@
 # dotfiles
-Configuration files for vim, git and other tools, stored in my home directory.
+Configuration files for vim, git, zsh and other tools, stored in my home directory.
 
 ## Dependencies
 Some configuration files rely on external modules in order to work
