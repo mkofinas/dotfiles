@@ -8,8 +8,8 @@ appropriately. For example, in order to use the suggested bash prompt,
 and [a set of themes](https://github.com/mkofinas/bash-themes) have to be
 downloaded. Additionally, in many cases, such as vim and bash prompt,
 [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) are used. The dependencies
-listed above are downloaded automatically using the install script explained
-below.
+mentioned above are either listed as submodules or downloaded automatically
+using the install script explained below.
 
 ## Suggested usage
 Clone the repo to your home directory and use the `install.sh` script in order to configure and install everything.

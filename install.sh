@@ -7,11 +7,7 @@ dotfiles_backup=$dotfiles".bak"
 files=".vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/config .ipython/profile_default/ipython_config.py"
 
 # Fetch Dependencies
-# - bash-themes
-# - prompt-support
 # - nerd-fonts
-git clone https://github.com/mkofinas/bash-themes.git
-git clone https://github.com/mkofinas/prompt-support.git
 
 git clone https://github.com/ryanoasis/nerd-fonts.git
 cd "nerd-fonts"
