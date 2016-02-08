@@ -1,0 +1,6 @@
+[submodule "prompt-support"]
+	path = prompt-support
+	url = git@github.com:mkofinas/prompt-support.git
+[submodule "bash-themes"]
+	path = bash-themes
+	url = git@github.com:mkofinas/bash-themes.git
