@@ -117,15 +117,20 @@ alias regvim='gvim --remote-silent'
 
 alias disk_status='df --human-readable '
 
-#################################### IPython ###################################
+alias shortalias='alias | grep "^[a-z]=" | sort'
+
+############################### IPython - Jupyter ##############################
 
 alias ipy='ipython'
+alias itorch='jupyter console --kernel=itorch --config=/home/miltos/.jupyter/itorch_console_config.py'
+alias ith='itorch'
+alias jn='jupyter notebook'
 
 ############################## Configuration Files #############################
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
-alias ipyrc='vim ~/.dotfiles/.ipython/profile_default/ipython_config.py'
+alias ipyrc='vim ~/.ipython/profile_default/ipython_config.py'
 alias sbash='source ~/.bashrc'
 alias zsh_theme='vim $ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme'
 
@@ -148,8 +153,10 @@ if [ -f ~/pandora_ws/devel/setup.zsh ]; then
 fi
 
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Programming/ViEnvs
+export PROJECT_HOME=$HOME/Virtual\ Environments
 source /usr/local/bin/virtualenvwrapper.sh
 
 
 . /home/miltos/Libraries/torch/install/bin/torch-activate
+
+eval "$(thefuck --alias f)"
