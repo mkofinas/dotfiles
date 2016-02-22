@@ -91,6 +91,7 @@ alias szsh="source ~/.zshrc"
 alias v="vim"
 alias o="gnome-open"
 alias c="clear"
+alias jl="julia"
 
 ################################ C/C++ Compiler ################################
 
@@ -122,8 +123,10 @@ alias shortalias='alias | grep "^[a-z]=" | sort'
 ############################### IPython - Jupyter ##############################
 
 alias ipy='ipython'
-alias itorch='jupyter console --kernel=itorch --config=/home/miltos/.jupyter/itorch_console_config.py'
+alias itorch='jupyter console --kernel=itorch --config=~/.jupyter/itorch_console_config.py'
 alias ith='itorch'
+alias ijulia='jupyter console --kernel=julia-0.4 --config=~/.jupyter/ijulia_console_config.py'
+alias ijl='ijulia'
 alias jn='jupyter notebook'
 
 ############################## Configuration Files #############################
