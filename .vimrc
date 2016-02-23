@@ -46,6 +46,7 @@ Plugin 'Shougo/vimshell.vim' "https://github.com/Shougo/vimshell.vim
 Plugin 'LaTeX-Box-Team/LaTeX-Box' "https://github.com/LaTeX-Box-Team/LaTeX-Box
 Plugin 'ryanoasis/vim-webdevicons' "https://github.com/ryanoasis/vim-devicons
 Plugin 'junegunn/vim-easy-align' "https://github.com/junegunn/vim-easy-align
+Plugin 'JuliaLang/julia-vim' "https://github.com/JuliaLang/julia-vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
