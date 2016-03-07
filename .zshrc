@@ -85,14 +85,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 
-alias zshrc="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias szsh="source ~/.zshrc"
-alias v="vim"
-alias o="gnome-open"
-alias c="clear"
-alias jl="julia"
-
 ################################ C/C++ Compiler ################################
 
 alias compiler_gcc='export CC=gcc && export CXX=g++'
@@ -111,12 +103,23 @@ alias master_lab='export ROS_MASTER_URI=http://pandora-lab:11311'
 alias make_victim='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_vision_victim'
 alias make_motion='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_vision_motion'
 
+################################### Shortcuts ##################################
+
+alias l='ls -CF'
+alias ll='ls -lahF'
+alias la='ls -A'
+
+alias v="vim"
+alias o="gnome-open"
+alias c="clear"
+alias jl="julia"
+alias ff="firefox"
 
 alias file-grep='grep -hHIrn'
 
 alias regvim='gvim --remote-silent'
 
-alias disk_status='df --human-readable '
+alias disk_status='df --human-readable'
 
 alias shortalias='alias | grep "^[a-z]=" | sort'
 
@@ -131,15 +134,14 @@ alias jn='jupyter notebook'
 
 ############################## Configuration Files #############################
 
+alias zshrc="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias szsh="source ~/.zshrc"
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
-alias ipyrc='vim ~/.ipython/profile_default/ipython_config.py'
 alias sbash='source ~/.bashrc'
+alias ipyrc='vim ~/.ipython/profile_default/ipython_config.py'
 alias zsh_theme='vim $ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme'
-
-alias l='ls -CF'
-alias ll='ls -lahF'
-alias la='ls -A'
 
 ###################################### ROS #####################################
 
@@ -155,10 +157,13 @@ if [ -f ~/pandora_ws/devel/setup.zsh ]; then
     . ~/pandora_ws/devel/setup.zsh --extend
 fi
 
+############################# Virtual Environments #############################
+
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Virtual\ Environments
 source /usr/local/bin/virtualenvwrapper.sh
 
+##################################### Torch ####################################
 
 . /home/miltos/Libraries/torch/install/bin/torch-activate
 
