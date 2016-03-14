@@ -47,6 +47,8 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box' "https://github.com/LaTeX-Box-Team/LaTeX-Box
 Plugin 'ryanoasis/vim-webdevicons' "https://github.com/ryanoasis/vim-devicons
 Plugin 'junegunn/vim-easy-align' "https://github.com/junegunn/vim-easy-align
 Plugin 'JuliaLang/julia-vim' "https://github.com/JuliaLang/julia-vim
+Plugin 'godlygeek/tabular' "https://github.com/godlygeek/tabular
+Plugin 'suan/vim-instant-markdown' "https://github.com/suan/vim-instant-markdown
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -637,4 +639,3 @@ highlight SyntasticErrorSign ctermfg=232 ctermbg=160
 highlight SyntasticWarningSign ctermfg=235 ctermbg=220
 highlight SyntasticStyleErrorSign ctermfg=226 ctermbg=88
 highlight SyntasticStyleWarningSign ctermfg=208 ctermbg=235
-
