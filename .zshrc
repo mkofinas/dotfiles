@@ -170,4 +170,4 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 . /home/miltos/Libraries/torch/install/bin/torch-activate
 
-eval "$(thefuck --alias f)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

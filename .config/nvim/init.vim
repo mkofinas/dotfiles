@@ -14,41 +14,42 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe' "https://github.com/Valloric/YouCompleteMe
-Plugin 'jiangmiao/auto-pairs' "https://github.com/jiangmiao/auto-pairs
-Plugin 'Yggdroot/indentLine' "https://github.com/Yggdroot/indentLine
-Plugin 'scrooloose/nerdcommenter' "https://github.com/scrooloose/nerdcommenter
-Plugin 'scrooloose/nerdtree' "https://github.com/scrooloose/nerdtree
-Plugin 'scrooloose/syntastic' "https://github.com/scrooloose/syntastic
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 " Requires 'exuberant-ctags'
-Plugin 'majutsushi/tagbar' "https://github.com/majutsushi/tagbar
-Plugin 'bling/vim-airline' "https://github.com/bling/vim-airline
-Plugin 'altercation/vim-colors-solarized' "https://github.com/altercation/vim-colors-solarized
-Plugin 'flazz/vim-colorschemes' "https://github.com/flazz/vim-colorschemes
-Plugin 'tpope/vim-fugitive' "https://github.com/tpope/vim-fugitive
-Plugin 'taketwo/vim-ros' "https://github.com/taketwo/vim-ros
-Plugin 'mhinz/vim-startify' "https://github.com/mhinz/vim-startify
-Plugin 'ntpeters/vim-better-whitespace' "https://github.com/ntpeters/vim-better-whitespace
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'taketwo/vim-ros'
+Plugin 'mhinz/vim-startify'
+Plugin 'ntpeters/vim-better-whitespace'
 " Requires 'clang-format-3.4'
-Plugin 'rhysd/vim-clang-format' "https://github.com/rhysd/vim-clang-format
-Plugin 'octol/vim-cpp-enhanced-highlight' "https://github.com/octol/vim-cpp-enhanced-highlight
-Plugin 'SirVer/ultisnips' "https://github.com/SirVer/ultisnips
-Plugin 'mkofinas/vim-snippets' "https://github.com/mkofinas/vim-snippets
-Plugin 'davidhalter/jedi-vim' "https://github.com/davidhalter/jedi-vim
-Plugin 'airblade/vim-gitgutter' "https://github.com/airblade/vim-gitgutter
-Plugin 'ctrlpvim/ctrlp.vim' "https://github.com/ctrlpvim/ctrlp.vim
-Plugin 'sjl/gundo.vim' "https://github.com/sjl/gundo.vim
-Plugin 'tpope/vim-surround' "https://github.com/tpope/vim-surround
-Plugin 'Valloric/MatchTagAlways' "https://github.com/Valloric/MatchTagAlways
-Plugin 'easymotion/vim-easymotion' "https://github.com/easymotion/vim-easymotion
-Plugin 'Shougo/vimproc.vim' "https://github.com/Shougo/vimproc.vim
-Plugin 'Shougo/vimshell.vim' "https://github.com/Shougo/vimshell.vim
-Plugin 'LaTeX-Box-Team/LaTeX-Box' "https://github.com/LaTeX-Box-Team/LaTeX-Box
-Plugin 'ryanoasis/vim-webdevicons' "https://github.com/ryanoasis/vim-devicons
-Plugin 'junegunn/vim-easy-align' "https://github.com/junegunn/vim-easy-align
-Plugin 'JuliaLang/julia-vim' "https://github.com/JuliaLang/julia-vim
-Plugin 'godlygeek/tabular' "https://github.com/godlygeek/tabular
-Plugin 'suan/vim-instant-markdown' "https://github.com/suan/vim-instant-markdown
+Plugin 'rhysd/vim-clang-format'
+Plugin 'SirVer/ultisnips'
+Plugin 'mkofinas/vim-snippets'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'ryanoasis/vim-webdevicons'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'godlygeek/tabular'
+
+""" Language Specific
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'JuliaLang/julia-vim'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'davidhalter/jedi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -149,20 +150,22 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 " **************************** Clipboard SETTINGS **************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if has('unnamedplus')
-  " By default, Vim will not use the system clipboard when yanking/pasting to
-  " the default register. This option makes Vim use the system default
-  " clipboard.
-  " Note that on X11, there are _two_ system clipboards: the "standard" one, and
-  " the selection/mouse-middle-click one. Vim sees the standard one as register
-  " '+' (and this option makes Vim use it by default) and the selection one as
-  " '*'.
-  " See :h 'clipboard' for details.
-  set clipboard=unnamedplus,unnamed
-else
-  " Vim now also uses the selection system clipboard for default yank/paste.
-  set clipboard+=unnamed
-endif
+
+set clipboard+=unnamed
+"if has('unnamedplus')
+  "" By default, Vim will not use the system clipboard when yanking/pasting to
+  "" the default register. This option makes Vim use the system default
+  "" clipboard.
+  "" Note that on X11, there are _two_ system clipboards: the "standard" one, and
+  "" the selection/mouse-middle-click one. Vim sees the standard one as register
+  "" '+' (and this option makes Vim use it by default) and the selection one as
+  "" '*'.
+  "" See :h 'clipboard' for details.
+  "set clipboard=unnamedplus,unnamed
+"else
+  "" Vim now also uses the selection system clipboard for default yank/paste.
+  "set clipboard+=unnamed
+"endif
 
 
 " Determines the maximum number of items to show in the popup menu.
@@ -577,6 +580,12 @@ let g:gitgutter_sign_modified = ' '
 let g:gitgutter_sign_removed = ' '
 let g:gitgutter_sign_removed_first_line = ' '
 let g:gitgutter_sign_modified_removed = ' '
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ************************** Vim-Gitgutter SETTINGS ************************** "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:instant_markdown_autostart = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " *************************** Colorscheme SETTINGS *************************** "
