@@ -22,7 +22,8 @@ Plugin 'scrooloose/nerdtree' "https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/syntastic' "https://github.com/scrooloose/syntastic
 " Requires 'exuberant-ctags'
 Plugin 'majutsushi/tagbar' "https://github.com/majutsushi/tagbar
-Plugin 'bling/vim-airline' "https://github.com/bling/vim-airline
+Plugin 'vim-airline/vim-airline' "https://github.com/vim-airline/vim-airline
+Plugin 'vim-airline/vim-airline-themes' "https://github.com/vim-airline/vim-airline-themes
 Plugin 'altercation/vim-colors-solarized' "https://github.com/altercation/vim-colors-solarized
 Plugin 'flazz/vim-colorschemes' "https://github.com/flazz/vim-colorschemes
 Plugin 'tpope/vim-fugitive' "https://github.com/tpope/vim-fugitive
