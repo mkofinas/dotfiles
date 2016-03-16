@@ -66,11 +66,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -110,6 +110,7 @@ alias ll='ls -lahF'
 alias la='ls -A'
 
 alias v="vim"
+alias nv="nvim"
 alias o="gnome-open"
 alias c="clear"
 alias jl="julia"
@@ -121,7 +122,8 @@ alias regvim='gvim --remote-silent'
 
 alias disk_status='df --human-readable'
 
-alias shortalias='alias | grep "^[a-z]=" | sort'
+# A list of all the one-letter aliases
+alias salias='alias | grep "^[a-z]=" | sort'
 
 ############################### IPython - Jupyter ##############################
 
@@ -134,14 +136,15 @@ alias jn='jupyter notebook'
 
 ############################## Configuration Files #############################
 
-alias zshrc="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshrc="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias szsh="source ~/.zshrc"
-alias vimrc='vim ~/.vimrc'
-alias bashrc='vim ~/.bashrc'
-alias sbash='source ~/.bashrc'
-alias ipyrc='vim ~/.ipython/profile_default/ipython_config.py'
-alias zsh_theme='vim $ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme'
+alias vimrc="$EDITOR ~/.vimrc"
+alias nvrc="$EDITOR ~/.config/nvim/init.vim"
+alias bashrc="$EDITOR ~/.bashrc"
+alias sbash="source ~/.bashrc"
+alias ipyrc="$EDITOR ~/.ipython/profile_default/ipython_config.py"
+alias zsh_theme="$EDITOR $ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
 
 ###################################### ROS #####################################
 
