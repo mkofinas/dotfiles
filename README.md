@@ -42,6 +42,6 @@ Plug 'foo/bar'
 call plug#end()
 ```
 
-Then launch vim and run `:PlugInstall`. To update existing plugins run `:PlugUpdate`.
+Then, reload your configuration file and run `:PlugInstall`. To update existing plugins run `:PlugUpdate`.
 
-To install from command line: `vim +PluginInstall +qall`
+To install from command line: `nvim -c 'PlugInstall'`
