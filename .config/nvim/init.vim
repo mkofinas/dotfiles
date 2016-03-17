@@ -1,69 +1,59 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ****************************** Vundle SETTINGS ***************************** "
+" ***************************** Vim-Plug SETTINGS **************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.config/nvim/bundle')
 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Yggdroot/indentLine'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-" Requires 'exuberant-ctags'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'taketwo/vim-ros'
-Plugin 'mhinz/vim-startify'
-Plugin 'ntpeters/vim-better-whitespace'
-" Requires 'clang-format-3.4'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'SirVer/ultisnips'
-Plugin 'mkofinas/vim-snippets'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'ryanoasis/vim-webdevicons'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'godlygeek/tabular'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar', { 'do': 'sudo apt-get install exuberant-ctags' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'taketwo/vim-ros'
+Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
+
+""" Completion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
+
+""" Integrations
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+""" Interface
+Plug 'mhinz/vim-startify'
+
+""" Code Display
+Plug 'flazz/vim-colorschemes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'Yggdroot/indentLine'
+Plug 'ntpeters/vim-better-whitespace'
 
 """ Language Specific
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'JuliaLang/julia-vim'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'davidhalter/jedi-vim'
+Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
+Plug 'JuliaLang/julia-vim'
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()            " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** General SETTINGS ***************************** "
@@ -97,10 +87,6 @@ set confirm
 
 set mouse=a " Enable use of the mouse for all modes
 set mousemodel=popup_setpos " Right-click on selection should bring up a menu
-
-
-" Filetype Indentation Mode
-filetype plugin indent on
 
 " Unicode support (taken from http://vim.wikia.com/wiki/Working_with_Unicode)
 if has("multi_byte")
@@ -147,39 +133,28 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" **************************** Clipboard SETTINGS **************************** "
+" **************************** Completion SETTINGS *************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-set clipboard+=unnamed
-"if has('unnamedplus')
-  "" By default, Vim will not use the system clipboard when yanking/pasting to
-  "" the default register. This option makes Vim use the system default
-  "" clipboard.
-  "" Note that on X11, there are _two_ system clipboards: the "standard" one, and
-  "" the selection/mouse-middle-click one. Vim sees the standard one as register
-  "" '+' (and this option makes Vim use it by default) and the selection one as
-  "" '*'.
-  "" See :h 'clipboard' for details.
-  "set clipboard=unnamedplus,unnamed
-"else
-  "" Vim now also uses the selection system clipboard for default yank/paste.
-  "set clipboard+=unnamed
-"endif
-
 
 " Determines the maximum number of items to show in the popup menu.
 " Zero is take as much as possible.
 set pumheight=6
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" **************************** Clipboard SETTINGS **************************** "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set clipboard+=unnamedplus
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ******************************* GUI SETTINGS ******************************* "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Customize GUI interface
 "set guioptions-=m " Turn off GUI menu bar
 "set guioptions-=T " Turn off GUI toolbar (icons)
 "set guioptions-=r " Turn off GUI right scrollbar
 "set guioptions-=L " Turn off GUI left scrollbar
-
-" set vim to 256 colors to work with terminals
-set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ****************************** Editor SETTINGS ***************************** "
