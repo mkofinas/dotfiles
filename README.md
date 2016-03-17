@@ -26,14 +26,22 @@ already existing dotfiles and then creates symbolic links to the right place.
  If your configuration differs take a look at the script and modify it accordingly.
 
 ## Adding new vim plugins
-This repo uses [Vundle](https://github.com/VundleVim/Vundle.vim) as a plugin manager for vim.
- Installing a new plugin requires no more than adding a single line in `.vimrc`.
- Let's say we want to add the (hypothetical) https://github.com/foo/bar plugin.
- This can be done by just adding the following in the beginning of our `.vimrc`:
+This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin manager for vim.
+ To manage plugins, simply add a vim-plug section to your `~/.vimrc` (or `~/.config/nvim/init.vim` for Neovim):
+
+1. Begin the section with `plug#begin()`
+1. List the plugins with `Plug` commands
+1. `plug#end()` to update `&runtimepath` and initialize plugin system
+
+For example, to install the (hypothetical) https://github.com/foo/bar plugin,
+you can do the following:
+
 ```vim
-Plugin 'foo/bar'
+call plug#begin()
+Plug 'foo/bar'
+call plug#end()
 ```
 
-Then launch vim and run `:PluginInstall`. To update existing plugins run `:PluginUpdate`.
+Then launch vim and run `:PlugInstall`. To update existing plugins run `:PlugUpdate`.
 
 To install from command line: `vim +PluginInstall +qall`
