@@ -39,10 +39,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 
 """ Code Display
-Plug 'flazz/vim-colorschemes'
-Plug 'altercation/vim-colors-solarized'
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'flazz/vim-colorschemes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 
 """ Language Specific
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
@@ -110,10 +111,10 @@ set switchbuf=useopen,usetab
 let g:is_bash = 1
 " let g:is_posix = 1
 
-" " With a map leader it's possible to do extra key combinations
-" " like <leader>w saves the current file
-" let mapleader = ","
-" let g:mapleader = ","
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
 
 set wildignore+=*.pyc
 set wildignore+=*.o
@@ -145,16 +146,6 @@ set pumheight=6
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set clipboard+=unnamedplus
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ******************************* GUI SETTINGS ******************************* "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Customize GUI interface
-"set guioptions-=m " Turn off GUI menu bar
-"set guioptions-=T " Turn off GUI toolbar (icons)
-"set guioptions-=r " Turn off GUI right scrollbar
-"set guioptions-=L " Turn off GUI left scrollbar
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ****************************** Editor SETTINGS ***************************** "
@@ -269,6 +260,8 @@ nmap <silent> <S-Left> :bprevious<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+nnoremap <space> i<space><esc>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** Display SETTINGS ***************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -287,6 +280,8 @@ set laststatus=2 " the statusline is now always shown
 
 " show whitespace in cpph files
 set list listchars=tab:▸-,trail:_,extends:>
+
+set colorcolumn=81,121 " Highlight the columns after the textwidth
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " **************************************************************************** "
@@ -342,11 +337,12 @@ endif
 " **************************** indentLine SETTINGS *************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" indentLine settings
-" change default indent character for indentLine
-" let g:indentLine_char = '┊'
 " disable indentLine plugin on startup
-" let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
+" change default indent character for indentLine
+let g:indentLine_char = '│'
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_color_term = 239
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -566,60 +562,12 @@ let g:instant_markdown_autostart = 0
 " *************************** Colorscheme SETTINGS *************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" These settings should remain at the end of the file if you want to override
-" fixed colorscheme settings
-set background=dark " enable for dark terminals
+set background=dark
+colorscheme antithesi
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"colorscheme gruvbox
+"let g:gruvbox_contrast_dark="hard"
+"colorscheme OceanicNext
+"colorscheme material-theme
+"colorscheme base16-atelierforest
 
-highlight Normal ctermfg=white ctermbg=234
-
-" set cursorline
-" highlight CursorLine cterm=bold cterm=bold ctermbg=darkred ctermfg=3
-" highlight CursorColumn cterm=bold cterm=bold ctermbg=darkred ctermfg=3
-
-if has('gui_running')
-  colorscheme solarized
-endif
-
-" Highlight comments
-highlight Comment term=bold cterm=bold ctermfg=1
-
-set colorcolumn=81,121 " Highlight the columns after the textwidth
-highlight colorcolumn ctermbg=4
-
-" Highlight Functions
-highlight Function term=bold cterm=bold ctermfg=39
-" Highlight Visual Mode
-highlight Visual term=bold cterm=bold ctermfg=240
-"
-highlight Type term=bold cterm=bold ctermfg=136
-" Highlight strings
-highlight String term=bold cterm=bold ctermfg=132
-" Highlight preprocessor commands
-highlight PreProc term=bold cterm=bold ctermfg=218
-" Highlight constants. Also works with C++ STL and BOOST.
-highlight Constant term=bold cterm=bold ctermfg=35
-"
-highlight Special term=bold cterm=bold ctermfg=178
-" Highlight trailing whitespaces
-highlight ExtraWhitespace term=bold cterm=bold ctermbg=160
-
-highlight Pmenu term=bold cterm=bold ctermfg=26
-highlight Identifier term=bold cterm=bold
-
-highlight Conditional term=bold cterm=bold ctermfg=136
-
-" Highlight statements (for, if etc.)
-highlight Statement term=bold cterm=bold
-
-" Highlight errors and style errors
-highlight SpellBad term=bold cterm=bold ctermbg=124
-highlight SpellCap term=bold cterm=bold ctermbg=208
-
-"
-highlight LineNr ctermfg=150 ctermbg=235
-
-" Syntastic Highlight Settings
-highlight SyntasticErrorSign ctermfg=232 ctermbg=160
-highlight SyntasticWarningSign ctermfg=235 ctermbg=220
-highlight SyntasticStyleErrorSign ctermfg=226 ctermbg=88
-highlight SyntasticStyleWarningSign ctermfg=208 ctermbg=235
