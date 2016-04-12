@@ -14,7 +14,7 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#190e18"
+    background_color = "#181818"
     cursor_color = "#a39e7c"
     font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
     foreground_color = "#a39e7c"
