@@ -15,7 +15,7 @@
 [profiles]
   [[default]]
     background_color = "#190e18"
-    cursor_color = "#a39e7c"
+    background_image = None
     font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
     foreground_color = "#a39e7c"
     scrollback_infinite = True
@@ -23,6 +23,7 @@
   [[gray]]
     background_color = "#141414"
     background_darkness = 0.48
+    background_image = None
     font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
     foreground_color = "#ffffff"
     scroll_background = False
@@ -30,6 +31,7 @@
     use_system_font = False
   [[gray_ring]]
     background_color = "#141414"
+    background_image = /home/miltos/Pictures/ring5.jpg
     background_type = image
     font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
     foreground_color = "#ffffff"
@@ -37,6 +39,7 @@
     use_system_font = False
   [[purple_ring]]
     background_color = "#300a24"
+    background_image = /home/miltos/Pictures/ring5.jpg
     background_type = image
     font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
     foreground_color = "#ffffff"

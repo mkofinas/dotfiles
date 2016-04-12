@@ -171,3 +171,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 . /home/miltos/Libraries/torch/install/bin/torch-activate
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

@@ -307,6 +307,7 @@ nmap <leader>f :NERDTreeFind<CR>
 "let NERDTreeShowBookmarks=1 " Show Bookmarks
 
 let g:NERDTreeWinSize=30
+let NERDTreeIgnore=['\.pyc$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** Airline SETTINGS ***************************** "
@@ -563,11 +564,8 @@ let g:instant_markdown_autostart = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set background=dark
-colorscheme antithesi
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"colorscheme antithesi
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "colorscheme gruvbox
 "let g:gruvbox_contrast_dark="hard"
-"colorscheme OceanicNext
-"colorscheme material-theme
-"colorscheme base16-atelierforest
-
+colorscheme base16-atelierforest

@@ -236,7 +236,8 @@ def paint_ipy_banner():
     from IPython.core.prompts import Colors
     from IPython import InteractiveShell
 
-    bg_black = "\x1B[0;40m"
+    bg_black = "\x1B[48;5;232m"
+    fg_black = "\x1B[38;5;232m"
     bg_blue = "\x1B[0;44m"
     bg_default = "\x1B[0;49m"
 
@@ -292,7 +293,7 @@ def paint_ipy_banner():
         ipy_banner[ii] += "  "
         ipy_banner[ii] += ''.join([bg_blue * int(jj) + ' ' + bg_default for jj in left_parens_symbol[ii]])
         ipy_banner[ii] += " "
-        ipy_banner[ii] += ''.join([Colors.Black + jj + Colors.Normal for jj in y_symbol[ii]])
+        ipy_banner[ii] += ''.join([fg_black + jj + Colors.Normal for jj in y_symbol[ii]])
         ipy_banner[ii] += " "
         ipy_banner[ii] += ''.join([bg_blue * int(jj) + ' ' + bg_default for jj in right_parens_symbol[ii]])
         ipy_banner[ii] += "  "
