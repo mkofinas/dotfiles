@@ -57,9 +57,6 @@ plugins=(pip git zsh-syntax-highlighting oh-my-git virtualenv extract)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-. $ZSH/custom/plugins/z/z.sh
-source $ZSH/custom/plugins/k/k.sh
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -118,8 +115,6 @@ alias ff="firefox"
 
 alias file-grep='grep -hHIrn'
 
-alias regvim='gvim --remote-silent'
-
 alias disk_status='df --human-readable'
 
 # A list of all the one-letter aliases
@@ -174,3 +169,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+. $ZSH/custom/plugins/z/z.sh
+source $ZSH/custom/plugins/k/k.sh
+# zsh-bd
+. $HOME/Repos/zsh-bd/bd.zsh
