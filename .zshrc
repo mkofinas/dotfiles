@@ -174,3 +174,4 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
 source $ZSH/custom/plugins/k/k.sh
 # zsh-bd
 . $HOME/Repos/zsh-bd/bd.zsh
+source $HOME/Repos/zsh-autosuggestions/zsh-autosuggestions.zsh

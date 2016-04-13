@@ -564,8 +564,8 @@ let g:instant_markdown_autostart = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set background=dark
-"colorscheme antithesi
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"colorscheme antithesi
 "colorscheme gruvbox
 "let g:gruvbox_contrast_dark="hard"
 colorscheme base16-atelierforest
