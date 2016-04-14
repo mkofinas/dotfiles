@@ -1,31 +1,46 @@
-#"\e[5~": history-search-backward
-#"\e[6~": history-search-forward
+# Readline Configuration
 
-# Use Vi, not Emacs, style editing
+# Controls whether readline begins with a set of key bindings similar to Emacs
+# or Vi. Editing-mode can be set to either emacs or Vi.
 set editing-mode vi
 
-# Ignore case
-set completion-ignore-case on
+# If set to On, readline performs filename matching and completion in a
+# case-insensitive fashion.
+set completion-ignore-case On
 
+# If set to On, and completion-ignore-case is enabled, readline treats hyphens
+# (-) and underscores (_) as equivalent when performing case-insensitive
+# filename matching and completion.
+set completion-map-case On
+
+$if Bash
 # List all matches in case multiple possible completions are possible
-#set show-all-if-ambiguous on
+set show-all-if-ambiguous On
+$endif
 
-# on menu-complete, first display the common prefix, then cycle through the
-# options when hitting TAB
+# If set to On, menu completion displays the common prefix of the list of
+# possible completions (which may be empty) before cycling through the list.
 set menu-complete-display-prefix on
+Tab: menu-complete
 
-# Show extra file information when completing, like `ls -F` does
-set visible-stats on
+# If set to On, a character denoting a file's type as reported by stat(2) is
+# appended to the filename when listing possible completions.
+set visible-stats On
 
-# Be more intelligent when autocompleting by also looking at the text after
-# the cursor. For example, when the current line is "cd ~/src/mozil", and
-# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
-# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
-# Readline used by Bash 4.)
+# If  set  to  On, readline displays possible completions using different
+# colors to indicate their file type.  The color definitions are taken from the
+# value of the LS_COLORS environment variable.
+set colored-stats On
+
+# If  set  to On, this alters the default completion behavior when inserting a
+# single match into the line.  It's only active when performing completion
+# in the middle of a word.  If enabled, readline does not insert characters
+# from the completion that match characters after point  in  the  word  being
+# completed, so portions of the word following the cursor are not duplicated.
 set skip-completed-text on
 
-#################################################################
-# Keymaps for when we're in command mode (e.g., after hitting ESC)
+################################################################################
+# Vi Normal Mode Mappings
 set keymap vi-command
 
 "\e[A": history-search-backward
@@ -33,13 +48,11 @@ set keymap vi-command
 "k": history-search-backward
 "j": history-search-forward
 
-###############################################################
-# Keymaps for when we're in insert (i.e., typing stuff in) mode
+################################################################################
+# Vi Insert Mode Mappings
 set keymap vi-insert
 
-# Vim style history search
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-
 "\e[C": forward-char
 "\e[D": backward-char

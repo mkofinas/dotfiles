@@ -114,12 +114,12 @@ export TERM=xterm-256color
 
 BASH_THEME="two_sides_background"
 
-if [ -f ~/.dotfiles/bash-themes/${BASH_THEME}.theme.bash ]; then
-    . ~/.dotfiles/bash-themes/${BASH_THEME}.theme.bash
+if [ -f ~/.bash/bash-themes/${BASH_THEME}.theme.bash ]; then
+    . ~/.bash/bash-themes/${BASH_THEME}.theme.bash
 fi
 
-if [ -f ~/.dotfiles/bash-themes/theme_plugins.bash ]; then
-    . ~/.dotfiles/bash-themes/theme_plugins.bash
+if [ -f ~/.bash/bash-themes/theme_plugins.bash ]; then
+    . ~/.bash/bash-themes/theme_plugins.bash
 fi
 
 ################################## Bash Alias ##################################

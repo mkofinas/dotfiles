@@ -1,5 +1,18 @@
 # dotfiles
-Configuration files for vim, git, zsh and other tools, stored in my home directory.
+Configuration files for Vim/NeoVim, Git, Bash/Zsh, IPython etc.
+
+## Summary
+This repository contains configuration files for the following:
+- Vim
+- Neovim
+- Git
+- Bash
+- Zsh
+- IPython
+- Jupyter
+- Terminator
+- Tmux
+- Latex
 
 ## Dependencies
 Some configuration files rely on external modules in order to work
