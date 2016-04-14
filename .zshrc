@@ -1,26 +1,43 @@
 # Zsh Configuration
 
-source $HOME/Repos/antigen/antigen.zsh
-antigen use oh-my-zsh
+# Check if zplug is installed
+[[ -d ~/.zplug ]] || {
+  git clone https://github.com/b4b4r07/zplug ~/.zplug
+  source ~/.zplug/zplug && zplug update --self
+}
 
-antigen bundle pip
-antigen bundle git
-antigen bundle virtualenv
-antigen bundle extract
+source ~/.zplug/zplug
 
-antigen bundle rupa/z
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle supercrabtree/k
-antigen bundle Tarrasch/zsh-bd
-antigen bundle mkofinas/oh-my-zsh-git
-#antigen bundle zsh-users/zsh-syntax-highlighting
+# ZPlug
+zplug "b4b4r07/zplug"
 
-#antigen bundle mafredri/zsh-async
-#antigen bundle sindresorhus/pure
+# Oh-my-Zsh Plugins
+zplug "plugins/pip", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/virtualenv", from:oh-my-zsh
+zplug "plugins/extract", from:oh-my-zsh
 
-antigen theme mkofinas/zeta-sigma-zsh-theme zeta_sigma.zsh-theme
+# External Plugins
+zplug "rupa/z", of:z.sh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "supercrabtree/k"
+zplug "Tarrasch/zsh-bd"
+zplug "mkofinas/oh-my-zsh-git"
+zplug "mkofinas/zeta-sigma-zsh-theme"
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+#zplug "mafredri/zsh-async"
+#zplug "sindresorhus/pure"
 
-antigen apply
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
