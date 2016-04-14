@@ -13,10 +13,8 @@ set completion-ignore-case On
 # filename matching and completion.
 set completion-map-case On
 
-$if Bash
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous On
-$endif
 
 # If set to On, menu completion displays the common prefix of the list of
 # possible completions (which may be empty) before cycling through the list.
