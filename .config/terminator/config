@@ -26,22 +26,10 @@
   [[gray]]
     background_color = "#141414"
     background_darkness = 0.48
+    cursor_color = "#ffffff"
     font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
     foreground_color = "#ffffff"
     scroll_background = False
     scrollback_infinite = True
-    use_system_font = False
-  [[gray_ring]]
-    background_color = "#141414"
-    background_type = image
-    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
-    foreground_color = "#ffffff"
-    scrollback_infinite = True
-    use_system_font = False
-  [[purple_ring]]
-    background_color = "#300a24"
-    background_type = image
-    font = DejaVu Sans Mono for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons 10
-    foreground_color = "#ffffff"
-    scrollback_infinite = True
+    scrollbar_position = hidden
     use_system_font = False
