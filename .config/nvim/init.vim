@@ -52,6 +52,7 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'tmux-plugins/vim-tmux'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -221,10 +222,11 @@ autocmd FileType tex setlocal spelllang=el,en
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " add custom filetypes
-autocmd BufNewFile,BufRead *.launch set filetype=xml " this is probably handled by vim-ros plugin
+autocmd BufNewFile,BufRead *.launch set filetype=xml
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.glsl set filetype=cpp
 autocmd BufNewFile,BufRead *.*.glsl set filetype=cpp
+autocmd BufNewFile,BufRead *.zsh-theme set filetype=zsh
 
 autocmd FileType tex filetype plugin on
 let g:tex_comment_nospell=1
@@ -367,7 +369,7 @@ let g:ycm_global_ycm_extra_conf='~/.dotfiles/.ycm_extra_conf.py'
 let g:startify_session_dir = "~/.vim/sessions"
 let g:startify_change_to_vcs_root = 1
 let g:startify_show_sessions = 1
-let g:startify_bookmarks = ['~/.vimrc', '~/.bashrc']
+let g:startify_bookmarks = ['~/.vimrc', '~/.bashrc', '~/.zshrc', '~/.tmux.conf']
 nnoremap <F1> :Startify<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

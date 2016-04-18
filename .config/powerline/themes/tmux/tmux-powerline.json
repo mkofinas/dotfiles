@@ -1,0 +1,35 @@
+{
+  "segments": {
+    "left": [
+    ],
+    "right": [
+      {
+        "function": "powerline.segments.common.time.date",
+        "name": "date",
+        "args": {
+          "format": "%a %d-%m-%Y"
+        }
+      },
+      {
+        "function": "powerline.segments.common.time.date",
+        "name": "time",
+        "args": {
+          "format": "%H:%M",
+          "istime": true
+        }
+      },
+      {
+        "function": "powerline.segments.common.wthr.weather",
+        "name": "weather",
+        "priority": 50,
+        "args": {
+          "unit": "C",
+          "location_query": "thessaloniki, greece"
+        }
+      },
+      {
+        "function": "powerline.segments.common.net.hostname"
+      }
+    ]
+  }
+}

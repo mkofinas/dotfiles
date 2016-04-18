@@ -141,6 +141,7 @@ alias nvrc="$EDITOR ~/.config/nvim/init.vim"
 alias bashrc="$EDITOR ~/.bashrc"
 alias sbash="source ~/.bashrc"
 alias ipyrc="$EDITOR ~/.ipython/profile_default/ipython_config.py"
+alias tmrc="$EDITOR ~/.tmux.conf"
 alias zsh_theme="$EDITOR $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_sigma.zsh-theme"
 
 ################################################################################
@@ -149,4 +150,27 @@ alias zsh_theme="$EDITOR $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_si
 
 bindkey -v
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## use cursor as indicator of vi mode
+#zle-keymap-select () {
+  #if [ $KEYMAP = vicmd ]; then
+    #if [[ $TMUX = '' ]]; then
+      #echo -ne "\033]12;Red\007"
+    #else
+      #printf '\033Ptmux;\033\033]12;red\007\033\\'
+    #fi
+  #else
+    #if [[ $TMUX = '' ]]; then
+      #echo -ne "\033]12;Grey\007"
+    #else
+      #printf '\033Ptmux;\033\033]12;grey\007\033\\'
+    #fi
+  #fi
+#}
+#zle-line-init () {
+  #zle -K viins
+  #echo -ne "\033]12;Grey\007"
+#}
+#zle -N zle-keymap-select
+#zle -N zle-line-init
