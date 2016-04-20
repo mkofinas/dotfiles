@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ***************************** Vim-Plug SETTINGS **************************** "
+"                                   Vim-Plug                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -34,6 +34,7 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 """ Integrations
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
 
 """ Interface
 Plug 'mhinz/vim-startify'
@@ -242,16 +243,6 @@ set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,�
 noremap <leader><leader>v :e! $MYVIMRC<CR>
 noremap <silent> <leader><leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" map control-backspace to delete the previous word, works only in gvim
-imap <C-BS> <C-W>
-
-" Bind Ctrl+<movement> keys to move around the windows,
-" instead of using Ctrl+w + <movement>
-nnoremap <silent> <C-Right> <c-w>l
-nnoremap <silent> <C-Down> <c-w>j
-nnoremap <silent> <C-Left> <c-w>h
-nnoremap <silent> <C-Up> <c-w>k
-
 " Use Shift+<Left, Right> keys to move through buffers.
 nmap <silent> <S-Right> :bnext<CR>
 nmap <silent> <S-Left> :bprevious<CR>
@@ -282,6 +273,8 @@ set laststatus=2 " the statusline is now always shown
 
 " show whitespace in cpph files
 set list listchars=tab:▸-,trail:_,extends:>
+
+set fillchars=vert:│
 
 set colorcolumn=81,121 " Highlight the columns after the textwidth
 
@@ -330,11 +323,6 @@ let g:airline_theme = 'kolor'
 
 " enable powerline symbols, needs powerline fonts installed
 let g:airline_powerline_fonts = 1
-
-" change default font for gvim to enable powerline symbols
-if has('gui_running')
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ 10
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " **************************** indentLine SETTINGS *************************** "
@@ -513,20 +501,6 @@ nnoremap <silent> <leader>gr :Gremove<CR>
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ***************************** VimProc SETTINGS ***************************** "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:vimshell_prompt=$USER."@".hostname().": "
-let g:vimshell_editor_command='vim'
-" let g:vimshell_right_prompt='getcwd()'
-let g:vimshell_user_prompt='fnamemodify(getcwd(), ":~")'
-let g:vimshell_vimshrc_path='~/.vim/vimshell/.vimshrc'
-
-nnoremap <leader>vs :VimShell<CR>
-nnoremap <leader>vss :VimShell -split<CR>
-nnoremap <leader>vsp :VimShellInteractive ipython<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " **************************** LaTeX-Box SETTINGS **************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -556,18 +530,34 @@ let g:gitgutter_sign_removed_first_line = ' '
 let g:gitgutter_sign_modified_removed = ' '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ************************** Vim-Gitgutter SETTINGS ************************** "
+"                             Vim-Instant-Markdown                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:instant_markdown_autostart = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" *************************** Colorscheme SETTINGS *************************** "
+"                              Vim-Tmux Navigator                              "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+
+let g:tmux_navigator_save_on_switch = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Colorscheme                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set background=dark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "colorscheme antithesi
 "colorscheme gruvbox
 "let g:gruvbox_contrast_dark="hard"
 colorscheme base16-atelierforest
+hi VertSplit guifg=#df5320 guibg=#1b1918 gui=none

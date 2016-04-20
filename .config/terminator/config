@@ -7,8 +7,10 @@
   go_left = <Alt><Super>Left
   go_right = <Alt><Super>Right
   go_up = <Alt><Super>Up
-  next_tab = <Ctrl><Shift>Right
-  prev_tab = <Ctrl><Shift>Left
+  resize_down = None
+  resize_left = None
+  resize_right = None
+  resize_up = None
 [layouts]
   [[default]]
     [[[child1]]]
