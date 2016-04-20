@@ -37,6 +37,7 @@ zplug "chriskempson/base16-shell", of:"base16-atelierforest.dark.sh"
 zplug "mkofinas/oh-my-zsh-git"
 zplug "mkofinas/zeta-sigma-zsh-theme"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-history-substring-search", nice:11
 #zplug "mafredri/zsh-async"
 #zplug "sindresorhus/pure"
 zplug "junegunn/fzf", as:"command", do:"install", of:"fzf"
@@ -145,32 +146,23 @@ alias tmrc="$EDITOR ~/.tmux.conf"
 alias zsh_theme="$EDITOR $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_sigma.zsh-theme"
 
 ################################################################################
+#                         Zsh History Substring Search                         #
+################################################################################
+
+# Ignore all duplicates from search
+setopt HIST_IGNORE_ALL_DUPS
+
+# Bind <Up, Down> keys for search
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+################################################################################
 #                                   Vi Mode                                    #
 ################################################################################
 
-bindkey -v
+#bindkey -v
 
+#bindkey -M vicmd 'k' history-substring-search-up
+#bindkey -M vicmd 'j' history-substring-search-down
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-## use cursor as indicator of vi mode
-#zle-keymap-select () {
-  #if [ $KEYMAP = vicmd ]; then
-    #if [[ $TMUX = '' ]]; then
-      #echo -ne "\033]12;Red\007"
-    #else
-      #printf '\033Ptmux;\033\033]12;red\007\033\\'
-    #fi
-  #else
-    #if [[ $TMUX = '' ]]; then
-      #echo -ne "\033]12;Grey\007"
-    #else
-      #printf '\033Ptmux;\033\033]12;grey\007\033\\'
-    #fi
-  #fi
-#}
-#zle-line-init () {
-  #zle -K viins
-  #echo -ne "\033]12;Grey\007"
-#}
-#zle -N zle-keymap-select
-#zle -N zle-line-init
