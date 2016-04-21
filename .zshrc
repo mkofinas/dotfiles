@@ -1,11 +1,20 @@
 ################################################################################
 # Zsh Configuration                                                            #
 # -----------------                                                            #
-# 1. Zplug Plugin Manager & Plugins                                            #
-# 2. Export Variables & Source Files                                           #
-# 3. Aliases                                                                   #
-# 4. Set Vi Mode                                                               #
+# 1. Load Prezto                                                               #
+# 2. Zplug Plugin Manager & Plugins                                            #
+# 3. Source Files                                                              #
+# 4. Aliases                                                                   #
+# 5. Plugin Settings                                                           #
 ################################################################################
+
+################################################################################
+#                                Source Prezto                                 #
+################################################################################
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 ################################################################################
 #                                    Zplug                                     #
@@ -22,25 +31,16 @@ source ~/.zplug/zplug
 # ZPlug
 zplug "b4b4r07/zplug"
 
-# Oh-my-Zsh Plugins
-zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/virtualenv", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-
 # External Plugins
 zplug "rupa/z", of:z.sh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd"
 zplug "chriskempson/base16-shell", of:"base16-atelierforest.dark.sh"
-zplug "mkofinas/oh-my-zsh-git"
-zplug "mkofinas/zeta-sigma-zsh-theme"
+# zplug "mkofinas/oh-my-zsh-git"
+# zplug "mkofinas/zeta-sigma-zsh-theme"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "zsh-users/zsh-history-substring-search", nice:11
-#zplug "mafredri/zsh-async"
-#zplug "sindresorhus/pure"
-zplug "junegunn/fzf", as:"command", do:"install", of:"fzf"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -54,20 +54,8 @@ fi
 zplug load --verbose
 
 ################################################################################
-#                               Source & Export                                #
+#                                    Source                                    #
 ################################################################################
-
-# Language
-export LANG=en_US.UTF-8
-
-# Set editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
-   export VISUAL='vim'
- else
-   export EDITOR='nvim'
-   export VISUAL='nvim'
- fi
 
 # ROS
 if [ -f /opt/ros/indigo/setup.zsh ]; then
@@ -81,11 +69,6 @@ fi
 if [ -f ~/pandora_ws/devel/setup.zsh ]; then
     . ~/pandora_ws/devel/setup.zsh --extend
 fi
-
-# Virtual Environments
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Virtual\ Environments
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Torch
 . /home/miltos/Libraries/torch/install/bin/torch-activate
@@ -176,12 +159,6 @@ setopt HIST_IGNORE_ALL_DUPS
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
-
-################################################################################
-#                                   Vi Mode                                    #
-################################################################################
-
-#bindkey -v
 
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
