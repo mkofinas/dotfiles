@@ -63,8 +63,10 @@ export LANG=en_US.UTF-8
 # Set editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
+   export VISUAL='vim'
  else
    export EDITOR='nvim'
+   export VISUAL='nvim'
  fi
 
 # ROS
@@ -107,21 +109,39 @@ alias master_lab='export ROS_MASTER_URI=http://pandora-lab:11311'
 alias make_victim='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_vision_victim'
 alias make_motion='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_vision_motion'
 
-# Shortcuts
-alias l='ls -CF'
-alias ll='ls -lahF'
-alias la='ls -A'
+# List Directories
+alias l='ls -1F'
+alias ll='ls -lh'
+alias la='ls -lhA'
+unalias lr
+alias lR='ls -lhR'
 
+# Change Directories
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+alias -- -='cd -'
+
+# Make Directories
+alias md='mkdir -p'
+
+# Shortcuts
 alias v="vim"
 alias nv="nvim"
-alias o="gnome-open"
 alias c="clear"
 alias jl="julia"
 alias ff="firefox"
 
 alias file-grep='grep -hHIrn'
 
-alias disk_status='df --human-readable'
+# Git
+alias ga='git add'
+alias gst'git status'
+
+# Uncompress
+alias x='unarchive'
 
 # A list of all the one-letter aliases
 alias salias='alias | grep "^[a-z]=" | sort'
