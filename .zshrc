@@ -96,8 +96,7 @@ alias make_motion='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_v
 alias l='ls -1F'
 alias ll='ls -lh'
 alias la='ls -lhA'
-unalias lr
-alias lR='ls -lhR'
+alias lr='ls -lhR'
 
 # Change Directories
 alias -g ...='../..'
@@ -122,6 +121,7 @@ alias file-grep='grep -hHIrn'
 # Git
 alias ga='git add'
 alias gst='git status'
+alias gdf='git diff'
 
 # Uncompress
 alias x='unarchive'
