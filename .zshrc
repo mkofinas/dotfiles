@@ -121,7 +121,7 @@ alias file-grep='grep -hHIrn'
 
 # Git
 alias ga='git add'
-alias gst'git status'
+alias gst='git status'
 
 # Uncompress
 alias x='unarchive'
