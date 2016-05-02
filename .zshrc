@@ -8,6 +8,7 @@
 # 5. Plugin Settings                                                           #
 ################################################################################
 
+eval "$(thefuck --alias)"
 ################################################################################
 #                                Source Prezto                                 #
 ################################################################################
@@ -39,6 +40,7 @@ zplug "Tarrasch/zsh-bd"
 zplug "chriskempson/base16-shell", of:"base16-atelierforest.dark.sh"
 # zplug "mkofinas/oh-my-zsh-git"
 # zplug "mkofinas/zeta-sigma-zsh-theme"
+zplug "b4b4r07/zsh-vimode-visual", of:"zsh-vimode-visual.sh", nice:19
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "zsh-users/zsh-history-substring-search", nice:11
 
@@ -162,4 +164,4 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
