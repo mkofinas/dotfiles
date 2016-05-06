@@ -4,3 +4,6 @@
 [submodule "bash-themes"]
 	path = .bash/bash-themes
 	url = git@github.com:mkofinas/bash-themes.git
+[submodule "prezto"]
+	path = prezto
+	url = git@github.com:mkofinas/prezto.git
