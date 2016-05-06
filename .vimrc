@@ -384,7 +384,7 @@ let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_key_list_previous_completion=['<Up>']
 let g:ycm_auto_trigger = 1
 let g:ycm_confirm_extra_conf = 0 "Don't ask for confirmation every time
-let g:ycm_global_ycm_extra_conf='~/.dotfiles/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** Startify SETTINGS **************************** "
