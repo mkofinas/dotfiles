@@ -15,5 +15,5 @@ for link in symbolic_links:
     link_dst = os.path.join(os.path.expanduser('~'), link)
     print link_dst
     if os.path.islink(link_dst):
-        os.remove(link_dst) 
+        os.remove(link_dst)
     os.symlink(link_source, link_dst)
