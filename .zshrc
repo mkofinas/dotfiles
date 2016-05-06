@@ -72,7 +72,7 @@ if [ -f ~/pandora_ws/devel/setup.zsh ]; then
 fi
 
 # Torch
-. /home/miltos/Libraries/torch/install/bin/torch-activate
+. ~/Libraries/torch/install/bin/torch-activate
 
 ################################################################################
 #                                   Aliases                                    #
