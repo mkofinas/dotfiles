@@ -27,15 +27,19 @@
 			"args": {
 				"state_symbols": {
 					"fallback": "♫",
-					"play":     "⏵",
-					"pause":    "⏸",
-					"stop":     "⏹"
+					"play":     " ⏵",
+					"pause":    " ",
+					"stop":     " "
 				}
 			}
 		},
 
 		"time": {
-			"before": "🕐 "
+			"before": " "
+		},
+
+		"date": {
+			"before": " "
 		},
 
 		"powerline.segments.common.net.network_load": {
@@ -45,12 +49,12 @@
 			}
 		},
 		"powerline.segments.common.net.hostname": {
-			"before": "🏠 "
+			"before": "🏠 "
 		},
 		"powerline.segments.common.bat.battery": {
 			"args": {
-				"full_heart": "💙",
-				"empty_heart": "💛",
+				"full_heart": " 💙",
+				"empty_heart": " 💛",
 				"online": "⚡️",
 				"offline": " "
 			}
@@ -59,10 +63,10 @@
 			"before": "⇑ "
 		},
 		"powerline.segments.common.mail.email_imap_alert": {
-			"before": "✉ "
+			"before": "  "
 		},
 		"powerline.segments.common.env.virtualenv": {
-			"before": "🐍 "
+			"before": "🐍 "
 		},
 		"powerline.segments.common.wthr.weather": {
 			"args": {
@@ -84,7 +88,7 @@
 					"day":                     "☀",
 					"blustery":                "⚑",
 					"rainy":                   "☂",
-					"cloudy":                  "☁",
+					"cloudy":                  " ",
 					"snowy":                   "☃",
 					"stormy":                  "☈",
 					"foggy":                   "🌁",
