@@ -43,6 +43,7 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
+Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 Plug 'terryma/vim-multiple-cursors'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -476,6 +477,9 @@ let g:clang_format#style_options = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " leave space after comment
 let NERDSpaceDelims = 1
+let g:NERDCustomDelimiters = {
+    \ 'python': { 'left': '#', 'leftAlt': '#' }
+\ }
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -646,6 +650,22 @@ let g:multi_cursor_next_key='<leader>m'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" a.vim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:alternateSearchPath = 'reg:#\<src\>#include#,reg:#\<include\>#src#'
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fzf.vim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let $FZF_DEFAULT_COMMAND='ag -g ""'
+inoremap <C-P> <Esc>:FZF<CR>
+noremap <C-P> :FZF<CR>
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -657,9 +677,9 @@ set background=dark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 colorscheme base16-atelierforest
-highlight VertSplit guifg=#5ab738 guibg=#1b1918 gui=none
-highlight ErrorMsg guifg=#df5320 guibg=#2c2421 gui=none
-highlight WarningMsg guifg=#d5911a guibg=#2c2421 gui=none
+highlight VertSplit ctermfg=02 ctermbg=00 cterm=none guifg=#5ab738 guibg=#1b1918 gui=none
+highlight ErrorMsg ctermfg=16 ctermbg=18 cterm=none guifg=#df5320 guibg=#2c2421 gui=none
+highlight WarningMsg ctermfg=03 ctermbg=18 cterm=none guifg=#d5911a guibg=#2c2421 gui=none
 " highlight ExtraWhitespace guibg=#ff0000
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
