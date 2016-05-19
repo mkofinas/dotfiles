@@ -43,6 +43,7 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
+Plug 'terryma/vim-multiple-cursors'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -81,6 +82,8 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/gundo.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -226,7 +229,8 @@ autocmd BufNewFile,BufRead *.launch set filetype=xml
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.glsl set filetype=cpp
 autocmd BufNewFile,BufRead *.*.glsl set filetype=cpp
-autocmd BufNewFile,BufRead *.zsh-theme set filetype=zsh
+autocmd BufNewFile,BufRead *.zsh-theme set filetype=sh
+autocmd BufNewFile,BufRead *.zsh set filetype=sh
 
 let g:tex_flavor='latex'
 set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
@@ -257,7 +261,9 @@ set laststatus=2 " Always show the statusline
 
 set scrolloff=1 " 1 line above/below cursor when scrolling
 
-set list listchars=tab:▸-,extends:>
+set nowrap " Don't automatically wrap long lines
+
+set list listchars=extends:⍈,precedes:⍇,tab:>-
 set fillchars=vert:│
 set colorcolumn=81,121
 " 2}}}
@@ -315,6 +321,19 @@ map <Leader>A gg"+yG
 noremap <Leader>qq :q!<CR>
 " Quit all windows
 noremap <Leader>QQ :qa!<CR>
+
+" Move to the end of line
+nnoremap <leader>' $
+" Move to the start of line
+nnoremap <leader>a ^
+
+" Move lines and blocks of code up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -395,8 +414,8 @@ let g:airline_theme = 'base16_atelierforest'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_enabled = 1
 let g:indentLine_char = '│'
-let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -512,15 +531,12 @@ let g:ultisnips_python_style="doxygen"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ******************************* Jedi SETTINGS ****************************** "
+" Jedi-Vim {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let g:jedi#auto_initialization=0
-let g:jedi#completions_enabled = 0
 let g:jedi#usages_command = "<leader>z"
 let g:jedi#popup_on_dot = 1
 let g:jedi#popup_select_first = 0
-
+" 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -616,9 +632,17 @@ let g:tmux_navigator_save_on_switch = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Better-Whitespace {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter,InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWritePre * StripWhitespace
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'tex']
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Multiple-Cursors {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<leader>m'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -628,14 +652,15 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf',
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let base16colorspace=256
 set background=dark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 colorscheme base16-atelierforest
 highlight VertSplit guifg=#5ab738 guibg=#1b1918 gui=none
 highlight ErrorMsg guifg=#df5320 guibg=#2c2421 gui=none
 highlight WarningMsg guifg=#d5911a guibg=#2c2421 gui=none
-highlight ExtraWhitespace guibg=#ff0000
+" highlight ExtraWhitespace guibg=#ff0000
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
