@@ -9,25 +9,30 @@ files=".vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/
 # Fetch Dependencies
 # - nerd-fonts
 
-git clone https://github.com/ryanoasis/nerd-fonts.git
-cd "nerd-fonts"
-./install.sh
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "DejaVu Sans Mono for Powerline Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.ttf
 
 cd $dotfiles
 
-# Clone Vundle first
-git clone https://github.com/VundleVim/Vundle.vim.git $dotfiles/.vim/bundle/Vundle.vim
+nvim -c 'PlugInstall'
 
-# Install all plugins
-vim +PluginInstall +qall
+################################################################################
+#                                     Vim                                      #
+################################################################################
+# Vim {{{1
+# # Clone Vundle first
+# git clone https://github.com/VundleVim/Vundle.vim.git $dotfiles/.vim/bundle/Vundle.vim
 
-# Compile YouCompleteMe
-if [ -e $dotfiles/.vim/bundle/YouCompleteMe/install.sh ]
-then
-  echo "Compiling YouCompleteMe!"
-  cd $dotfiles/.vim/bundle/YouCompleteMe/
-  ./install.py --clang-completer
-fi
+# # Install all plugins
+# vim +PluginInstall +qall
+
+# # Compile YouCompleteMe
+# if [ -e $dotfiles/.vim/bundle/YouCompleteMe/install.py ]; then
+#   echo "Compiling YouCompleteMe!"
+#   cd $dotfiles/.vim/bundle/YouCompleteMe/
+#   ./install.py --clang-completer
+# fi
+# 1}}}
 
 # Create backup directory to store the old dotfiles
 mkdir -p $dotfiles_backup
