@@ -83,8 +83,7 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/gundo.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -267,6 +266,8 @@ set nowrap " Don't automatically wrap long lines
 set list listchars=extends:⍈,precedes:⍇,tab:>-
 set fillchars=vert:│
 set colorcolumn=81,121
+
+set synmaxcol=250
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -405,7 +406,7 @@ endif
 let g:airline_symbols.space = "\ua0"
 " Enable powerline symbols
 let g:airline_powerline_fonts = 1
-
+let g:airline_exclude_preview=1
 let g:airline_theme = 'base16_atelierforest'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,6 +436,9 @@ let g:ycm_confirm_extra_conf = 0 "Don't ask for confirmation every time
 let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
 " Stop YCM from performing diagnostics
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_filetype_blacklist = {
+      \ 'python' : 1
+      \}
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -539,7 +543,7 @@ let g:ultisnips_python_style="doxygen"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:jedi#usages_command = "<leader>z"
 let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 0
+let g:jedi#popup_select_first = 1
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -663,6 +667,14 @@ let g:alternateSearchPath = 'reg:#\<src\>#include#,reg:#\<include\>#src#'
 let $FZF_DEFAULT_COMMAND='ag -g ""'
 inoremap <C-P> <Esc>:FZF<CR>
 noremap <C-P> :FZF<CR>
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Goyo & Limelight {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
