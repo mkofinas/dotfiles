@@ -52,18 +52,22 @@ Plug 'terryma/vim-multiple-cursors'
 " Completion {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'jiangmiao/auto-pairs'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrations {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
@@ -71,6 +75,7 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'sudo npm -g instal
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
+" Plug 'hynek/vim-python-pep8-indent'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -233,6 +238,7 @@ autocmd BufNewFile,BufRead *.zsh-theme set filetype=sh
 autocmd BufNewFile,BufRead *.zsh set filetype=sh
 
 let g:tex_flavor='latex'
+let g:tex_conceal = ""
 set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -490,19 +496,19 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! BufWritePost,BufEnter * Neomake
-autocmd! QuitPre * let g:neomake_verbose = 0
+" autocmd! BufWritePost,BufEnter * Neomake
+" autocmd! QuitPre * let g:neomake_verbose = 0
 
-let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
-let g:neomake_warning_sign = { 'text': ' 😠','texthl': 'WarningMsg' }
+" let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
+" let g:neomake_warning_sign = { 'text': ' 😠','texthl': 'WarningMsg' }
 
-let g:neomake_c_enabled_makers = ['clang']
-let g:neomake_cpp_enabled_makers = ['clang']
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_sh_enabled_makers = ['shellcheck']
+" let g:neomake_c_enabled_makers = ['clang']
+" let g:neomake_cpp_enabled_makers = ['clang']
+" let g:neomake_python_enabled_makers = ['flake8']
+" let g:neomake_sh_enabled_makers = ['shellcheck']
 
-let g:neomake_list_height = 3
-let g:neomake_open_list = 2
+" let g:neomake_list_height = 3
+" let g:neomake_open_list = 2
 
 " TODO: Search for header files for C-family languages (like Syntastic)
 " let g:syntastic_c_include_dirs = ['../../../include', '../../include', '../include', 'include']
@@ -544,6 +550,7 @@ let g:ultisnips_python_style="doxygen"
 let g:jedi#usages_command = "<leader>z"
 let g:jedi#popup_on_dot = 1
 let g:jedi#popup_select_first = 1
+" let g:jedi#show_call_signatures = "0"
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -675,6 +682,14 @@ noremap <C-P> :FZF<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Deoplete {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
