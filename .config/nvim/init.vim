@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/bundle')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
@@ -56,18 +57,20 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'zchee/deoplete-clang'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrations {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'benekastah/neomake'
+Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
@@ -496,19 +499,17 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocmd! BufWritePost,BufEnter * Neomake
-" autocmd! QuitPre * let g:neomake_verbose = 0
+autocmd! BufWritePost,BufEnter * Neomake
+autocmd! QuitPre * lclose
+let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
+let g:neomake_warning_sign = { 'text': ' ', 'texthl': 'WarningMsg' }
 
-" let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
-" let g:neomake_warning_sign = { 'text': ' 😠','texthl': 'WarningMsg' }
+let g:neomake_c_enabled_makers = ['clang']
+let g:neomake_cpp_enabled_makers = ['clang']
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_sh_enabled_makers = ['shellcheck']
 
-" let g:neomake_c_enabled_makers = ['clang']
-" let g:neomake_cpp_enabled_makers = ['clang']
-" let g:neomake_python_enabled_makers = ['flake8']
-" let g:neomake_sh_enabled_makers = ['shellcheck']
-
-" let g:neomake_list_height = 3
-" let g:neomake_open_list = 2
+let g:neomake_list_height = 3
 
 " TODO: Search for header files for C-family languages (like Syntastic)
 " let g:syntastic_c_include_dirs = ['../../../include', '../../include', '../include', 'include']
@@ -690,6 +691,8 @@ autocmd! User GoyoLeave Limelight!
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.4.so.1'
+let g:deoplete#sources#clang#clang_header='/usr/include/clang/3.4/include/'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -703,6 +706,7 @@ let base16colorspace=256
 set background=dark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let g:base16_shell_path="/home/miltos/.zplug/repos/chriskempson/base16-shell"
 colorscheme base16-atelierforest
 highlight VertSplit ctermfg=02 ctermbg=00 cterm=none guifg=#5ab738 guibg=#1b1918 gui=none
 highlight ErrorMsg ctermfg=16 ctermbg=18 cterm=none guifg=#df5320 guibg=#2c2421 gui=none
