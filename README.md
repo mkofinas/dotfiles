@@ -1,5 +1,6 @@
 # dotfiles
 Configuration files for Vim/NeoVim, Git, Bash/Zsh, IPython etc.
+Tested on Ubuntu 14.04 LTS.
 
 ## Summary
 This repository contains configuration files for the following:
@@ -9,7 +10,10 @@ This repository contains configuration files for the following:
 - Bash
 - Zsh
 - IPython
-- Jupyter
+- Jupyter Notebook
+  - IJulia
+  - ITorch
+  - IPython
 - Terminator
 - Tmux
 - Latex
