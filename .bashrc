@@ -112,7 +112,7 @@ export TERM=xterm-256color
 
 ################################## Bash Theme ##################################
 
-BASH_THEME="two_sides_background"
+BASH_THEME="basic"
 
 if [ -f ~/.bash/bash-themes/${BASH_THEME}.theme.bash ]; then
     . ~/.bash/bash-themes/${BASH_THEME}.theme.bash
