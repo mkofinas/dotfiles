@@ -78,7 +78,7 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'sudo npm -g instal
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
-" Plug 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -501,7 +501,7 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! BufWritePost,BufEnter * Neomake
 autocmd! QuitPre * lclose
-let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
+let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
 let g:neomake_warning_sign = { 'text': ' ', 'texthl': 'WarningMsg' }
 
 let g:neomake_c_enabled_makers = ['clang']
