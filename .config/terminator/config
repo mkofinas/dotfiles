@@ -1,6 +1,9 @@
 [global_config]
   handle_size = 3
+  title_font = DejaVuSansMonoForPowerline Nerd Font 10
   title_hide_sizetext = True
+  title_use_system_font = False
+  window_state = maximise
 [keybindings]
   full_screen = <Super>f
   go_down = <Alt><Super>Down

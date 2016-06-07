@@ -501,13 +501,12 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! BufWritePost,BufEnter * Neomake
 autocmd! QuitPre * lclose
-let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
-let g:neomake_warning_sign = { 'text': ' ', 'texthl': 'WarningMsg' }
+let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
+let g:neomake_warning_sign = { 'text': '', 'texthl': 'WarningMsg' }
 
 let g:neomake_c_enabled_makers = ['clang']
 let g:neomake_cpp_enabled_makers = ['clang']
 let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_sh_enabled_makers = ['shellcheck']
 
 let g:neomake_list_height = 3
 
@@ -648,7 +647,7 @@ let g:tmux_navigator_save_on_switch = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Better-Whitespace {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWinEnter,InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWritePre * StripWhitespace
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'tex']
 " 2}}}
