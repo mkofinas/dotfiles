@@ -41,8 +41,7 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/vim-easy-align'
+Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 Plug 'terryma/vim-multiple-cursors'
@@ -57,7 +56,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -70,7 +68,7 @@ Plug 'zchee/deoplete-clang'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrations {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
@@ -523,8 +521,7 @@ let g:neomake_list_height = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
 
-let g:tagbar_left = 1
-let g:tagbar_vertical = 10
+let g:tagbar_width = 40
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -541,16 +538,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "private-snippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:ultisnips_python_style="doxygen"
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Jedi-Vim {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#usages_command = "<leader>z"
-let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 1
-" let g:jedi#show_call_signatures = "0"
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
