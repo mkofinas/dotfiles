@@ -6,16 +6,16 @@ Tested on Ubuntu 14.04 LTS and managed using GNU Stow.
 ## Summary
 This repository contains configuration files for the following:
 - Vim
-  - Configuration & Plugins managed by Vundle
-  - Rarely updated due to transition to Neovim
+  - Configuration & Plugins managed by [Vundle](https://github.com/VundleVim/Vundle.vim)
+  - Rarely updated due to transition to [Neovim](https://github.com/neovim/neovim)
 - Neovim
-  - Configuration & Plugins managed by VimPlug
+  - Configuration & Plugins managed by [VimPlug](https://github.com/junegunn/vim-plug)
 - Bash
   - Custom Themes, Aliases & Helper Functions
   - Rarely updated due to transition to Zsh
 - Zsh
-  - Main configuration by Prezto
-  - Plugins Managed by ZPlug
+  - Main configuration by [Prezto](https://github.com/sorin-ionescu/prezto)
+  - Plugins Managed by [ZPlug](https://github.com/zplug/zplug)
 - IPython & Jupyter Console
   - IPython/Jupyter Console
   - IJulia
@@ -81,3 +81,9 @@ call plug#end()
 Then, reload your configuration file and run `:PlugInstall`. To update existing plugins run `:PlugUpdate`.
 
 To install from command line: `nvim -c 'PlugInstall'`
+
+## TODO - Issues
+
+- [ ] DejaVu Nerd Font bold characters seem somewhat blurry.
+- [ ] Installation script seems to have issues overwriting current dotfiles.
+
