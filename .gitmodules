@@ -1,9 +1,9 @@
 [submodule "prompt-support"]
-	path = bash/.bash/prompt-support
+	path = packages/bash/.bash/prompt-support
 	url = git@github.com:mkofinas/prompt-support.git
 [submodule "bash-themes"]
-	path = bash/.bash/bash-themes
+	path = packages/bash/.bash/bash-themes
 	url = git@github.com:mkofinas/bash-themes.git
 [submodule "prezto"]
-	path = zsh/.zprezto
+	path = packages/zsh/.zprezto
 	url = git@github.com:mkofinas/prezto.git

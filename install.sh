@@ -30,7 +30,7 @@ mkdir -p ${dotfiles_backup_dir}
 
 echo "The following files will be backup-ed:"
 for package in ${!dotfiles_packages[@]}; do
-  for file in $(ls -1A ${dotfiles_dir}/${package}); do
+  for file in $(ls -1A ${dotfiles_dir}/packages/${package}); do
     full_file_name="${dotfiles_packages[$package]}/${file}"
     if [[ -e "$full_file_name" && ! -L "${full_file_name}" ]]; then
       echo "${full_file_name} -> ${dotfiles_backup_dir}/${file}"
@@ -47,8 +47,9 @@ done
 echo "Install GNU Stow"
 sudo apt-get update && sudo apt-get install -y stow
 echo "Symlink dotfiles using GNU Stow:"
+cd "${dotfiles_dir}/packages"
 for package in ${!dotfiles_packages[@]}; do
-  stow --verbose --restow --target=${dotfiles_packages[$package]} --ignore *\.md ${package}
+  stow --verbose --restow --target=${dotfiles_packages[$package]} --ignore=.md ${package}
 done
 # 1}}}
 ################################################################################

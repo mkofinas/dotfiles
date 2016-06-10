@@ -10,8 +10,6 @@ This repository contains configuration files for the following:
   - Rarely updated due to transition to Neovim
 - Neovim
   - Configuration & Plugins managed by VimPlug
-- Git
-  - Simple Git Configuration
 - Bash
   - Custom Themes, Aliases & Helper Functions
   - Rarely updated due to transition to Zsh
@@ -22,6 +20,7 @@ This repository contains configuration files for the following:
   - IPython/Jupyter Console
   - IJulia
   - ITorch
+- Git
 - Terminator
 - Tmux
 - Latex
