@@ -1,19 +1,27 @@
 # dotfiles
 Configuration files for Vim/NeoVim, Git, Bash/Zsh, IPython etc.
+
 Tested on Ubuntu 14.04 LTS and managed using GNU Stow.
 
 ## Summary
 This repository contains configuration files for the following:
 - Vim
+  - Configuration & Plugins managed by Vundle
+  - Rarely updated due to transition to Neovim
 - Neovim
+  - Configuration & Plugins managed by VimPlug
 - Git
+  - Simple Git Configuration
 - Bash
+  - Custom Themes, Aliases & Helper Functions
+  - Rarely updated due to transition to Zsh
 - Zsh
-- IPython
-- Jupyter Notebook
+  - Main configuration by Prezto
+  - Plugins Managed by ZPlug
+- IPython & Jupyter Console
+  - IPython/Jupyter Console
   - IJulia
   - ITorch
-  - IPython
 - Terminator
 - Tmux
 - Latex
@@ -43,11 +51,13 @@ cd .dotfiles
 To actually use the configuration files, `install.sh` creates a backup of the
 already existing dotfiles and then creates symbolic links to the right place
 using GNU Stow.
- If your configuration differs take a look at the script and modify it accordingly.
+
+If your configuration differs take a look at the script and modify it accordingly.
 
 ## Adding new Neovim plugins
 This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin manager for Neovim.
- To manage plugins, simply add a vim-plug section to your `~/.vimrc` (or `~/.config/nvim/init.vim` for Neovim):
+
+To manage plugins, simply add a vim-plug section to your `~/.vimrc` (or `~/.config/nvim/init.vim` for Neovim):
 
 1. Begin the section with `plug#begin()`
 1. List the plugins with `Plug` commands

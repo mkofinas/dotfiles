@@ -43,6 +43,8 @@ done
 ################################################################################
 # GNU Stow {{{1
 ################################################################################
+echo "Install GNU Stow"
+sudo apt-get update && sudo apt-get install -y stow
 echo "Symlink dotfiles using GNU Stow:"
 for package in ${!dotfiles_packages[@]}; do
   stow --verbose --restow --target=${dotfiles_packages[$package]} --ignore *\.md ${package}
