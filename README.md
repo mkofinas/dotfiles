@@ -37,7 +37,14 @@ Additionally, in many cases, such as vim and bash prompt,
 mentioned above are either listed as submodules or downloaded automatically
 using the install script explained below.
 
-## Suggested usage
+## Installation
+
+### One-Liner (Experimental)
+```sh
+curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/dowload_install.sh | bash
+```
+
+### Manual Installation
 Clone the repo to your home directory and use the `install.sh` script in order to configure and install everything.
  Clone as `.dotfiles` if you want to make it hidden.
 

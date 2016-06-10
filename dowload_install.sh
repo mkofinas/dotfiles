@@ -2,4 +2,5 @@
 
 git clone --recursive https://github.com/mkofinas/dotfiles.git
 cd "dotfiles"
-echo "Curl Test"
+./install.sh
+

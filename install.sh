@@ -32,7 +32,7 @@ echo "The following files will be backup-ed:"
 for package in ${!dotfiles_packages[@]}; do
   for file in $(ls -1A ${dotfiles_dir}/packages/${package}); do
     full_file_name="${dotfiles_packages[$package]}/${file}"
-    if [[ -e "$full_file_name" && ! -L "${full_file_name}" ]]; then
+    if [[ -e "$full_file_name" ]]; then
       echo "${full_file_name} -> ${dotfiles_backup_dir}/${file}"
       mv ${full_file_name} ${dotfiles_backup_dir}/${file}
     fi
