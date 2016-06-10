@@ -9,6 +9,7 @@ dotfiles_packages["git"]=${HOME}
 dotfiles_packages["tmux"]=${HOME}
 dotfiles_packages["latex"]=${HOME}
 dotfiles_packages["bash"]=${HOME}
+dotfiles_packages["zsh"]=${ZDOTDIR:-${HOME}}
 dotfiles_packages["terminator"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["powerline"]=${XDG_CONFIG_HOME:-${HOME}/.config}

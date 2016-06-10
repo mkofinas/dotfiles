@@ -5,5 +5,5 @@
 	path = bash/.bash/bash-themes
 	url = git@github.com:mkofinas/bash-themes.git
 [submodule "prezto"]
-	path = prezto
+	path = zsh/.zprezto
 	url = git@github.com:mkofinas/prezto.git
