@@ -45,7 +45,11 @@ done
 # GNU Stow {{{1
 ################################################################################
 echo "Install GNU Stow"
-sudo apt-get update && sudo apt-get install -y stow
+if type "stow" > /dev/null; then
+  echo "GNU Stow is already installed"
+else
+  sudo apt-get update && sudo apt-get install -y stow
+fi
 echo "Symlink dotfiles using GNU Stow:"
 cd "${dotfiles_dir}/packages"
 for package in ${!dotfiles_packages[@]}; do
@@ -94,10 +98,11 @@ nvim -c 'PlugInstall | qa'
 ################################################################################
 # Zsh - Prezto {{{1
 ################################################################################
-zsh -c "for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done"
+zsh -c 'setopt EXTENDED_GLOB; for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done'
 # 1}}}
 ################################################################################
 
+unset dotfiles_packages
 echo "Installation completed successfully!"
 
 # vim:foldmethod=marker:foldlevel=0:foldenable

@@ -42,7 +42,7 @@ Clone the repo to your home directory and use the `install.sh` script in order t
  Clone as `.dotfiles` if you want to make it hidden.
 
 ```sh
-git clone https://github.com/mkofinas/dotfiles.git .dotfiles
+git clone --recursive https://github.com/mkofinas/dotfiles.git .dotfiles
 cd .dotfiles
 ./install.sh
 ```
