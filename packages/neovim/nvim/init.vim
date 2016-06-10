@@ -61,7 +61,7 @@ function! DoRemote(arg)
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'zchee/deoplete-clang'
+" Plug 'zchee/deoplete-clang'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

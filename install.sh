@@ -69,7 +69,7 @@ echo "Done!"
 # Neovim Plugins {{{1
 ################################################################################
 echo "Install Neovim Plugins"
-nvim -c 'PlugInstall'
+nvim -c 'PlugInstall | qa'
 # 1}}}
 ################################################################################
 
@@ -88,6 +88,13 @@ nvim -c 'PlugInstall'
 #   echo "Compiling YouCompleteMe!"
 #   ${VIM_CONFIG_HOME}/bundle/YouCompleteMe/install.py --clang-completer
 # fi
+# 1}}}
+################################################################################
+
+################################################################################
+# Zsh - Prezto {{{1
+################################################################################
+zsh -c "for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done"
 # 1}}}
 ################################################################################
 
