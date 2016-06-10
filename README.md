@@ -1,6 +1,6 @@
 # dotfiles
 Configuration files for Vim/NeoVim, Git, Bash/Zsh, IPython etc.
-Tested on Ubuntu 14.04 LTS.
+Tested on Ubuntu 14.04 LTS and managed using GNU Stow.
 
 ## Summary
 This repository contains configuration files for the following:
@@ -23,7 +23,9 @@ Some configuration files rely on external modules in order to work
 appropriately. For example, in order to use the suggested bash prompt,
 [a set of support scripts](https://github.com/mkofinas/prompt-support)
 and [a set of themes](https://github.com/mkofinas/bash-themes) have to be
-downloaded. Additionally, in many cases, such as vim and bash prompt,
+downloaded.
+
+Additionally, in many cases, such as vim and bash prompt,
 [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) are used. The dependencies
 mentioned above are either listed as submodules or downloaded automatically
 using the install script explained below.
@@ -39,11 +41,12 @@ cd .dotfiles
 ```
 
 To actually use the configuration files, `install.sh` creates a backup of the
-already existing dotfiles and then creates symbolic links to the right place.
+already existing dotfiles and then creates symbolic links to the right place
+using GNU Stow.
  If your configuration differs take a look at the script and modify it accordingly.
 
-## Adding new vim plugins
-This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin manager for vim.
+## Adding new Neovim plugins
+This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin manager for Neovim.
  To manage plugins, simply add a vim-plug section to your `~/.vimrc` (or `~/.config/nvim/init.vim` for Neovim):
 
 1. Begin the section with `plug#begin()`

@@ -1,54 +1,92 @@
 #!/bin/bash
-#
-# Install Vim Plugins and create symlinks to the desired dotfiles.
 
-dotfiles=$(pwd)
-dotfiles_backup=$dotfiles".bak"
-files=".vim .vimrc .inputrc .gitconfig .bash_aliases .bashrc .config/terminator/config .ipython/profile_default/ipython_config.py .zshrc .jupyter/jupyter_console_config.py .jupyter/itorch_console_config.py .jupyter/ijulia_console_config.py .ipython/profile_default/startup/py_ipy_version.py .config/nvim .tmux.conf .bash"
+################################################################################
+# Packages & Directories {{{1
+################################################################################
+declare -A dotfiles_packages
+dotfiles_packages["vim"]=${HOME}
+dotfiles_packages["git"]=${HOME}
+dotfiles_packages["tmux"]=${HOME}
+dotfiles_packages["latex"]=${HOME}
+dotfiles_packages["bash"]=${HOME}
+dotfiles_packages["terminator"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["powerline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["jupyter"]=${HOME}/.jupyter
+dotfiles_packages["ipython"]=${HOME}/.ipython/profile_default
+# 1}}}
+################################################################################
 
-# Fetch Dependencies
-# - nerd-fonts
+################################################################################
+# Backup Dotfiles {{{1
+################################################################################
+dotfiles_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+dotfiles_backup_dir="${dotfiles_dir}.bak"
 
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "DejaVu Sans Mono for Powerline Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.ttf
+# Create backup directory to store the old dotfiles
+echo "Create backup directory ${dotfiles_backup_dir}"
+mkdir -p ${dotfiles_backup_dir}
 
-cd $dotfiles
+echo "The following files will be backup-ed:"
+for package in ${!dotfiles_packages[@]}; do
+  for file in $(ls -1A ${dotfiles_dir}/${package}); do
+    full_file_name="${dotfiles_packages[$package]}/${file}"
+    if [[ -e "$full_file_name" && ! -L "${full_file_name}" ]]; then
+      echo "${full_file_name} -> ${dotfiles_backup_dir}/${file}"
+      mv ${full_file_name} ${dotfiles_backup_dir}/${file}
+    fi
+  done
+done
+# 1}}}
+################################################################################
 
+################################################################################
+# GNU Stow {{{1
+################################################################################
+echo "Symlink dotfiles using GNU Stow:"
+for package in ${!dotfiles_packages[@]}; do
+  stow --verbose --restow --target=${dotfiles_packages[$package]} --ignore *\.md ${package}
+done
+# 1}}}
+################################################################################
+
+################################################################################
+# Nerd Fonts {{{1
+################################################################################
+# Download Desired Nerd Font
+echo "Download Nerd Fonts"
+mkdir -p ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts
+curl -fLo ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts/"DejaVu Sans Mono for Powerline Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.ttf
+echo "Done!"
+# 1}}}
+################################################################################
+
+################################################################################
+# Neovim Plugins {{{1
+################################################################################
+echo "Install Neovim Plugins"
 nvim -c 'PlugInstall'
+# 1}}}
+################################################################################
 
 ################################################################################
-#                                     Vim                                      #
+# Vim Plugins {{{1
 ################################################################################
-# Vim {{{1
 # # Clone Vundle first
-# git clone https://github.com/VundleVim/Vundle.vim.git $dotfiles/.vim/bundle/Vundle.vim
+# VIM_CONFIG_HOME="${dotfiles_dir}/vim/.vim"
+# git clone https://github.com/VundleVim/Vundle.vim.git ${VIM_CONFIG_HOME}/bundle/Vundle.vim
 
 # # Install all plugins
 # vim +PluginInstall +qall
 
 # # Compile YouCompleteMe
-# if [ -e $dotfiles/.vim/bundle/YouCompleteMe/install.py ]; then
+# if [ -e ${VIM_CONFIG_HOME}/bundle/YouCompleteMe/install.py ]; then
 #   echo "Compiling YouCompleteMe!"
-#   cd $dotfiles/.vim/bundle/YouCompleteMe/
-#   ./install.py --clang-completer
+#   ${VIM_CONFIG_HOME}/bundle/YouCompleteMe/install.py --clang-completer
 # fi
 # 1}}}
+################################################################################
 
-# Create backup directory to store the old dotfiles
-mkdir -p $dotfiles_backup
-echo "Created backup directory "$dotfiles_backup
+echo "Installation completed successfully!"
 
-# Create symbolic links
-cd ~/
-for file in $files; do
-  if [ -e "$file" ]; then
-    echo "Moving existing $file file to $dotfiles_backup"
-    mv $file $dotfiles_backup/
-  fi
-  echo "Creating symlink to $file in home directory"
-  ln -s $dotfiles/$file $file
-done
-
-# Return where we started
-cd $dotfiles
-echo "Installation completed!"
+# vim:foldmethod=marker:foldlevel=0:foldenable
