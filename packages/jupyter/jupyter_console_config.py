@@ -12,7 +12,7 @@
 #------------------------------------------------------------------------------
 
 # A parent class for Configurables that log.
-# 
+#
 # Subclasses have a log trait, and the default behavior is to get the logger
 # from the currently running Application.
 
@@ -23,7 +23,7 @@
 # Mixin for configurable classes that work with connection files
 
 # JSON file in which to store connection info [default: kernel-<pid>.json]
-# 
+#
 # This file will contain the IP, ports, and authentication key needed to connect
 # clients to this kernel. By default, this file will be created in the security
 # dir of the current profile, but can be specified by absolute path.
@@ -49,7 +49,7 @@
 # set the stdin (ROUTER) port [default: random]
 # c.ConnectionFileMixin.stdin_port = 0
 
-# 
+#
 # c.ConnectionFileMixin.transport = 'tcp'
 
 #------------------------------------------------------------------------------
@@ -77,7 +77,7 @@
 #------------------------------------------------------------------------------
 
 # A configurable that only allows one instance.
-# 
+#
 # This class is for classes that should only have one instance of itself or
 # *any* subclass. To create and retrieve such a class use the
 # :meth:`SingletonConfigurable.instance` method.
@@ -169,13 +169,13 @@ c.InteractiveShell.autoindent = True
 # Set the color scheme (NoColor, Linux, or LightBG).
 # c.InteractiveShell.colors = 'Linux'
 
-# 
+#
 # c.InteractiveShell.debug = False
 
 # **Deprecated**
-# 
+#
 # Will be removed in IPython 6.0
-# 
+#
 # Enable deep (recursive) reloading by default. IPython can use the deep_reload
 # module which reloads changes in modules recursively (it replaces the reload()
 # function, so you don't need to change anything to use it). `deep_reload`
@@ -191,14 +191,14 @@ c.InteractiveShell.autoindent = True
 # regular output instead.
 # c.InteractiveShell.display_page = False
 
-# 
+#
 # c.InteractiveShell.history_length = 10000
 
 # The number of saved history entries to be loaded into the readline buffer at
 # startup.
 # c.InteractiveShell.history_load_length = 1000
 
-# 
+#
 # c.InteractiveShell.ipython_dir = ''
 
 # Start logging to the given file in append mode. Use `logfile` to specify a log
@@ -215,7 +215,7 @@ c.InteractiveShell.autoindent = True
 # Save multi-line entries as one entry in readline history
 # c.InteractiveShell.multiline_history = True
 
-# 
+#
 # c.InteractiveShell.object_info_string_level = 0
 
 # Automatically call the pdb debugger after every exception.
@@ -234,51 +234,51 @@ c.InteractiveShell.autoindent = True
 # c.InteractiveShell.prompts_pad_left = True
 
 # Output prompt. '\#' will be transformed to the prompt number
-c.PromptManager.out_template = u'{color.Yellow} {color.Red}├──▶ '
+c.PromptManager.out_template = u'{color.Brown} {color.Red}│⟶  '
 
 # Continuation prompt.
-c.PromptManager.in2_template = u'{color.Yellow} {color.Green}│.\D: '
+c.PromptManager.in2_template = u'{color.Brown} {color.Green}│⟶  '
 
 #
 c.PromptManager.color_scheme = 'Linux'
 
 # Input prompt.  '\#' will be transformed to the prompt number
-c.PromptManager.in_template = u'{color.Yellow} ' + \
-                              r'{color.LightCyan}\u{color.Yellow}:'\
-                               '{color.LightRed}[\Y1]\n' + \
-                               u'{color.Yellow} {color.Green}├──▶ '
+c.PromptManager.in_template = u'{color.Brown} ' + \
+                              r'{color.Cyan}\u{color.Brown}:'\
+                               '{color.LightRed}[{color.Red}\Y1{color.LightRed}]\n' + \
+                               u'{color.Brown} {color.Green}│⟶  '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
 c.PromptManager.justify = False
 
-# 
+#
 # c.InteractiveShell.quiet = False
 
-# 
+#
 # c.InteractiveShell.readline_parse_and_bind = ['tab: complete', '"\\C-l": clear-screen', 'set show-all-if-ambiguous on', '"\\C-o": tab-insert', '"\\C-r": reverse-search-history', '"\\C-s": forward-search-history', '"\\C-p": history-search-backward', '"\\C-n": history-search-forward', '"\\e[A": history-search-backward', '"\\e[B": history-search-forward', '"\\C-k": kill-line', '"\\C-u": unix-line-discard']
 
-# 
+#
 # c.InteractiveShell.readline_remove_delims = '-/~'
 
-# 
+#
 # c.InteractiveShell.readline_use = True
 
-# 
+#
 # c.InteractiveShell.separate_in = '\n'
 
-# 
+#
 # c.InteractiveShell.separate_out = ''
 
-# 
+#
 # c.InteractiveShell.separate_out2 = ''
 
 # Show rewritten input, e.g. for autocall.
 # c.InteractiveShell.show_rewritten_input = True
 
-# 
+#
 # c.InteractiveShell.wildcards_case_sensitive = True
 
-# 
+#
 # c.InteractiveShell.xmode = 'Context'
 
 #------------------------------------------------------------------------------
@@ -338,19 +338,19 @@ c.PromptManager.justify = False
 
 # Whether to include output from clients other than this one sharing the same
 # kernel.
-# 
+#
 # Outputs are not displayed until enter is pressed.
 # c.ZMQTerminalInteractiveShell.include_other_output = False
 
 # Timeout (in seconds) for giving up on a kernel's is_complete response.
-# 
+#
 # If the kernel does not respond at any point within this time, the kernel will
 # no longer be asked if code is complete, and the console will default to the
 # built-in is_complete test.
 # c.ZMQTerminalInteractiveShell.kernel_is_complete_timeout = 1
 
 # Timeout for giving up on a kernel (in seconds).
-# 
+#
 # On first connect and restart, the console tests whether the kernel is running
 # and responsive by sending kernel_info_requests. This sets the timeout in
 # seconds for how long the kernel can take before being presumed dead.
@@ -361,7 +361,7 @@ c.PromptManager.justify = False
 # c.ZMQTerminalInteractiveShell.mime_preference = ['image/png', 'image/jpeg', 'image/svg+xml']
 
 # Prefix to add to outputs coming from clients other than this one.
-# 
+#
 # Only relevant if include_other_output is True.
 # c.ZMQTerminalInteractiveShell.other_output_prefix = '[remote] '
 
@@ -387,14 +387,14 @@ c.PromptManager.justify = False
 #------------------------------------------------------------------------------
 
 # Manages a single kernel in a subprocess on this host.
-# 
+#
 # This version starts kernels with Popen.
 
 # Should we autorestart the kernel if it dies.
 # c.KernelManager.autorestart = False
 
 # DEPRECATED: Use kernel_name instead.
-# 
+#
 # The Popen Command to launch the kernel. Override this if you have a custom
 # kernel. If kernel_cmd is specified in a configuration file, Jupyter does not
 # pass any arguments to the kernel, because it cannot make any assumptions about
@@ -408,27 +408,27 @@ c.PromptManager.justify = False
 #------------------------------------------------------------------------------
 
 # Object for handling serialization and sending of messages.
-# 
+#
 # The Session object handles building messages and sending them with ZMQ sockets
 # or ZMQStream objects.  Objects can communicate with each other over the
 # network via Session objects, and only need to work with the dict-based IPython
 # message spec. The Session will handle serialization/deserialization, security,
 # and metadata.
-# 
+#
 # Sessions support configurable serialization via packer/unpacker traits, and
 # signing with HMAC digests via the key/keyfile traits.
-# 
+#
 # Parameters ----------
-# 
+#
 # debug : bool
 #     whether to trigger extra debugging statements
 # packer/unpacker : str : 'json', 'pickle' or import_string
 #     importstrings for methods to serialize message parts.  If just
 #     'json' or 'pickle', predefined JSON and pickle packers will be used.
 #     Otherwise, the entire importstring must be used.
-# 
+#
 #     The functions must accept at least valid JSON input, and output *bytes*.
-# 
+#
 #     For example, to use msgpack:
 #     packer = 'msgpack.packb', unpacker='msgpack.unpackb'
 # pack/unpack : callables
@@ -455,7 +455,7 @@ c.PromptManager.justify = False
 # c.Session.debug = False
 
 # The maximum number of digests to remember.
-# 
+#
 # The digest history will be culled when it exceeds this value.
 # c.Session.digest_history_size = 65536
 

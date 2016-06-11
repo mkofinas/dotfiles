@@ -690,7 +690,7 @@ let g:deoplete#sources#clang#clang_header='/usr/include/clang/3.4/include/'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let base16colorspace=256
 set background=dark
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:base16_shell_path="/home/miltos/.zplug/repos/chriskempson/base16-shell"
 silent! colorscheme base16-atelierforest
