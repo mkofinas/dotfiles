@@ -1,0 +1,2 @@
+[filter "ignorepowerlinecredentials"]
+  clean = "sed -r 's/(\"username\": |\"password\": )\".*\"/\\1\"\"/g'"
