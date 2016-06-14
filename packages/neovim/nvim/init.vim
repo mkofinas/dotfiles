@@ -76,7 +76,7 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'sudo npm -g instal
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
-Plug 'hynek/vim-python-pep8-indent'
+" Plug 'hynek/vim-python-pep8-indent'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -104,7 +104,14 @@ Plug 'JuliaLang/julia-vim'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 Plug 'ryanoasis/vim-devicons'
-" }}}
+" 3}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Other {{{3
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'ryanss/vim-hackernews'
+" 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " All of your Plugins must be added before the following line
@@ -316,7 +323,7 @@ xnoremap p pgvy
 inoremap jk <Esc>
 
 " Insert space without entering insert mode
-nnoremap <space> i<space><Esc>
+nnoremap <space> i<space><Esc>l
 " Insert newline without entering insert mode
 nnoremap <CR> o<Esc>
 
@@ -497,8 +504,10 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! BufWritePost,BufEnter * Neomake
-autocmd! QuitPre * lclose
+if exists(':Neomake')
+  autocmd! BufWritePost,BufEnter * Neomake
+  autocmd! QuitPre * lclose
+endif
 let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
 let g:neomake_warning_sign = { 'text': '', 'texthl': 'WarningMsg' }
 
@@ -635,7 +644,9 @@ let g:tmux_navigator_save_on_switch = 1
 " Vim-Better-Whitespace {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWritePre * StripWhitespace
+if exists(':StripWhitespace')
+  autocmd BufWritePre * StripWhitespace
+endif
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'tex']
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -692,12 +703,12 @@ let base16colorspace=256
 set background=dark
 set termguicolors  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let g:base16_shell_path="/home/miltos/.zplug/repos/chriskempson/base16-shell"
+let g:base16_shell_path="$HOME/.zplug/repos/chriskempson/base16-shell"
 silent! colorscheme base16-atelierforest
 highlight VertSplit ctermfg=02 ctermbg=00 cterm=none guifg=#5ab738 guibg=#1b1918 gui=none
 highlight ErrorMsg ctermfg=16 ctermbg=18 cterm=none guifg=#df5320 guibg=#2c2421 gui=none
 highlight WarningMsg ctermfg=03 ctermbg=18 cterm=none guifg=#d5911a guibg=#2c2421 gui=none
-" highlight ExtraWhitespace guibg=#ff0000
+highlight ExtraWhitespace guibg=#ff0000
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
