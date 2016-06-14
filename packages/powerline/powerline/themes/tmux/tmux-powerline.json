@@ -1,8 +1,18 @@
 {
   "segments": {
     "left": [
+        {
+          "function": "powerline.segments.common.env.user"
+        }
     ],
     "right": [
+      {
+        "function": "powerline.segments.common.mail.email_imap_alert",
+        "args": {
+          "username": "",
+          "password": ""
+        }
+      },
       {
         "function": "powerline.segments.common.time.date",
         "name": "date",
