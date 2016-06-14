@@ -1,9 +1,9 @@
 {
   "segments": {
     "left": [
-        {
-          "function": "powerline.segments.common.env.user"
-        }
+      {
+        "function": "powerline.segments.common.env.user"
+      }
     ],
     "right": [
       {
