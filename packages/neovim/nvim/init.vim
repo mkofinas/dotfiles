@@ -244,6 +244,7 @@ autocmd BufNewFile,BufRead *.glsl set filetype=cpp
 autocmd BufNewFile,BufRead *.*.glsl set filetype=cpp
 autocmd BufNewFile,BufRead *.zsh-theme set filetype=sh
 autocmd BufNewFile,BufRead *.zsh set filetype=sh
+autocmd BufNewFile,BufRead .latexmkrc set filetype=perl
 
 let g:tex_flavor='latex'
 let g:tex_conceal = ""
