@@ -4,6 +4,7 @@
 
 [core]
   editor=nvim
+  pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
   ui = true
@@ -13,6 +14,12 @@
   frag = magenta bold
   old = red
   new = green
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [log]
   decorate = full
