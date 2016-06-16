@@ -1,11 +1,15 @@
 {
   "segments": {
     "left": [
-      {
-        "function": "powerline.segments.common.env.user"
-      }
     ],
     "right": [
+      {
+        "function": "powerline.segments.common.players.cmus",
+        "name": "player",
+        "args": {
+          "format": "{state_symbol}{artist} - {title}"
+        }
+      },
       {
         "function": "powerline.segments.common.mail.email_imap_alert",
         "args": {
