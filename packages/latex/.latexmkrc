@@ -13,3 +13,5 @@ if (basename(dirname(File::Spec->rel2abs(__FILE__))) eq "src") {
 else {
   $out_dir = "build";
 }
+
+# vim: ft=perl
