@@ -194,6 +194,8 @@ set noswapfile " No swap (*.swp) files
 set textwidth=80
 
 let g:load_doxygen_syntax=1
+
+set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -235,22 +237,10 @@ set gdefault " This makes search/replace global by default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TeX {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tex_flavor = 'latex'
-let g:tex_conceal = ""
-set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
-let g:tex_comment_nospell=1
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spellchecking {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
-autocmd FileType tex setlocal spell
-autocmd FileType tex setlocal spelllang=el,en
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -700,6 +690,7 @@ silent! colorscheme base16-atelierforest
 highlight VertSplit ctermfg=02 ctermbg=00 cterm=none guifg=#5ab738 guibg=#1b1918 gui=none
 highlight ErrorMsg ctermfg=16 ctermbg=18 cterm=none guifg=#df5320 guibg=#2c2421 gui=none
 highlight WarningMsg ctermfg=03 ctermbg=18 cterm=none guifg=#d5911a guibg=#2c2421 gui=none
+highlight SpellBad ctermbg=01 guibg=#f22c40
 highlight ExtraWhitespace guibg=#ff0000
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
