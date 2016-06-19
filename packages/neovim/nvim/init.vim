@@ -237,14 +237,14 @@ set gdefault " This makes search/replace global by default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd InsertEnter *.json setlocal concealcursor=
+autocmd InsertLeave *.json setlocal concealcursor=inc
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd BufNewFile,BufRead *.launch set filetype=xml
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd BufNewFile,BufRead *.glsl set filetype=cpp
-autocmd BufNewFile,BufRead *.*.glsl set filetype=cpp
-autocmd BufNewFile,BufRead *.zsh-theme set filetype=sh
-autocmd BufNewFile,BufRead *.zsh set filetype=sh
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TeX {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tex_flavor='latex'
 let g:tex_conceal = ""
 set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
@@ -429,10 +429,11 @@ let g:airline_theme = 'base16_atelierforest'
 " indentLine {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_enabled = 1
-let g:indentLine_char = '│'
+let g:indentLine_char = '┊'  " │ 
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
+let g:indentLine_noConcealCursor=""
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
