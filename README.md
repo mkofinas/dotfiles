@@ -20,6 +20,7 @@ This repository contains configuration files for the following:
   - IPython/Jupyter Console
   - IJulia
   - ITorch
+- CMUS (C\* Music Player)
 - Git
 - Terminator
 - Tmux

@@ -1,0 +1,11 @@
+# Cmus Configuration
+
+colorscheme zenburn
+
+set format_title= C*MUS
+set altformat_title=cmus
+set format_current= %a - %t
+set format_trackwin= %d %a - %02n. %t%=%l (%04y)
+
+set repeat=true
+set shuffle=true
