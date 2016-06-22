@@ -96,11 +96,3 @@ if [ -f $HOME/.venvburrito/startup.sh ]; then
   . $HOME/.venvburrito/startup.sh
 fi
 
-# Print a random, hopefully interesting, adage.
-if (( $+commands[python] )); then
-  if [[ -t 0 || -t 1 ]]; then
-    # print
-    # bash ${HOME}/My-Repos/random-quotes/print_random_quote.sh
-    python ${HOME}/My-Repos/random-quotes/print_random_quote.py
-  fi
-fi

@@ -1,15 +1,32 @@
 ################################################################################
 # Zsh Configuration                                                            #
 # -------------------------                                                    #
-# 1. Source Prezto                                                             #
-# 2. Plugin Manager: Zplug                                                     #
-# 3. Source Files                                                              #
-# 4. Aliases                                                                   #
-# 5. Keybindings                                                               #
-# 6. Plugin Settings                                                           #
+# 1. Print Random Quote                                                        #
+# 2. Source Prezto                                                             #
+# 3. Plugin Manager: Zplug                                                     #
+# 4. Source Files                                                              #
+# 5. Aliases                                                                   #
+# 6. Keybindings                                                               #
+# 7. Plugin Settings                                                           #
 # -------------------------                                                    #
 # Author(s):                                                                   #
 # - Miltiadis Kofinas <mkofinas@gmail.com>                                     #
+################################################################################
+
+################################################################################
+# Print Random Quote {{{1
+################################################################################
+# Print a random, hopefully interesting, adage.
+if (( $+commands[python] )); then
+  if [[ -t 0 || -t 1 ]]; then
+    if [[ -f ${HOME}/My-Repos/random-quotes/print_random_quote.py ]]; then
+      # print
+      # bash ${HOME}/My-Repos/random-quotes/print_random_quote.sh
+      python ${HOME}/My-Repos/random-quotes/print_random_quote.py
+    fi
+  fi
+fi
+# 1}}}
 ################################################################################
 
 ################################################################################
