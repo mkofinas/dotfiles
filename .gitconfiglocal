@@ -1,2 +1,7 @@
 [filter "ignorepowerlinecredentials"]
   clean = "sed -r 's/(\"username\": |\"password\": )\".*\"/\\1\"\"/g'"
+
+[filter "ignoremuttcredentials"]
+  clean = "sed -r 's/(set )(imap_user|imap_pass|smtp_url|smtp_pass|from|realname|folder)([[:space:]]*=[[:space:]]*).*/\\1\\2\\3\"\"/g'"
+
+# vim: ft=gitconfig

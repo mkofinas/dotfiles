@@ -1,15 +1,15 @@
 # Mutt Configuration
 
 # User Settings
-set imap_user = ''
-set imap_pass = ''
-set smtp_url = ''
-set smtp_pass = ''
-set from = ''
-set realname = ''
+set imap_user = ""
+set imap_pass = ""
+set smtp_url = ""
+set smtp_pass = ""
+set from = ""
+set realname = ""
 
 # Mail Organization
-set folder = ''
+set folder = ""
 set spoolfile = "+INBOX"
 set postponed = "+[Gmail]/Drafts"
 unset record  # set record = "+[Gmail]/Sent Mail"
