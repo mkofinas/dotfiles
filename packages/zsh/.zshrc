@@ -20,9 +20,8 @@
 if (( $+commands[python] )); then
   if [[ -t 0 || -t 1 ]]; then
     if [[ -f ${HOME}/My-Repos/random-quotes/print_random_quote.py ]]; then
-      # print
-      # bash ${HOME}/My-Repos/random-quotes/print_random_quote.sh
-      python ${HOME}/My-Repos/random-quotes/print_random_quote.py
+      bash ${HOME}/My-Repos/random-quotes/print_random_quote.sh
+      # python ${HOME}/My-Repos/random-quotes/print_random_quote.py
     fi
   fi
 fi
