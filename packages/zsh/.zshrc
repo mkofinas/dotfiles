@@ -212,6 +212,7 @@ alias bashrc="$EDITOR ~/.bashrc"
 alias sbash="source ~/.bashrc"
 alias ipyrc="$EDITOR ~/.ipython/profile_default/ipython_config.py"
 alias tmrc="$EDITOR ~/.tmux.conf"
+alias muttrc="$EDITOR ~/.muttrc"
 alias zsh_theme="$EDITOR $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_sigma.zsh-theme"
 # 1}}}
 ################################################################################
