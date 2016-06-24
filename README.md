@@ -21,6 +21,7 @@ This repository contains configuration files for the following:
   - IJulia
   - ITorch
 - CMUS (C\* Music Player)
+- Mutt (Mail Client)
 - Git
 - Terminator
 - Tmux

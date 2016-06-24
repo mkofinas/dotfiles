@@ -1,0 +1,67 @@
+# Mutt Configuration
+
+# User Settings
+set imap_user = ''
+set imap_pass = ''
+set smtp_url = ''
+set smtp_pass = ''
+set from = ''
+set realname = ''
+
+# Mail Organization
+set folder = ''
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+unset record  # set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Bin"
+set imap_check_subscribed
+set move = no
+
+# Cache Directories
+set header_cache = "~/.cache/mutt/headers"
+set message_cachedir = "~/.cache/mutt/bodies"
+
+# Mail Editor
+set editor = "nvim"
+
+# User Interface
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set index_format = "%4C %Z │ %{%b %d %Y} │ %-25.25L │ %s"
+set tilde
+
+# Connection
+unset imap_passive
+set mail_check = 120
+set timeout = 300
+set ssl_force_tls=yes
+set hostname = "gmail.com"
+
+# Mail Format
+set include
+auto_view text/html
+alternative_order text/plain text/html
+
+# Functions
+set auto_tag = yes
+
+# Bindings & Macros
+bind editor <space> noop
+# bind editor <Tab> complete
+# bind editor ^T complete-query
+bind pager <up> previous-line
+bind pager <down> next-line
+bind pager k previous-line
+bind pager j next-line
+
+bind index,pager h previous-page
+bind index,pager l next-page
+
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index,pager gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent mail"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index,pager gb "<change-folder>=[Gmail]/Bin<enter>" "Go to bin"
+
+macro index,pager b "<save-message>=[Gmail]/Bin<enter><refresh>" "Move message to Bin"
+
