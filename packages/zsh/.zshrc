@@ -40,13 +40,14 @@ fi
 ################################################################################
 # Plugin Manager: Zplug {{{1
 ################################################################################
+export ZPLUG_HOME="${ZDOTDIR:-$HOME}/.zplug"
 # Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+if [[ ! -d "${ZPLUG_HOME}" ]]; then
+  git clone https://github.com/zplug/zplug "${ZPLUG_HOME}"
+  source "${ZPLUG_HOME}/init.zsh" && zplug update --self
 fi
 
-source ~/.zplug/init.zsh
+source "${ZPLUG_HOME}/init.zsh"
 
 ################################################################################
 # Commands {{{2
