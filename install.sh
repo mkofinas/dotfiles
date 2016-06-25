@@ -5,7 +5,7 @@
 ################################################################################
 declare -A dotfiles_packages
 dotfiles_packages["vim"]=${HOME}
-dotfiles_packages["git"]=${HOME}
+dotfiles_packages["git"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["tmux"]=${HOME}
 dotfiles_packages["latex"]=${HOME}
 dotfiles_packages["bash"]=${HOME}
