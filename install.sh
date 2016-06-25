@@ -107,7 +107,7 @@ nvim -c 'PlugInstall | qa'
 ################################################################################
 # Zsh - Prezto {{{1
 ################################################################################
-zsh -c 'setopt EXTENDED_GLOB; for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zprofile|zshrc)(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done'
+zsh "${ZDOTDIR:-$HOME}/.zprezto/install.zsh"
 # 1}}}
 ################################################################################
 
