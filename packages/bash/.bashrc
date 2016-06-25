@@ -18,6 +18,8 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+export HISTFILE="${XDG_DATA_HOME:-${HOME}/.local/share}/bash/history"
+export INPUTRC="${XDG_CONFIG_HOME:-${HOME}/.config}/readline/inputrc"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -94,6 +96,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+export TERM=xterm-256color
+
 ###################################### ROS #####################################
 
 if [ -f /opt/ros/indigo/setup.bash ]; then
@@ -107,8 +114,6 @@ fi
 if [ -f ~/pandora_ws/devel/setup.bash ]; then
     . ~/pandora_ws/devel/setup.bash --extend
 fi
-
-export TERM=xterm-256color
 
 ################################## Bash Theme ##################################
 

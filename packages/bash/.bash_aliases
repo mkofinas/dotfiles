@@ -35,7 +35,7 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias grep-in-files='grep -hHIrFn'
+alias file-grep='grep -hHIrFn'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -46,6 +46,7 @@ alias disk_status='df --human-readable '
 
 alias o="gnome-open"
 alias v="vim"
+alias nv="nvim"
 alias c="clear"
 
 ################################## Youtube-DL ##################################
@@ -59,10 +60,12 @@ alias ipy='ipython'
 ############################## Configuration Files #############################
 
 alias vimrc='vim ~/.vimrc'
-alias bashrc='vim ~/.bashrc'
-alias ipyrc='vim ~/.dotfiles/.ipython/profile_default/ipython_config.py'
+alias bashrc="${EDITOR} ~/.bashrc"
+alias ipyrc="${EDITOR} ~/.dotfiles/.ipython/profile_default/ipython_config.py"
 alias sbash='source ~/.bashrc'
-alias bash_theme="vim ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
+alias bash_theme="${EDITOR} ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
 
-alias zshrc='vim ~/.zshrc'
+alias zshrc="${EDITOR} ~/.zshrc"
 alias szsh='source ~/.zshrc'
+
+alias nvrc="${EDITOR} ${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/init.vim"
