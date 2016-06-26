@@ -10,7 +10,7 @@ dotfiles_packages["tmux"]=${HOME}
 dotfiles_packages["latex"]=${HOME}
 dotfiles_packages["bash"]=${HOME}
 dotfiles_packages["mutt"]=${HOME}
-dotfiles_packages["zsh"]=${ZDOTDIR:-${HOME}}
+dotfiles_packages["zsh"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["terminator"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["powerline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
@@ -107,7 +107,7 @@ nvim -c 'PlugInstall | qa'
 ################################################################################
 # Zsh - Prezto {{{1
 ################################################################################
-zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; setopt EXTENDED_GLOB; ln -s "${ZDOTDIR}/.zprezto/bootstrap/zshenv" "${HOME}/.zshenv"; for rcfile in "${ZDOTDIR}"/.zprezto/runcoms/^(README.md|zprofile|zshrc)(.N); do ln -s "$rcfile" "${ZDOTDIR}/.${rcfile:t}"; done'
+zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTDIR}/.zprezto/bootstrap/zshenv" "${HOME}/.zshenv"; source "${ZDOTDIR}/.zshrc"'
 # 1}}}
 ################################################################################
 
