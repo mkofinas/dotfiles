@@ -204,16 +204,19 @@ alias ijulia='jupyter console --kernel=julia-0.4 --config=~/.jupyter/ijulia_cons
 alias ijl='ijulia'
 alias jn='jupyter notebook'
 
+# Mutt - XDG Specification
+alias mutt="mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
+
 # Configuration Files
-alias zshrc="$EDITOR ~/.zshrc"
-alias szsh="source ~/.zshrc"
+alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
+alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
 alias vimrc="vim ~/.vimrc"
-alias nvrc="$EDITOR ~/.config/nvim/init.vim"
+alias nvrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/init.vim"
 alias bashrc="$EDITOR ~/.bashrc"
 alias sbash="source ~/.bashrc"
 alias ipyrc="$EDITOR ~/.ipython/profile_default/ipython_config.py"
 alias tmrc="$EDITOR ~/.tmux.conf"
-alias muttrc="$EDITOR ~/.muttrc"
+alias muttrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 alias zsh_theme="$EDITOR $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_sigma.zsh-theme"
 # 1}}}
 ################################################################################

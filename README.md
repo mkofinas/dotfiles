@@ -98,7 +98,7 @@ To install from command line: `nvim -c 'PlugInstall'`
   - [ ] IPython
   - [ ] Jupyter
   - [ ] CMUS
-  - [ ] Mutt
+  - [x] Mutt
   - [x] Git
   - [x] Terminator
   - [ ] Tmux

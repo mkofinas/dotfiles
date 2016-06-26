@@ -9,7 +9,7 @@ dotfiles_packages["git"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["tmux"]=${HOME}
 dotfiles_packages["latex"]=${HOME}
 dotfiles_packages["bash"]=${HOME}
-dotfiles_packages["mutt"]=${HOME}
+dotfiles_packages["mutt"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["zsh"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["terminator"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
@@ -109,6 +109,16 @@ nvim -c 'PlugInstall | qa'
 # Zsh - Prezto {{{1
 ################################################################################
 zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTDIR}/.zprezto/bootstrap/zshenv" "${HOME}/.zshenv"; source "${ZDOTDIR}/.zshrc"'
+# 1}}}
+################################################################################
+
+################################################################################
+# Mutt {{{1
+################################################################################
+mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
+mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
+chmod 600 "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt"
+chmod 600 "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt"
 # 1}}}
 ################################################################################
 

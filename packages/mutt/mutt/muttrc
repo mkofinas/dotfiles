@@ -18,8 +18,8 @@ set imap_check_subscribed
 set move = no
 
 # Cache Directories
-set header_cache = "~/.cache/mutt/headers"
-set message_cachedir = "~/.cache/mutt/bodies"
+set header_cache = "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
+set message_cachedir = "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
 
 # Mail Editor
 set editor = "nvim"
