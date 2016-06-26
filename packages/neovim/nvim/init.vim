@@ -241,7 +241,6 @@ set gdefault " This makes search/replace global by default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
-autocmd FileType mail setlocal spell
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
