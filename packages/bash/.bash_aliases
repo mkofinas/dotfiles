@@ -60,6 +60,9 @@ alias ipy='ipython'
 # Mutt - XDG Specification
 alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 
+# Latexmk - XDG Specification
+alias latexmk="latexmk -r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
+
 ############################## Configuration Files #############################
 
 alias vimrc='vim ~/.vimrc'

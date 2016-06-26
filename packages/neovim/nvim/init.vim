@@ -574,6 +574,7 @@ let g:LatexBox_latexmk_async=1
 let g:LatexBox_latexmk_preview_continuously=1
 let g:LatexBox_quickfix=2
 let g:LaTeXBox_output_type='' "Let latexmkrc choose the type
+let g:LatexBox_latexmk_options="-r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

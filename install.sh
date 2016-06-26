@@ -5,10 +5,10 @@
 ################################################################################
 declare -A dotfiles_packages
 dotfiles_packages["vim"]=${HOME}
-dotfiles_packages["git"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["tmux"]=${HOME}
 dotfiles_packages["latex"]=${HOME}
 dotfiles_packages["bash"]=${HOME}
+dotfiles_packages["git"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["mutt"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["zsh"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["terminator"]=${XDG_CONFIG_HOME:-${HOME}/.config}
@@ -17,7 +17,7 @@ dotfiles_packages["powerline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["readline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["jupyter"]=${HOME}/.jupyter
 dotfiles_packages["ipython"]=${HOME}/.ipython/profile_default
-dotfiles_packages["cmus"]=${HOME}/.cmus
+dotfiles_packages["cmus"]=${XDG_CONFIG_HOME:-${HOME}/.config}/cmus
 # 1}}}
 ################################################################################
 

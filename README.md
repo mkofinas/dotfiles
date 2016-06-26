@@ -25,7 +25,7 @@ This repository contains configuration files for the following:
 - Git
 - Terminator
 - Tmux
-- Latex
+- Latexmk
 - Powerline
 
 ## Dependencies
@@ -102,7 +102,7 @@ To install from command line: `nvim -c 'PlugInstall'`
   - [x] Git
   - [x] Terminator
   - [ ] Tmux
-  - [ ] Latex
+  - [x] Latexmk
   - [x] Powerline
 
 Resources:

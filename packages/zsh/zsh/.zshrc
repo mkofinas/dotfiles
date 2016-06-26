@@ -207,6 +207,9 @@ alias jn='jupyter notebook'
 # Mutt - XDG Specification
 alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 
+# Latexmk - XDG Specification
+alias latexmk="latexmk -r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
+
 # Configuration Files
 alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
 alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
