@@ -14,6 +14,7 @@ dotfiles_packages["zsh"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["terminator"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["powerline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["readline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["jupyter"]=${HOME}/.jupyter
 dotfiles_packages["ipython"]=${HOME}/.ipython/profile_default
 dotfiles_packages["cmus"]=${HOME}/.cmus
