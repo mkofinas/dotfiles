@@ -102,6 +102,7 @@ nvim -c 'PlugInstall | qa'
 #   echo "Compiling YouCompleteMe!"
 #   ${VIM_CONFIG_HOME}/bundle/YouCompleteMe/install.py --clang-completer
 # fi
+# mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/vim"
 # 1}}}
 ################################################################################
 

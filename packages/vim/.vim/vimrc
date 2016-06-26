@@ -135,6 +135,11 @@ set wildignore+=*~
 
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
+if empty($XDG_CACHE_HOME)
+  let $XDG_CACHE_HOME = expand('$HOME/.cache')
+endif
+set viminfo+=n${XDG_CACHE_HOME}/vim/viminfo
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ***************************** Folding SETTINGS ***************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
