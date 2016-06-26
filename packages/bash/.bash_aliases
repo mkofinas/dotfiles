@@ -63,6 +63,9 @@ alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 # Latexmk - XDG Specification
 alias latexmk="latexmk -r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
 
+# Tmux - XDG Specification
+alias tmux="tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
+
 ############################## Configuration Files #############################
 
 alias vimrc='vim ~/.vimrc'
@@ -76,6 +79,6 @@ alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
 
 alias nvrc="${EDITOR} ${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/init.vim"
 
-alias tmrc="$EDITOR ~/.tmux.conf"
+alias tmrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
 alias muttrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 

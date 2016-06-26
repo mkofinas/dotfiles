@@ -104,6 +104,9 @@ export TERM=xterm-256color
 # CMUS - XDG Specification
 export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
 
+# Less History
+export LESSHISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/less/history"
+
 ###################################### ROS #####################################
 
 if [ -f /opt/ros/indigo/setup.bash ]; then

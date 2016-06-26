@@ -18,3 +18,6 @@ export PROJECT_HOME=$HOME/Virtual\ Environments
 # CMUS - XDG Specification
 export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
 
+# Less History
+export LESSHISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/less/history"
+

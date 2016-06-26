@@ -101,7 +101,7 @@ To install from command line: `nvim -c 'PlugInstall'`
   - [x] Mutt
   - [x] Git
   - [x] Terminator
-  - [ ] Tmux
+  - [x] Tmux
   - [x] Latexmk
   - [x] Powerline
 

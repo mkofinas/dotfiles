@@ -5,8 +5,8 @@
 ################################################################################
 declare -A dotfiles_packages
 dotfiles_packages["vim"]=${HOME}
-dotfiles_packages["tmux"]=${HOME}
-dotfiles_packages["latex"]=${HOME}
+dotfiles_packages["tmux"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["latex"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["bash"]=${HOME}
 dotfiles_packages["git"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["mutt"]=${XDG_CONFIG_HOME:-${HOME}/.config}
@@ -118,6 +118,13 @@ zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTD
 mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
 mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
 echo "WARNING! You have to set up your credentials in order for mutt to work!"
+# 1}}}
+################################################################################
+
+################################################################################
+# Tmux - Tmux Plugin Manager {{{1
+################################################################################
+git clone https://github.com/tmux-plugins/tpm ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/plugins/tpm
 # 1}}}
 ################################################################################
 
