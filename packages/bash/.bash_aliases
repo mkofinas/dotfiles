@@ -64,11 +64,15 @@ alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc="${EDITOR} ~/.bashrc"
-alias ipyrc="${EDITOR} ~/.dotfiles/.ipython/profile_default/ipython_config.py"
+alias ipyrc="${EDITOR} ~/.ipython/profile_default/ipython_config.py"
 alias sbash='source ~/.bashrc'
 alias bash_theme="${EDITOR} ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
 
-alias zshrc="${EDITOR} ~/.zshrc"
-alias szsh='source ~/.zshrc'
+alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
+alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
 
 alias nvrc="${EDITOR} ${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/init.vim"
+
+alias tmrc="$EDITOR ~/.tmux.conf"
+alias muttrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
+

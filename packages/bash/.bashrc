@@ -101,6 +101,9 @@ export VISUAL='nvim'
 
 export TERM=xterm-256color
 
+# CMUS - XDG Specification
+export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
+
 ###################################### ROS #####################################
 
 if [ -f /opt/ros/indigo/setup.bash ]; then
