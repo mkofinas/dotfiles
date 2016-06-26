@@ -205,7 +205,7 @@ alias ijl='ijulia'
 alias jn='jupyter notebook'
 
 # Mutt - XDG Specification
-alias mutt="mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
+alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 
 # Configuration Files
 alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
