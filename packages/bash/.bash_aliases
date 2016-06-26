@@ -26,10 +26,11 @@ alias make_motion='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_v
 
 ##################################### Linux ####################################
 
-# ls aliases
-alias ll='ls -alhF'
-alias la='ls -lAh'
-alias l='ls -CF'
+# List Directories
+alias l='ls -1F'
+alias ll='ls -lh'
+alias la='ls -lhA'
+alias lr='ls -lhR'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -42,12 +43,18 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-alias disk_status='df --human-readable '
+alias disk_status='df --human-readable'
 
-alias o="gnome-open"
+# Make Directories
+alias md='mkdir -p'
+
 alias v="vim"
 alias nv="nvim"
 alias c="clear"
+alias jl="julia"
+alias ff="firefox"
+alias o="xdg-open"
+alias oo="xdg-open 2>/dev/null"
 
 ################################## Youtube-DL ##################################
 
@@ -56,6 +63,11 @@ alias dlmusic='youtube-dl --output "%(title)s.%(ext)s" -x --audio-format mp3'
 #################################### IPython ###################################
 
 alias ipy='ipython'
+alias itorch="jupyter console --kernel=itorch --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/itorch_console_config.py"
+alias ith='itorch'
+alias ijulia="jupyter console --kernel=julia-0.4 --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/ijulia_console_config.py"
+alias ijl='ijulia'
+alias jn='jupyter notebook'
 
 # Mutt - XDG Specification
 alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
@@ -71,17 +83,17 @@ alias vim="vim -u ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
 
 ############################## Configuration Files #############################
 
-alias vimrc='vim ~/.vimrc'
 alias bashrc="${EDITOR} ~/.bashrc"
-alias ipyrc="${EDITOR} ~/.ipython/profile_default/ipython_config.py"
 alias sbash='source ~/.bashrc'
-alias bash_theme="${EDITOR} ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
-
 alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
 alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
 
 alias nvrc="${EDITOR} ${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/init.vim"
+alias vimrc="vim ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
 
+alias ipyrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile_default/ipython_config.py"
 alias tmrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
 alias muttrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
+
+alias bash_theme="${EDITOR} ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
 

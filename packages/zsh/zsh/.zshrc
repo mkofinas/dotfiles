@@ -117,7 +117,9 @@ fi
 ################################################################################
 # Torch {{{2
 ################################################################################
-. ~/Libraries/torch/install/bin/torch-activate
+if [ -f ~/Libraries/torch/install/bin/torch-activate ]; then
+  . ~/Libraries/torch/install/bin/torch-activate
+fi
 # 2}}}
 ################################################################################
 
@@ -198,9 +200,9 @@ alias salias='alias | grep "^[a-z]=" | sort'
 
 # IPython - Jupyter
 alias ipy='ipython'
-alias itorch='jupyter console --kernel=itorch --config=~/.jupyter/itorch_console_config.py'
+alias itorch="jupyter console --kernel=itorch --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/itorch_console_config.py"
 alias ith='itorch'
-alias ijulia='jupyter console --kernel=julia-0.4 --config=~/.jupyter/ijulia_console_config.py'
+alias ijulia="jupyter console --kernel=julia-0.4 --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/ijulia_console_config.py"
 alias ijl='ijulia'
 alias jn='jupyter notebook'
 
@@ -217,15 +219,18 @@ alias tmux="tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
 alias vim="vim -u ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
 
 # Configuration Files
-alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
-alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
-alias vimrc="vim ~/.vimrc"
-alias nvrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/init.vim"
 alias bashrc="$EDITOR ~/.bashrc"
 alias sbash="source ~/.bashrc"
-alias ipyrc="$EDITOR ~/.ipython/profile_default/ipython_config.py"
+alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
+alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
+
+alias nvrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/init.vim"
+alias vimrc="vim ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
+
+alias ipyrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile_default/ipython_config.py"
 alias tmrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
 alias muttrc="$EDITOR ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
+
 alias zsh_theme="$EDITOR $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_sigma.zsh-theme"
 # 1}}}
 ################################################################################
