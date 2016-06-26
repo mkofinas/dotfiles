@@ -6,3 +6,5 @@
 autoload/
 sessions/
 bundle/
+
+.zplug/
