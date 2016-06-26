@@ -114,6 +114,12 @@ export LESSHISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/less/history"
 # Vim
 # export VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source $MYVIMRC'
 
+# IPython
+export IPYTHONDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ipython"
+
+# Jupyter
+export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter"
+
 ###################################### ROS #####################################
 
 if [ -f /opt/ros/indigo/setup.bash ]; then

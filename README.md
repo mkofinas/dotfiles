@@ -95,8 +95,8 @@ To install from command line: `nvim -c 'PlugInstall'`
   - [ ] Bash
   - [x] Readline
   - [x] Zsh
-  - [ ] IPython
-  - [ ] Jupyter
+  - [x] IPython
+  - [x] Jupyter
   - [x] CMUS
   - [x] Mutt
   - [x] Git

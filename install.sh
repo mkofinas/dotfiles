@@ -15,9 +15,17 @@ dotfiles_packages["terminator"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["powerline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["readline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
-dotfiles_packages["jupyter"]=${HOME}/.jupyter
-dotfiles_packages["ipython"]=${HOME}/.ipython/profile_default
+dotfiles_packages["jupyter"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["ipython"]=${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile_default
 dotfiles_packages["cmus"]=${XDG_CONFIG_HOME:-${HOME}/.config}/cmus
+# 1}}}
+################################################################################
+
+################################################################################
+# Create Package Directories {{{1
+################################################################################
+mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile_default"
+mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
 # 1}}}
 ################################################################################
 
