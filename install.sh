@@ -117,8 +117,9 @@ zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTD
 ################################################################################
 mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
 mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
-chmod 600 "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt"
-chmod 600 "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt"
+chmod 700 "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt"
+chmod 700 "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt"
+echo "WARNING! You have to set up your credentials in order for mutt to work!"
 # 1}}}
 ################################################################################
 

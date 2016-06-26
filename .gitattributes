@@ -1,2 +1,2 @@
 *.json filter=ignorepowerlinecredentials
-.muttrc filter=ignoremuttcredentials
+muttrc filter=ignoremuttcredentials
