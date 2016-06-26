@@ -213,6 +213,9 @@ alias latexmk="latexmk -r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
 # Tmux - XDG Specification
 alias tmux="tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
 
+# Vim - XDG Specification
+alias vim="vim -u ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
+
 # Configuration Files
 alias zshrc="$EDITOR ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"
 alias szsh="source ${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/.zshrc"

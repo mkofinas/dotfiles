@@ -1,6 +1,14 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+if empty($XDG_CACHE_HOME)
+  let $XDG_CACHE_HOME = expand('$HOME/.cache')
+endif
+if empty($XDG_CONFIG_HOME)
+  let $XDG_CONFIG_HOME = expand('$HOME/.config')
+endif
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$XDG_CONFIG_HOME/vim/after
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ****************************** Vundle SETTINGS ***************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -135,9 +143,6 @@ set wildignore+=*~
 
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
-if empty($XDG_CACHE_HOME)
-  let $XDG_CACHE_HOME = expand('$HOME/.cache')
-endif
 set viminfo+=n${XDG_CACHE_HOME}/vim/viminfo
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

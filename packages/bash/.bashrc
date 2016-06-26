@@ -101,11 +101,18 @@ export VISUAL='nvim'
 
 export TERM=xterm-256color
 
+# Export XDG Specification Variables
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+
 # CMUS - XDG Specification
 export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
 
 # Less History
 export LESSHISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/less/history"
+
+# Vim
+# export VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source $MYVIMRC'
 
 ###################################### ROS #####################################
 

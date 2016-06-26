@@ -4,7 +4,7 @@
 # Packages & Directories {{{1
 ################################################################################
 declare -A dotfiles_packages
-dotfiles_packages["vim"]=${HOME}
+dotfiles_packages["vim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["tmux"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["latex"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["bash"]=${HOME}

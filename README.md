@@ -90,7 +90,7 @@ To install from command line: `nvim -c 'PlugInstall'`
 - [ ] DejaVu Nerd Font bold characters seem somewhat blurry.
 - [ ] Installation script seems to have issues overwriting current dotfiles.
 - [ ] Add [XDG Specifications Compliance](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) when applicable.
-  - [ ] Vim
+  - [x] Vim
   - [x] Neovim
   - [ ] Bash
   - [x] Readline
