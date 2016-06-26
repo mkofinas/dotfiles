@@ -57,6 +57,9 @@ alias dlmusic='youtube-dl --output "%(title)s.%(ext)s" -x --audio-format mp3'
 
 alias ipy='ipython'
 
+# Mutt - XDG Specification
+alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
+
 ############################## Configuration Files #############################
 
 alias vimrc='vim ~/.vimrc'

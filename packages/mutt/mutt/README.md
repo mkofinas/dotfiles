@@ -31,21 +31,16 @@ alias mutt="sudo mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 
 Additionally, place the following commands in your `muttrc`:
 
-```
-set header_cache = "${HOME}/.cache/mutt/headers"
-set message_cachedir = "${HOME}/.local/share/mutt/messages"
+```sh
+set header_cache = "`echo ${XDG_CACHE_HOME:-${HOME}/.cache}`/mutt/headers"
+set message_cachedir = "`echo ${XDG_DATA_HOME:-${HOME}/.local/share}`/mutt/messages"
 ```
 
-### Protect Mail Directories
-
-In order to add an extra layer of protection to your mail data, you can restrict
-permissions to mutt directories, using the following commands:
+Finally, you have to manually create the directories mentioned above:
 
 ```sh
 mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
 mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
-chmod 700 "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt"
-chmod 700 "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt"
 ```
 
 If you use the installation script provided with this repository, the above
