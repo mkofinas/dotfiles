@@ -26,6 +26,7 @@ This repository contains configuration files for the following:
 - Terminator
 - Tmux
 - Latex
+- Powerline
 
 ## Dependencies
 Some configuration files rely on external modules in order to work
@@ -89,3 +90,21 @@ To install from command line: `nvim -c 'PlugInstall'`
 - [ ] DejaVu Nerd Font bold characters seem somewhat blurry.
 - [ ] Installation script seems to have issues overwriting current dotfiles.
 - [ ] Add [XDG Specifications Compliance](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) when applicable.
+  - [ ] Vim
+  - [x] Neovim
+  - [ ] Bash
+  - [x] Readline
+  - [x] Zsh
+  - [ ] IPython
+  - [ ] Jupyter
+  - [ ] CMUS
+  - [ ] Mutt
+  - [x] Git
+  - [x] Terminator
+  - [ ] Tmux
+  - [ ] Latex
+  - [x] Powerline
+
+Resources:
+
+- https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
