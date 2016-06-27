@@ -3,40 +3,38 @@ Personal configuration files. Tested on Ubuntu 14.04 LTS and managed using GNU S
 
 ## Summary
 This repository contains configuration files for the following:
-- Vim
-  - Configuration & Plugins managed by [Vundle](https://github.com/VundleVim/Vundle.vim)
-  - Rarely updated due to transition to [Neovim](https://github.com/neovim/neovim)
-- Neovim
-  - Configuration & Plugins managed by [VimPlug](https://github.com/junegunn/vim-plug)
-- Bash
+- [Vim][15]
+  - Configuration & Plugins managed by [Vundle][4]
+  - Rarely updated due to transition to [Neovim][1]
+- [Neovim][1]
+  - Configuration & Plugins managed by [VimPlug][3]
+- [Bash][17]
   - Custom Themes, Aliases & Helper Functions
   - Rarely updated due to transition to Zsh
-- Zsh
-  - Main configuration by [Prezto](https://github.com/sorin-ionescu/prezto)
-  - Plugins Managed by [ZPlug](https://github.com/zplug/zplug)
-- IPython & Jupyter Console
-  - IPython/Jupyter Console
-  - IJulia
-  - ITorch
-- CMUS (C\* Music Player)
-- Mutt (Mail Client)
-- Git
-- Terminator
-- Tmux
-- Latexmk
-- Powerline
+- [Zsh][18]
+  - Main configuration by [Prezto][5]
+  - Plugins Managed by [ZPlug][6]
+- [IPython][19]
+- [Jupyter][20]
+  - [Jupyter Console][21]
+  - [IJulia][23]
+  - [ITorch][22]
+- [CMUS][7] (Music Player)
+- [Mutt][24] (Mail Client)
+- [Git][25]
+- [Terminator][26]
+- [Tmux][27]
+- [Latexmk][28]
+- [Powerline][29]
 
 ## Dependencies
 Some configuration files rely on external modules in order to work
 appropriately. For example, in order to use the suggested bash prompt,
-[a set of support scripts](https://github.com/mkofinas/prompt-support)
-and [a set of themes](https://github.com/mkofinas/bash-themes) have to be
-downloaded.
+[a set of support scripts][9] and [a set of themes][10] have to be downloaded.
 
-Additionally, in many cases, such as vim and bash prompt,
-[nerd-fonts](https://github.com/ryanoasis/nerd-fonts) are used. The dependencies
-mentioned above are either listed as submodules or downloaded automatically
-using the install script explained below.
+Additionally, in many cases, such as vim and bash prompt, [nerd-fonts][11] are
+used. The dependencies mentioned above are either listed as submodules or
+downloaded automatically using the install script explained below.
 
 ## Installation
 
@@ -92,14 +90,13 @@ installation script according to your needs, by simply commenting out or adding
 packages.
 
 ### XDG Base Directory Specification
-Whenever possible, I try to follow the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/latest/)
+Whenever possible, I try to follow the [XDG Base Directory Specification][12]
 to organize my dotfiles, in order to avoid the pollution of my entire HOME
 directory. Towards the organization of software following XDG specification, I
-recommend taking a look at the [Arch Linux wiki](https://wiki.archlinux.org/index.php/XDG_Base_Directory_support).
+recommend taking a look at the [Arch Linux wiki][13].
 
 ## Adding new Neovim plugins
-This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin
-manager for Neovim.
+This repo uses [Vim-Plug][3] as a plugin manager for Neovim.
 
 To manage plugins, simply add a vim-plug section to your `~/.config/nvim/init.vim`:
 
@@ -112,7 +109,7 @@ plugins run `:PlugUpdate`.
 
 To install from command line: `nvim -c 'PlugInstall'`
 
-For more information, visit the [Vim-Plug example](https://github.com/junegunn/vim-plug#example).
+For more information, visit the [Vim-Plug example][14].
 
 ## TODO - Issues
 
@@ -120,7 +117,7 @@ For more information, visit the [Vim-Plug example](https://github.com/junegunn/v
   - The problem seems to (for the most part) disappear when using a font size of
     12 of higher.
 - [ ] Installation script seems to have issues overwriting current dotfiles.
-- [x] Add [XDG Specifications Compliance](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) when applicable.
+- [x] Add [XDG Specifications Compliance][12] when applicable.
   - [x] Vim
   - [x] Neovim
   - [x] Bash (Only `.bashrc` and `.bash_profile` in HOME Directory)
@@ -136,3 +133,32 @@ For more information, visit the [Vim-Plug example](https://github.com/junegunn/v
   - [x] Latexmk
   - [x] Powerline
 
+[1]: https://neovim.io/
+[2]: https://github.com/neovim/neovim
+[3]: https://github.com/junegunn/vim-plug
+[4]: https://github.com/VundleVim/Vundle.vim
+[5]: https://github.com/sorin-ionescu/prezto
+[6]: https://github.com/zplug/zplug
+[7]: https://cmus.github.io/
+[8]: https://github.com/cmus/cmus
+[9]: https://github.com/mkofinas/prompt-support
+[10]: https://github.com/mkofinas/bash-themes
+[11]: https://github.com/ryanoasis/nerd-fonts
+[12]: https://specifications.freedesktop.org/basedir-spec/latest/
+[13]: https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
+[14]: https://github.com/junegunn/vim-plug#example
+[15]: http://www.vim.org/
+[16]: https://github.com/vim/vim
+[17]: https://www.gnu.org/software/bash/
+[18]: http://www.zsh.org/
+[19]: https://ipython.org/
+[20]: http://jupyter.org/
+[21]: https://github.com/jupyter/jupyter_console
+[22]: https://github.com/facebook/iTorch
+[23]: https://github.com/JuliaLang/IJulia.jl
+[24]: http://www.mutt.org/
+[25]: https://git-scm.com/
+[26]: http://gnometerminator.blogspot.gr/p/introduction.html
+[27]: http://tmux.github.io/
+[28]: http://users.phys.psu.edu/~collins/software/latexmk-jcc/
+[29]: https://powerline.readthedocs.io/en/latest/
