@@ -1,7 +1,5 @@
 # dotfiles
-Configuration files for Vim/NeoVim, Git, Bash/Zsh, IPython etc.
-
-Tested on Ubuntu 14.04 LTS and managed using GNU Stow.
+Personal configuration files. Tested on Ubuntu 14.04 LTS and managed using GNU Stow.
 
 ## Summary
 This repository contains configuration files for the following:
@@ -73,6 +71,8 @@ cd dotfiles
 ./install.sh
 ```
 
+## Implementation Details
+
 To actually use the configuration files, `install.sh` creates a backup of the
 already existing dotfiles and then creates symbolic links to the right place
 using GNU Stow.
@@ -90,6 +90,12 @@ dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 You might want to take a look at the packages to be installed and modify the
 installation script according to your needs, by simply commenting out or adding
 packages.
+
+### XDG Base Directory Specification
+Whenever possible, I try to follow the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/latest/)
+to organize my dotfiles, in order to avoid the pollution of my entire HOME
+directory. Towards the organization of software following XDG specification, I
+recommend taking a look at the [Arch Linux wiki](https://wiki.archlinux.org/index.php/XDG_Base_Directory_support).
 
 ## Adding new Neovim plugins
 This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin
@@ -110,7 +116,9 @@ For more information, visit the [Vim-Plug example](https://github.com/junegunn/v
 
 ## TODO - Issues
 
-- [ ] DejaVu Nerd Font bold characters seem somewhat blurry.
+- [ ] DejaVu Nerd Font bold characters (pt. 10) seem somewhat pudgy.
+  - The problem seems to (for the most part) disappear when using a font size of
+    12 of higher.
 - [ ] Installation script seems to have issues overwriting current dotfiles.
 - [x] Add [XDG Specifications Compliance](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) when applicable.
   - [x] Vim
@@ -128,6 +136,3 @@ For more information, visit the [Vim-Plug example](https://github.com/junegunn/v
   - [x] Latexmk
   - [x] Powerline
 
-Resources:
-
-- https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
