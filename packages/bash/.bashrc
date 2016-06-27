@@ -141,18 +141,18 @@ fi
 
 BASH_THEME="basic"
 
-if [ -f ~/.bash/bash-themes/${BASH_THEME}.theme.bash ]; then
-    . ~/.bash/bash-themes/${BASH_THEME}.theme.bash
+if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash ]; then
+    . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash
 fi
 
-if [ -f ~/.bash/bash-themes/theme_plugins.bash ]; then
-    . ~/.bash/bash-themes/theme_plugins.bash
+if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/theme_plugins.bash ]; then
+    . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/theme_plugins.bash
 fi
 
 ################################## Bash Alias ##################################
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash_aliases ]; then
+    . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash_aliases
 fi
 
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/common_aliases/aliases"

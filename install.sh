@@ -8,6 +8,7 @@ dotfiles_packages["vim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["tmux"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["latex"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["bash"]=${HOME}
+dotfiles_packages["bash_support"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["common_aliases"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["git"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["mutt"]=${XDG_CONFIG_HOME:-${HOME}/.config}

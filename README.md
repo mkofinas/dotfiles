@@ -112,12 +112,12 @@ For more information, visit the [Vim-Plug example](https://github.com/junegunn/v
 
 - [ ] DejaVu Nerd Font bold characters seem somewhat blurry.
 - [ ] Installation script seems to have issues overwriting current dotfiles.
-- [ ] Add [XDG Specifications Compliance](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) when applicable.
+- [x] Add [XDG Specifications Compliance](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) when applicable.
   - [x] Vim
   - [x] Neovim
-  - [ ] Bash
+  - [x] Bash (Only `.bashrc` and `.bash_profile` in HOME Directory)
   - [x] Readline
-  - [x] Zsh
+  - [x] Zsh (Only `.zshenv` in HOME Directory)
   - [x] IPython
   - [x] Jupyter
   - [x] CMUS
