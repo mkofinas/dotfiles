@@ -7,3 +7,6 @@
 [submodule "prezto"]
 	path = packages/zsh/zsh/.zprezto
 	url = git@github.com:mkofinas/prezto.git
+[submodule "utilities/nerd_fonts"]
+	path = utilities/nerd_fonts
+	url = git@gist.github.com:e3042acca22cde24d89efb026acc3ada.git
