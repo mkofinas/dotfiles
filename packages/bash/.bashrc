@@ -152,4 +152,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+source "${XDG_CONFIG_HOME:-${HOME}/.config}/common_aliases/aliases"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
