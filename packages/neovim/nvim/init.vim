@@ -691,7 +691,7 @@ silent! colorscheme base16-atelierforest
 highlight VertSplit ctermfg=02 ctermbg=00 cterm=none guifg=#5ab738 guibg=#1b1918 gui=none
 highlight ErrorMsg ctermfg=16 ctermbg=18 cterm=none guifg=#df5320 guibg=#2c2421 gui=none
 highlight WarningMsg ctermfg=03 ctermbg=18 cterm=none guifg=#d5911a guibg=#2c2421 gui=none
-highlight SpellBad ctermbg=01 guibg=#f22c40
+highlight SpellBad ctermfg=21 guifg=#e6e2e0 ctermbg=01 guibg=#f22c40
 highlight ExtraWhitespace guibg=#ff0000
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
