@@ -96,6 +96,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+################################################################################
+# Environment Variables {{{1
+################################################################################
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
@@ -122,9 +125,12 @@ export IPYTHONDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ipython"
 
 # Jupyter
 export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter"
+# 1}}}
+################################################################################
 
-###################################### ROS #####################################
-
+################################################################################
+# ROS {{{1
+################################################################################
 if [ -f /opt/ros/indigo/setup.bash ]; then
     . /opt/ros/indigo/setup.bash
 fi
@@ -136,25 +142,36 @@ fi
 if [ -f ~/pandora_ws/devel/setup.bash ]; then
     . ~/pandora_ws/devel/setup.bash --extend
 fi
+# 1}}}
+################################################################################
 
-################################## Bash Theme ##################################
-
+################################################################################
+# Theme {{{1
+################################################################################
 BASH_THEME="basic"
 
 if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash ]; then
     . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash
 fi
+# 1}}}
+################################################################################
 
-if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/theme_plugins.bash ]; then
-    . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/theme_plugins.bash
-fi
-
-################################## Bash Alias ##################################
-
+################################################################################
+# Aliases {{{1
+################################################################################
 if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash_aliases ]; then
     . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash_aliases
 fi
 
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/common_aliases/aliases"
+# 1}}}
+################################################################################
 
+################################################################################
+# Fzf {{{1
+################################################################################
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# 1}}}
+################################################################################
+
+# vim:foldmethod=marker:foldlevel=0:foldenable
