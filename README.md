@@ -111,28 +111,6 @@ To install from command line: `nvim -c 'PlugInstall'`
 
 For more information, visit the [Vim-Plug example][14].
 
-## TODO - Issues
-
-- [ ] DejaVu Nerd Font bold characters (pt. 10) seem somewhat pudgy.
-  - The problem seems to (for the most part) disappear when using a font size of
-    12 of higher.
-- [ ] Installation script seems to have issues overwriting current dotfiles.
-- [x] Add [XDG Specifications Compliance][12] when applicable.
-  - [x] Vim
-  - [x] Neovim
-  - [x] Bash (Only `.bashrc` and `.bash_profile` in HOME Directory)
-  - [x] Readline
-  - [x] Zsh (Only `.zshenv` in HOME Directory)
-  - [x] IPython
-  - [x] Jupyter
-  - [x] CMUS
-  - [x] Mutt
-  - [x] Git
-  - [x] Terminator
-  - [x] Tmux
-  - [x] Latexmk
-  - [x] Powerline
-
 [1]: https://neovim.io/
 [2]: https://github.com/neovim/neovim
 [3]: https://github.com/junegunn/vim-plug
