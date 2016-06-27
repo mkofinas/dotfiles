@@ -27,7 +27,7 @@
   [[default]]
     background_color = "#181818"
     cursor_color = "#a39e7c"
-    font = DejaVuSansMonoForPowerline Nerd Font 10
+    font = DejaVuSansMonoForPowerline Nerd Font 12
     foreground_color = "#a39e7c"
     scrollback_infinite = True
     scrollbar_position = hidden

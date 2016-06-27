@@ -13,6 +13,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias disk_status='df --human-readable'
 
+alias p="${PAGER}"
+
 ############################## Configuration Files #############################
 alias bash_theme="${EDITOR} ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
 

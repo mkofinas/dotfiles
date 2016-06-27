@@ -98,8 +98,11 @@ fi
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+export PAGER='less'
 
 export TERM=xterm-256color
+
+export LESS='-i -M -R -S -w -z-4'
 
 # Export XDG Specification Variables
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
