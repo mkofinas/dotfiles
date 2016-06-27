@@ -48,12 +48,13 @@ curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/dowload_insta
 ```
 
 ### Manual Installation
-Clone the repo to your home directory and use the `install.sh` script in order to configure and install everything.
+Clone the repo to a directory of your choice and use the `install.sh` script in
+order to configure and install everything.
  Clone as `.dotfiles` if you want to make it hidden.
 
 ```sh
-git clone --recursive https://github.com/mkofinas/dotfiles.git .dotfiles
-cd .dotfiles
+git clone --recursive https://github.com/mkofinas/dotfiles.git dotfiles
+cd dotfiles
 ./install.sh
 ```
 
@@ -61,29 +62,36 @@ To actually use the configuration files, `install.sh` creates a backup of the
 already existing dotfiles and then creates symbolic links to the right place
 using GNU Stow.
 
-If your configuration differs take a look at the script and modify it accordingly.
+The installation script defines the packages to be installed using declarative
+arrays (i.e. dictionaries) as follows:
+
+```sh
+declare -A dotfiles_packages
+# ...
+dotfiles_packages["neovim"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+# ...
+```
+
+You might want to take a look at the packages to be installed and modify the
+installation script according to your needs, by simply commenting out or adding
+packages.
 
 ## Adding new Neovim plugins
-This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin manager for Neovim.
+This repo uses [Vim-Plug](https://github.com/junegunn/vim-plug) as a plugin
+manager for Neovim.
 
-To manage plugins, simply add a vim-plug section to your `~/.vimrc` (or `~/.config/nvim/init.vim` for Neovim):
+To manage plugins, simply add a vim-plug section to your `~/.config/nvim/init.vim`:
 
 1. Begin the section with `plug#begin()`
 1. List the plugins with `Plug` commands
 1. `plug#end()` to update `&runtimepath` and initialize plugin system
 
-For example, to install the (hypothetical) https://github.com/foo/bar plugin,
-you can do the following:
-
-```vim
-call plug#begin()
-Plug 'foo/bar'
-call plug#end()
-```
-
-Then, reload your configuration file and run `:PlugInstall`. To update existing plugins run `:PlugUpdate`.
+Then, reload your configuration file and run `:PlugInstall`. To update existing
+plugins run `:PlugUpdate`.
 
 To install from command line: `nvim -c 'PlugInstall'`
+
+For more information, visit the [Vim-Plug example](https://github.com/junegunn/vim-plug#example).
 
 ## TODO - Issues
 
