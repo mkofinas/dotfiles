@@ -110,6 +110,7 @@ export LESS='-i -M -R -S -w -z-4'
 # Export XDG Specification Variables
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 
 # CMUS - XDG Specification
 export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
@@ -125,6 +126,9 @@ export IPYTHONDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ipython"
 
 # Jupyter
 export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter"
+
+# rupa/z
+export _Z_DATA="${XDG_DATA_HOME:-${HOME}/.local/share}/z/z"
 # 1}}}
 ################################################################################
 

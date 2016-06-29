@@ -139,6 +139,17 @@ git clone https://github.com/tmux-plugins/tpm ${XDG_CONFIG_HOME:-${HOME}/.config
 # 1}}}
 ################################################################################
 
+################################################################################
+# Create Directories {{{1
+################################################################################
+# rupa/z
+mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/z"
+# Less History
+mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/less"
+# 1}}}
+################################################################################
+
+
 unset dotfiles_packages
 echo "Installation completed successfully!"
 
