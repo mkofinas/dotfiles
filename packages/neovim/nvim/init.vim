@@ -1,5 +1,6 @@
 " Neovim Configuration
 " ----------------------------
+" 1. XDG Specification
 " 1. Plugin Manager: Vim-Plug
 " 2. Neovim Settings
 " 3. Custom Mappings
@@ -8,6 +9,15 @@
 " ----------------------------
 " Author(s):
 " - Miltiadis Kofinas <mkofinas@gmail.com>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" XDG Specification {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if empty($XDG_CONFIG_HOME)
+  let $XDG_CONFIG_HOME = expand('$HOME/.config')
+endif
+" 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -54,7 +64,13 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+function! MoveFzfConfig(arg)
+  !./install --all --no-update-rc
+  !mkdir -p $XDG_CONFIG_HOME/fzf
+  !mv $HOME/.fzf.bash $XDG_CONFIG_HOME/fzf/fzf.bash
+  !mv $HOME/.fzf.zsh $XDG_CONFIG_HOME/fzf/fzf.zsh
+endfunction
+Plug 'junegunn/fzf', { 'dir': '~/.local/opt/fzf', 'do': function('MoveFzfConfig') }
 Plug 'junegunn/fzf.vim'
 function! DoRemote(arg)
   UpdateRemotePlugins

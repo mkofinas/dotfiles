@@ -129,6 +129,9 @@ export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter"
 
 # rupa/z
 export _Z_DATA="${XDG_DATA_HOME:-${HOME}/.local/share}/z/z"
+
+# Pip
+export PIP_LOG_FILE="${XDG_DATA_HOME:-${HOME}/.local/share}/pip/log"
 # 1}}}
 ################################################################################
 
@@ -174,7 +177,9 @@ source "${XDG_CONFIG_HOME:-${HOME}/.config}/common_aliases/aliases"
 ################################################################################
 # Fzf {{{1
 ################################################################################
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/fzf/fzf.bash" ]; then
+  source "${XDG_CONFIG_HOME:-${HOME}/.config}/fzf/fzf.bash"
+fi
 # 1}}}
 ################################################################################
 
