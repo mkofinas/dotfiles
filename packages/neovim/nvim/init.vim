@@ -643,9 +643,6 @@ let g:tmux_navigator_save_on_switch = 1
 " Vim-Better-Whitespace {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-if exists(':StripWhitespace')
-  autocmd BufWritePre * StripWhitespace
-endif
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'tex']
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
