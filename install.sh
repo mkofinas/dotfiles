@@ -20,6 +20,7 @@ dotfiles_packages["readline"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["jupyter"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["ipython"]=${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile_default
 dotfiles_packages["cmus"]=${XDG_CONFIG_HOME:-${HOME}/.config}/cmus
+dotfiles_packages["translate-shell"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 # 1}}}
 ################################################################################
 
