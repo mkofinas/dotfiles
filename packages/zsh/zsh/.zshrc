@@ -56,6 +56,7 @@ zplug "rupa/z", use:z.sh
 zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd"
 zplug "b4b4r07/zsh-vimode-visual", use:"zsh-vimode-visual.sh", nice:19
+zplug "soimort/translate-shell", at:"develop"
 # 2}}}
 ################################################################################
 
@@ -135,8 +136,8 @@ fi
 ################################################################################
 # Desktop Scripts {{{2
 ################################################################################
-if [ -f ~/.desktop_scripts ]; then
-  . ~/.desktop_scripts
+if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/desktop_scripts/config" ]; then
+  . "${XDG_CONFIG_HOME:-${HOME}/.config}/desktop_scripts/config"
 fi
 # 2}}}
 ################################################################################
@@ -148,10 +149,16 @@ fi
 # Aliases {{{1
 ################################################################################
 
+# Common Aliases
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/common_aliases/aliases"
 
 # Uncompress
 alias x='unarchive'
+
+# supercrabtree/k
+alias k='k -h'
+alias ka='k -A'
+alias kl='k --no-vcs'
 
 # A list of all the one-letter aliases
 alias salias='alias | grep "^[a-z]=" | sort'

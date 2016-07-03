@@ -26,6 +26,7 @@ This repository contains configuration files for the following:
 - [Tmux][27]
 - [Latexmk][28]
 - [Powerline][29]
+- [Translate-shell][30]
 
 ## Dependencies
 Some configuration files rely on external modules in order to work
@@ -140,3 +141,4 @@ For more information, visit the [Vim-Plug example][14].
 [27]: http://tmux.github.io/
 [28]: http://users.phys.psu.edu/~collins/software/latexmk-jcc/
 [29]: https://powerline.readthedocs.io/en/latest/
+[30]: https://www.soimort.org/translate-shell/
