@@ -18,14 +18,17 @@ fi
 #
 
 # Set editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
-   export VISUAL='vim'
- else
-   export EDITOR='nvim'
-   export VISUAL='nvim'
- fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+  export VISUAL='vim'
+else
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+fi
+
 export PAGER='less'
+# Alternative Pager:
+# export PAGER='/usr/share/nvim/runtime/macros/less.sh'
 
 #
 # Language

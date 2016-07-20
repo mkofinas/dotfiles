@@ -64,7 +64,7 @@ zplug "soimort/translate-shell", at:"develop"
 # Display {{{2
 ################################################################################
 # zplug "mkofinas/zeta-sigma-zsh-theme"
-zplug "chriskempson/base16-shell", use:"base16-atelierforest.dark.sh"
+zplug "chriskempson/base16-shell", use:"scripts/base16-atelier-forest.sh"
 # zplug "zsh-users/zsh-syntax-highlighting", nice:10
 # 2}}}
 ################################################################################
