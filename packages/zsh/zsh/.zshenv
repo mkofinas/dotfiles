@@ -40,3 +40,14 @@ export _Z_DATA="${XDG_DATA_HOME:-${HOME}/.local/share}/z/z"
 # Pip
 export PIP_LOG_FILE="${XDG_DATA_HOME:-${HOME}/.local/share}/pip/log"
 
+# Gimp
+export GIMP2_DIRECTORY="${XDG_CONFIG_HOME:-${HOME}/.config}/gimp"
+
+# Npm
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/npm/npmrc"
+
+# Docker
+export DOCKER_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/docker/config.json"
+
+# Irb
+export IRBRC="${XDG_CONFIG_HOME:-${HOME}/.config}/irb/irbrc"
