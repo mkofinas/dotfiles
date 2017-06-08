@@ -51,10 +51,10 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'justinmk/vim-sneak'
-Plug 'godlygeek/tabular'
-Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'justinmk/vim-sneak'
+" Plug 'godlygeek/tabular'
+" Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
+" Plug 'terryma/vim-multiple-cursors'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -64,14 +64,14 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
-function! MoveFzfConfig(arg)
-  !./install --all --no-update-rc
-  !mkdir -p $XDG_CONFIG_HOME/fzf
-  !mv $HOME/.fzf.bash $XDG_CONFIG_HOME/fzf/fzf.bash
-  !mv $HOME/.fzf.zsh $XDG_CONFIG_HOME/fzf/fzf.zsh
-endfunction
-Plug 'junegunn/fzf', { 'dir': '~/.local/opt/fzf', 'do': function('MoveFzfConfig') }
-Plug 'junegunn/fzf.vim'
+" function! MoveFzfConfig(arg)
+  " !./install --all --no-update-rc
+  " !mkdir -p $XDG_CONFIG_HOME/fzf
+  " !mv $HOME/.fzf.bash $XDG_CONFIG_HOME/fzf/fzf.bash
+  " !mv $HOME/.fzf.zsh $XDG_CONFIG_HOME/fzf/fzf.zsh
+" endfunction
+" Plug 'junegunn/fzf', { 'dir': '~/.local/opt/fzf', 'do': function('MoveFzfConfig') }
+" Plug 'junegunn/fzf.vim'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -85,12 +85,12 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " Integrations {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'neomake/neomake'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'sudo npm -g install instant-markdown-d' }
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
-Plug 'taketwo/vim-ros'
+" Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
 " Plug 'hynek/vim-python-pep8-indent'
 " 3}}}
@@ -100,12 +100,12 @@ Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 
 " Interface {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar', { 'do': 'sudo apt-get install exuberant-ctags' }
+" Plug 'majutsushi/tagbar', { 'do': 'sudo apt-get install exuberant-ctags' }
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sjl/gundo.vim'
-Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
+" Plug 'sjl/gundo.vim'
+" Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -126,7 +126,7 @@ Plug 'ryanoasis/vim-devicons'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'ryanss/vim-hackernews'
+" Plug 'ryanss/vim-hackernews'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -189,6 +189,9 @@ set wildignore+=*.o
 set wildignore+=*~
 " The 'longest' option makes completion insert the longest prefix of all
 " the possible matches
+
+set wildignorecase
+
 set completeopt=menuone,longest,preview
 " Determines the maximum number of items to show in the popup menu.
 " Zero is take as much as possible.
@@ -276,7 +279,7 @@ set nowrap " Don't automatically wrap long lines
 
 set list listchars=extends:⍈,precedes:⍇,tab:>-
 set fillchars=vert:│
-set colorcolumn=81,121
+set colorcolumn=+1
 
 set synmaxcol=250
 " 2}}}
@@ -427,10 +430,13 @@ let g:airline_theme = 'base16_atelierforest'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┊'  " │ 
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '·'
+" let g:indentLine_leadingSpaceEnabled = 1
+" let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
 let g:indentLine_noConcealCursor=""
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_first_char = '┊'
+" let g:indentLine_indentLevel = 20
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -686,6 +692,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.4.so.1'
 let g:deoplete#sources#clang#clang_header='/usr/include/clang/3.4/include/'
+autocmd CompleteDone * pclose!
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
