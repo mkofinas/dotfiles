@@ -702,12 +702,11 @@ autocmd CompleteDone * pclose!
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:base16_shell_path="$ZDOTDIR/.zplug/repos/chriskempson/base16-shell"
 let base16colorspace=256
 set background=dark
-set termguicolors  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let g:base16_shell_path="$HOME/.zplug/repos/chriskempson/base16-shell"
-silent! colorscheme base16-atelierforest
+set termguicolors
+silent! colorscheme base16-atelier-forest
 highlight VertSplit ctermfg=02 ctermbg=00 cterm=none guifg=#5ab738 guibg=#1b1918 gui=none
 highlight ErrorMsg ctermfg=16 ctermbg=18 cterm=none guifg=#df5320 guibg=#2c2421 gui=none
 highlight WarningMsg ctermfg=03 ctermbg=18 cterm=none guifg=#d5911a guibg=#2c2421 gui=none
