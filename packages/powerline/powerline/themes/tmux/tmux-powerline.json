@@ -18,6 +18,13 @@
         }
       },
       {
+        "function": "powerline.segments.common.wthr.weather",
+        "args": {
+          "unit": "C",
+          "location_query": "Thessaloniki, Greece"
+        }
+      },
+      {
         "function": "powerline.segments.common.time.date",
         "name": "date",
         "args": {
@@ -33,14 +40,10 @@
         }
       },
       {
-        "function": "powerline.segments.common.wthr.weather",
+        "function": "powerline.segments.common.net.hostname",
         "args": {
-          "unit": "C",
-          "location_query": "Thessaloniki, Greece"
+          "only_if_ssh": true
         }
-      },
-      {
-        "function": "powerline.segments.common.net.hostname"
       }
     ]
   }
