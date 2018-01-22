@@ -75,7 +75,7 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " Plug 'zchee/deoplete-clang'
 " 3}}}
@@ -196,6 +196,8 @@ set completeopt=menuone,longest,preview
 " Determines the maximum number of items to show in the popup menu.
 " Zero is take as much as possible.
 set pumheight=6
+
+set mouse=a
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -508,10 +510,8 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if exists(':Neomake')
-  autocmd! BufWritePost,BufEnter * Neomake
-  autocmd! QuitPre * lclose
-endif
+call neomake#configure#automake('rw', 1000)
+
 let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
 let g:neomake_warning_sign = { 'text': '', 'texthl': 'WarningMsg' }
 
@@ -714,5 +714,7 @@ highlight SpellBad ctermfg=21 guifg=#e6e2e0 ctermbg=01 guibg=#f22c40
 highlight ExtraWhitespace guibg=#ff0000
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set guicursor=
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
