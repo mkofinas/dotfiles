@@ -62,7 +62,6 @@ Plug 'tpope/vim-repeat'
 " Completion {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'jiangmiao/auto-pairs'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 " function! MoveFzfConfig(arg)
   " !./install --all --no-update-rc
@@ -72,12 +71,11 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 " endfunction
 " Plug 'junegunn/fzf', { 'dir': '~/.local/opt/fzf', 'do': function('MoveFzfConfig') }
 " Plug 'junegunn/fzf.vim'
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'zchee/deoplete-jedi'
 " Plug 'zchee/deoplete-clang'
+" Plug 'davidhalter/jedi-vim'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -93,6 +91,7 @@ Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
 " Plug 'hynek/vim-python-pep8-indent'
+" Plug 'python-mode/python-mode', {'branch': 'develop'}
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -290,8 +289,10 @@ set synmaxcol=250
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages Support {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3.4'
+" let g:python_host_prog = '/usr/bin/python2.7'
+" let g:python3_host_prog = '/usr/bin/python3.4'
+let g:python_host_prog = '/home/miltos/.virtualenvs/neovim-python2/bin/python2.7'
+let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3.6/bin/python3.6'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -689,10 +690,34 @@ autocmd! User GoyoLeave Limelight!
 " Deoplete {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#server_timeout=500
 let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.4.so.1'
 let g:deoplete#sources#clang#clang_header='/usr/include/clang/3.4/include/'
-autocmd CompleteDone * pclose!
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python-Mode {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode_syntax_print_as_function = 1
+let g:pymode_lint = 0
+let g:pymode_lint_ignore = ["E501", "W391", ]
+let g:quickfixsigns_protect_sign_rx = '^neomake_'
+let g:pymode_lint_todo_symbol = 'WW'
+let g:pymode_lint_comment_symbol = 'CC'
+let g:pymode_lint_visual_symbol = 'RR'
+let g:pymode_lint_error_symbol = 'EE'
+let g:pymode_lint_info_symbol = 'II'
+let g:pymode_lint_pyflakes_symbol = 'FF'
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto-pairs {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:AutoPairsMapSpace = 0
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -706,12 +731,21 @@ let g:base16_shell_path="$ZDOTDIR/.zplug/repos/chriskempson/base16-shell"
 let base16colorspace=256
 set background=dark
 set termguicolors
+function! s:base16_customize() abort
+  call Base16hi("VertSplit", g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
+  call Base16hi("ErrorMsg", g:base16_gui08, g:base16_gui01, g:base16_cterm08, g:base16_cterm01, "", "")
+  call Base16hi("WarningMsg", g:base16_gui0A, g:base16_gui01, g:base16_cterm0A, g:base16_cterm01, "", "")
+  call Base16hi("SpellBad", g:base16_gui06, g:base16_gui08, g:base16_cterm06, g:base16_cterm08, "", "")
+  call Base16hi("ExtraWhitespace", "", g:base16_gui08, "", g:base16_cterm08, "", "")
+  call Base16hi("pythonStatement", g:base16_gui08, "", g:base16_cterm08, "", "bold", "")
+endfunction
+
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+augroup END
+
 silent! colorscheme base16-atelier-forest
-highlight VertSplit ctermfg=02 ctermbg=00 cterm=none guifg=#5ab738 guibg=#1b1918 gui=none
-highlight ErrorMsg ctermfg=16 ctermbg=18 cterm=none guifg=#df5320 guibg=#2c2421 gui=none
-highlight WarningMsg ctermfg=03 ctermbg=18 cterm=none guifg=#d5911a guibg=#2c2421 gui=none
-highlight SpellBad ctermfg=21 guifg=#e6e2e0 ctermbg=01 guibg=#f22c40
-highlight ExtraWhitespace guibg=#ff0000
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
