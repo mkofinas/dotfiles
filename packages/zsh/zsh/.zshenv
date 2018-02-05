@@ -18,6 +18,9 @@ export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 
 # Virtual Environments
 export PROJECT_HOME=$HOME/Virtual\ Environments
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
 
 # CMUS - XDG Specification
 export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
@@ -51,3 +54,8 @@ export DOCKER_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/docker/config.json"
 
 # Irb
 export IRBRC="${XDG_CONFIG_HOME:-${HOME}/.config}/irb/irbrc"
+
+# Golang
+export GOPATH="${HOME}/Libraries/go"
+export PATH=$PATH:/usr/local/go/bin:$HOME/Libraries/go/bin
+

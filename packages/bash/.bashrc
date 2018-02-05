@@ -132,6 +132,11 @@ export _Z_DATA="${XDG_DATA_HOME:-${HOME}/.local/share}/z/z"
 
 # Pip
 export PIP_LOG_FILE="${XDG_DATA_HOME:-${HOME}/.local/share}/pip/log"
+
+# Virtual Environments
+export PROJECT_HOME=$HOME/Virtual\ Environments
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 # 1}}}
 ################################################################################
 
