@@ -150,6 +150,18 @@ mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/less"
 # 1}}}
 ################################################################################
 
+################################################################################
+# Neovim Python Hosts {{{1
+################################################################################
+mkvirtualenv neovim-python2
+workon neovim-python2
+pip install neovim
+deactivate
+mkvirtualenv neovim-python3.6 --python=python3.6
+workon neovim-python3.6
+deactivate
+# 1}}}
+################################################################################
 
 unset dotfiles_packages
 echo "Installation completed successfully!"

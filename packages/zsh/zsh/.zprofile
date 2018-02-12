@@ -94,8 +94,3 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
-# startup virtualenv-burrito
-if [ -f $HOME/.venvburrito/startup.sh ]; then
-  . $HOME/.venvburrito/startup.sh
-fi
-

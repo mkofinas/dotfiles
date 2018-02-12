@@ -91,7 +91,7 @@ Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
 " Plug 'hynek/vim-python-pep8-indent'
-" Plug 'python-mode/python-mode', {'branch': 'develop'}
+" Plug 'python-mode/python-mode'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -705,12 +705,6 @@ let g:pymode_syntax_print_as_function = 1
 let g:pymode_lint = 0
 let g:pymode_lint_ignore = ["E501", "W391", ]
 let g:quickfixsigns_protect_sign_rx = '^neomake_'
-let g:pymode_lint_todo_symbol = 'WW'
-let g:pymode_lint_comment_symbol = 'CC'
-let g:pymode_lint_visual_symbol = 'RR'
-let g:pymode_lint_error_symbol = 'EE'
-let g:pymode_lint_info_symbol = 'II'
-let g:pymode_lint_pyflakes_symbol = 'FF'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
