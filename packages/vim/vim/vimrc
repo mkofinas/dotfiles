@@ -7,14 +7,18 @@ endif
 if empty($XDG_CONFIG_HOME)
   let $XDG_CONFIG_HOME = expand('$HOME/.config')
 endif
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$XDG_CONFIG_HOME/vim/after
+" set undodir=$XDG_CACHE_HOME/vim/undo
+" set directory=$XDG_CACHE_HOME/vim/swap
+" set backupdir=$XDG_CACHE_HOME/vim/backup
+" set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIMRUNTIME
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ****************************** Vundle SETTINGS ***************************** "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$XDG_CONFIG_HOME/vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')

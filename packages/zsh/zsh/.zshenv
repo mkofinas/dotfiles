@@ -29,7 +29,7 @@ export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
 export LESSHISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/less/history"
 
 # Vim
-# export VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source $MYVIMRC'
+# export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
 
 # IPython
 export IPYTHONDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ipython"
@@ -58,4 +58,14 @@ export IRBRC="${XDG_CONFIG_HOME:-${HOME}/.config}/irb/irbrc"
 # Golang
 export GOPATH="${HOME}/Libraries/go"
 export PATH=$PATH:/usr/local/go/bin:$HOME/Libraries/go/bin
+
+# Rust
+export RUSTUP_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/rustup"
+
+# Cargo
+export CARGO_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/cargo"
+export PATH=$PATH:$CARGO_HOME/bin
+
+# Python Pylint
+export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 

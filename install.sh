@@ -85,7 +85,8 @@ done
 # Download Desired Nerd Font
 echo "Download Nerd Fonts"
 mkdir -p ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts
-curl -fLo ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts/"DejaVu Sans Mono for Powerline Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.ttf
+curl -fLo ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts/"DejaVu Sans Mono for Powerline Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/1.0.0/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.ttf
+curl -fLo ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts/"Fura Mono Regular Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
 echo "Done!"
 # 1}}}
 ################################################################################

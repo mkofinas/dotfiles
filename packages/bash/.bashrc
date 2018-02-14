@@ -119,7 +119,7 @@ export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
 export LESSHISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/less/history"
 
 # Vim
-# export VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source $MYVIMRC'
+# export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
 
 # IPython
 export IPYTHONDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/ipython"
@@ -132,6 +132,23 @@ export _Z_DATA="${XDG_DATA_HOME:-${HOME}/.local/share}/z/z"
 
 # Pip
 export PIP_LOG_FILE="${XDG_DATA_HOME:-${HOME}/.local/share}/pip/log"
+
+# Npm
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/npm/npmrc"
+
+# Golang
+export GOPATH="${HOME}/Libraries/go"
+export PATH=$PATH:/usr/local/go/bin:$HOME/Libraries/go/bin
+
+# Rust
+export RUSTUP_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/rustup"
+
+# Cargo
+export CARGO_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/cargo"
+export PATH=$PATH:$CARGO_HOME/bin
+
+# Python Pylint
+export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 
 # Virtual Environments
 export PROJECT_HOME=$HOME/Virtual\ Environments
@@ -187,5 +204,8 @@ if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/fzf/fzf.bash" ]; then
 fi
 # 1}}}
 ################################################################################
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # vim:foldmethod=marker:foldlevel=0:foldenable
