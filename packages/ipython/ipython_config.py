@@ -32,9 +32,13 @@
 
 ## lines of code to run at IPython startup.
 c.InteractiveShellApp.exec_lines = [
+    'from __future__ import absolute_import',
+    'from __future__ import division',
+    'from __future__ import print_function',
     'import math',
+    'from pprint import pprint as pp',
     'import numpy as np',
-    'import matplotlib.pyplot as plt'
+    'import matplotlib.pyplot as plt',
 ]
 
 ## A list of dotted module names of IPython extensions to load.
@@ -169,84 +173,20 @@ c.InteractiveShell.autoindent = True
 ## The part of the banner to be printed before the profile
 #c.InteractiveShell.banner1 = 'Python 2.7.6 (default, Oct 26 2016, 20:30:19) \nType "copyright", "credits" or "license" for more information.\n\nIPython 5.3.0 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
 
-def paint_ipy_banner():
-    """
-    Create a colored IPython Banner.
-    """
-    from IPython import InteractiveShell
-
-    fg_black = "\x1B[38;5;232m"
-    fg_white = "\x1B[0;37m"
-    fg_default = "\x1B[0;39m"
-
-    bg_black = "\x1B[48;5;232m"
-    bg_blue = "\x1B[0;44m"
-    bg_white = "\x1B[0;47m"
-    bg_default = "\x1B[0;49m"
-
-    I_symbol = ["111111",
-                "001100",
-                "001100",
-                "001100",
-                "001100",
-                "001100",
-                "111111"]
-
-    P_symbol = ["111110",
-                "110011",
-                "110011",
-                "111110",
-                "110000",
-                "110000",
-                "110000"]
-
-    left_parens_symbol = ["0000",
-                          "1111",
-                          "1100",
-                          "1100",
-                          "1100",
-                          "1100",
-                          "1111"]
-
-    right_parens_symbol = ["0000",
-                           "1111",
-                           "0011",
-                           "0011",
-                           "0011",
-                           "0011",
-                           "1111"]
-
-    y_symbol = ["        ",
-                "__    __",
-                "\ \  / /",
-                " \ \/ / ",
-                "  \  /  ",
-                " _/ /   ",
-                "|__/    "]
-
-    default_banner = InteractiveShell.banner1.default_value.split("\n")
-    default_banner = list(filter(None, default_banner))
-
-    rows = len(I_symbol)
-    ipy_banner = ['' for ii in range(rows)]
-    for ii in range(rows):
-        ipy_banner[ii] += ''.join([bg_black * int(jj) + ' ' + bg_default for jj in I_symbol[ii]])
-        ipy_banner[ii] += "  "
-        ipy_banner[ii] += ''.join([bg_black * int(jj) + ' ' + bg_default for jj in P_symbol[ii]])
-        ipy_banner[ii] += "  "
-        ipy_banner[ii] += ''.join([bg_blue * int(jj) + ' ' + bg_default for jj in left_parens_symbol[ii]])
-        ipy_banner[ii] += " "
-        ipy_banner[ii] += ''.join([fg_black + jj + fg_default for jj in y_symbol[ii]])
-        ipy_banner[ii] += " "
-        ipy_banner[ii] += ''.join([bg_blue * int(jj) + ' ' + bg_default for jj in right_parens_symbol[ii]])
-        ipy_banner[ii] += "  "
-        ipy_banner[ii] += fg_white + "| " + default_banner[ii] + fg_default
-    return "\n" + '\n'.join(ipy_banner) + "\n"
-
+import os
+import sys
+sys.path.append(os.path.dirname(__file__))
+from ipython_banner import paint_ipy_banner
 c.InteractiveShell.banner1 = paint_ipy_banner()
 
 ## The part of the banner to be printed after the profile
-#c.InteractiveShell.banner2 = ''
+c.InteractiveShell.banner2 = (
+        'Import Modules:\n'
+        '|-> __future__ (absolute_import, division, print_function)\n'
+        '|-> math\n'
+        '|-> pprint.pprint as pp\n'
+        '|-> numpy as np\n'
+        '|-> matplotlib.pyplot as plt\n')
 
 ## Set the size of the output cache.  The default is 1000, you can change it
 #  permanently in your config file.  Setting it to 0 completely disables the
