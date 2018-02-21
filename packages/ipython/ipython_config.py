@@ -171,8 +171,6 @@ c.InteractiveShell.autoindent = True
 #c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
-#c.InteractiveShell.banner1 = 'Python 2.7.6 (default, Oct 26 2016, 20:30:19) \nType "copyright", "credits" or "license" for more information.\n\nIPython 5.3.0 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
-
 import os
 import sys
 sys.path.append(os.path.dirname(__file__))
@@ -180,13 +178,8 @@ from ipython_banner import paint_ipy_banner
 c.InteractiveShell.banner1 = paint_ipy_banner()
 
 ## The part of the banner to be printed after the profile
-c.InteractiveShell.banner2 = (
-        'Import Modules:\n'
-        '|-> __future__ (absolute_import, division, print_function)\n'
-        '|-> math\n'
-        '|-> pprint.pprint as pp\n'
-        '|-> numpy as np\n'
-        '|-> matplotlib.pyplot as plt\n')
+from ipython_modules import group_print_modules
+c.InteractiveShell.banner2 = group_print_modules(c.InteractiveShellApp.exec_lines)
 
 ## Set the size of the output cache.  The default is 1000, you can change it
 #  permanently in your config file.  Setting it to 0 completely disables the
@@ -341,49 +334,7 @@ c.TerminalInteractiveShell.highlighting_style_overrides = {
 ## Enable mouse support in the prompt
 #c.TerminalInteractiveShell.mouse_support = False
 
-
-from IPython.terminal.prompts import Prompts, Token
-from IPython.utils.coloransi import TermColors, InputTermColors, ColorScheme
-import os
-import pwd
-
-class IpythonPrompt(Prompts):
-    # # Output prompt. '\#' will be transformed to the prompt number
-    # c.PromptManager.out_template = u'{color.Brown} {color.Red}│⟶  '
-
-    # # Continuation prompt.
-    # c.PromptManager.in2_template = u'{color.Brown} {color.Green}│⟶  '
-
-    # #
-    # c.PromptManager.color_scheme = 'Linux'
-
-    # # Input prompt.  '\#' will be transformed to the prompt number
-    # c.PromptManager.in_template = u'{color.Brown} ' + \
-                              # r'{color.Cyan}\u{color.Brown}:'\
-                               # '{color.LightRed}[{color.Red}\Y1{color.LightRed}]\n' + \
-                               # u'{color.Brown} {color.Green}│⟶  '
-
-    # # If True (default), each prompt will be right-aligned with the preceding one.
-    # c.PromptManager.justify = False
-    def in_prompt_tokens(self, cli=None):
-        return [(Token.Number, u' '),
-                (Token.String, pwd.getpwuid(os.getuid())[0]),
-                (Token.Number, ':'),
-                (Token.OutPrompt, '['),
-                (Token.OutPromptNum, os.getcwd()),
-                (Token.OutPrompt, ']\n'),
-                (Token.Number, u' '),
-                (Token.Prompt, u'│⟶  ')]
-
-    def continuation_prompt_tokens(self, cli=None, width=None):
-        return [(Token.Number, u' '),
-                (Token.Prompt, u'│⟶  ')]
-
-    def out_prompt_tokens(self):
-        return [(Token.Number, u' '),
-                (Token.OutPrompt, u'│⟶  ')]
-
-
+from ipython_prompt import IpythonPrompt
 ## Class used to generate Prompt token for prompt_toolkit
 c.TerminalInteractiveShell.prompts_class = IpythonPrompt
 
