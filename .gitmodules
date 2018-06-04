@@ -1,12 +1,12 @@
 [submodule "prompt-support"]
 	path = packages/bash_support/bash/prompt-support
-	url = git@github.com:mkofinas/prompt-support.git
+	url = https://github.com:mkofinas/prompt-support.git
 [submodule "bash-themes"]
 	path = packages/bash_support/bash/bash-themes
-	url = git@github.com:mkofinas/bash-themes.git
+	url = https://github.com:mkofinas/bash-themes.git
 [submodule "prezto"]
 	path = packages/zsh/zsh/.zprezto
-	url = git@github.com:mkofinas/prezto.git
+	url = https://github.com:mkofinas/prezto.git
 [submodule "utilities/nerd_fonts"]
 	path = utilities/nerd_fonts
-	url = git@gist.github.com:e3042acca22cde24d89efb026acc3ada.git
+	url = https://gist.github.com:e3042acca22cde24d89efb026acc3ada.git
