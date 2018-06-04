@@ -44,19 +44,19 @@ downloaded automatically using the install script explained below.
 Clone with HTTPS:
 
 ```sh
-curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/dowload_install.sh | bash
+curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/download_install.sh | bash
 ```
 
 Or, if you prefer, clone with SSH:
 
 ```sh
-curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/dowload_install.sh | bash /dev/stdin -s
+curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/download_install.sh | bash /dev/stdin -s
 ```
 
 You can also specify the directory you wish to install the dotfiles (e.g. `.dotfiles`):
 
 ```sh
-curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/dowload_install.sh | bash /dev/stdin -s .dotfiles
+curl -L https://raw.githubusercontent.com/mkofinas/dotfiles/master/download_install.sh | bash /dev/stdin -s .dotfiles
 ```
 
 ### Manual Installation
