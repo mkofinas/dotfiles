@@ -31,6 +31,7 @@ alias make_motion='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_v
 # Directories {{{1
 ################################################################################
 # List Directories
+alias ls='ls --group-directories-first --color=auto'
 alias l='ls -1F'
 alias ll='ls -lh'
 alias la='ls -lhA'
@@ -52,7 +53,9 @@ alias ......='cd ../../../../..'
 ################################################################################
 # Grep {{{1
 ################################################################################
-alias grep='grep -HIirn --color=auto'
+# Do not change the functionality of the original grep, since it may alter the
+# behavior of shell scripts
+alias grap='grep -HIirn --color=auto'
 alias ag='ag --smart-case --hidden'
 # 1}}}
 ################################################################################
@@ -125,7 +128,7 @@ alias jn='jupyter notebook'
 ################################################################################
 alias ght='gh trending --pager'
 alias ghf='gh feed --pager'
-alias wtr='curl -s wttr.in/Thessaloniki | less'
+alias weather='curl -s wttr.in/Thessaloniki | less'
 # 1}}}
 ################################################################################
 

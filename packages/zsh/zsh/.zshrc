@@ -27,7 +27,9 @@ if (( $+commands[python] )); then
 fi
 # 1}}}
 ################################################################################
-
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf
 ################################################################################
 # Source Prezto {{{1
 ################################################################################
@@ -165,6 +167,10 @@ alias salias='alias | grep "^[a-z]=" | sort'
 
 # Configuration Files
 alias zsh_theme="${EDITOR} $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_sigma.zsh-theme"
+
+# Project Aliases
+alias pmake='make -C ${PROJECT_ROOT}'
+alias pag='ag -p ${PROJECT_ROOT}/.agignore'
 # 1}}}
 ################################################################################
 

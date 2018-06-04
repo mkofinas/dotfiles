@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from past.builtins import range
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+from builtins import range
 
 
 def paint_ipy_banner():

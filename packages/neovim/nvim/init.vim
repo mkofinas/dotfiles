@@ -90,7 +90,7 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'sudo npm -g instal
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
-" Plug 'hynek/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'python-mode/python-mode'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -721,8 +721,8 @@ let g:AutoPairsMapSpace = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:base16_shell_path="$ZDOTDIR/.zplug/repos/chriskempson/base16-shell"
-let base16colorspace=256
+" let g:base16_shell_path="$ZDOTDIR/.zplug/repos/chriskempson/base16-shell"
+" let base16colorspace=256
 set background=dark
 set termguicolors
 function! s:base16_customize() abort
