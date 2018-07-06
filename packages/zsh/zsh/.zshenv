@@ -69,3 +69,7 @@ export PATH=$PATH:$CARGO_HOME/bin
 # Python Pylint
 export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 
+# TeX Live
+export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
+export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
+export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man

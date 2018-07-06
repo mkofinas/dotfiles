@@ -171,6 +171,8 @@ alias zsh_theme="${EDITOR} $ZPLUG_HOME/repos/mkofinas/zeta-sigma-zsh-theme/zeta_
 # Project Aliases
 alias pmake='make -C ${PROJECT_ROOT}'
 alias pag='ag -p ${PROJECT_ROOT}/.agignore'
+alias plmk='latexmk -r ${PROJECT_ROOT}/.latexmkrc'
+alias plrm='latexmk -r ${PROJECT_ROOT}/.latexmkrc -c'
 # 1}}}
 ################################################################################
 
