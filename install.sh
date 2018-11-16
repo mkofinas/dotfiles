@@ -154,13 +154,10 @@ mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/less"
 ################################################################################
 # Neovim Python Hosts {{{1
 ################################################################################
-mkvirtualenv neovim-python2
-workon neovim-python2
-pip install neovim
-deactivate
-mkvirtualenv neovim-python3.6 --python=python3.6
-workon neovim-python3.6
-deactivate
+mkvirtualenv neovim-python2 --python=python2
+workon neovim-python2 && pip install neovim && deactivate
+mkvirtualenv neovim-python3 --python=python3
+workon neovim-python3 && pip install neovim && deactivate
 # 1}}}
 ################################################################################
 

@@ -153,7 +153,7 @@ export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 # Virtual Environments
 export PROJECT_HOME=$HOME/Software/Virtual\ Environments
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
 source $HOME/.local/bin/virtualenvwrapper.sh
 
