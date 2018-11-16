@@ -161,6 +161,15 @@ workon neovim-python3 && pip install neovim && deactivate
 # 1}}}
 ################################################################################
 
+################################################################################
+# Diff-so-fancy {{{1
+################################################################################
+mkdir -p Software/Repos
+git clone git@github.com:so-fancy/diff-so-fancy.git ${HOME}/Software/Repos
+# 1}}}
+################################################################################
+
+
 unset dotfiles_packages
 echo "Installation completed successfully!"
 

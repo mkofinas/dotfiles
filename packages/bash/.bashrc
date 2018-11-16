@@ -150,6 +150,8 @@ export PATH=$PATH:$CARGO_HOME/bin
 # Python Pylint
 export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 
+export PATH=$PATH:$HOME/Software/Repos/diff-so-fancy
+
 # Virtual Environments
 export PROJECT_HOME=$HOME/Software/Virtual\ Environments
 export WORKON_HOME=$HOME/.virtualenvs

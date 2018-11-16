@@ -19,8 +19,8 @@
 # Print a random, hopefully interesting, adage.
 if (( $+commands[python] )); then
   if [[ -t 0 || -t 1 ]]; then
-    if [[ -f ${HOME}/My-Repos/random-quotes/print_random_quote.py ]]; then
-      bash ${HOME}/My-Repos/random-quotes/print_random_quote.sh
+    if [[ -f ${HOME}/Software/My-Repos/random-quotes/print_random_quote.py ]]; then
+      bash ${HOME}/Software/My-Repos/random-quotes/print_random_quote.sh
       # python ${HOME}/My-Repos/random-quotes/print_random_quote.py
     fi
   fi
@@ -57,7 +57,7 @@ source "${ZPLUG_HOME}/init.zsh"
 zplug "rupa/z", use:z.sh
 zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd"
-zplug "b4b4r07/zsh-vimode-visual", use:"zsh-vimode-visual.sh", nice:19
+# zplug "b4b4r07/zsh-vimode-visual", use:"zsh-vimode-visual.sh", nice:19
 zplug "soimort/translate-shell", at:"develop"
 # 2}}}
 ################################################################################
