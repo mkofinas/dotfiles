@@ -39,7 +39,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -151,10 +151,15 @@ export PATH=$PATH:$CARGO_HOME/bin
 export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 
 # Virtual Environments
-export PROJECT_HOME=$HOME/Virtual\ Environments
+export PROJECT_HOME=$HOME/Software/Virtual\ Environments
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
+source $HOME/.local/bin/virtualenvwrapper.sh
 
+export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
+export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
+export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
 # 1}}}
 ################################################################################
 
