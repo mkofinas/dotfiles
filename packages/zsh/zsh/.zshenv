@@ -78,3 +78,6 @@ export PATH=$PATH:$HOME/Software/Repos/diff-so-fancy
 export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
+
+# CUDA
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
