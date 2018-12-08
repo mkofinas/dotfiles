@@ -32,10 +32,10 @@ alias make_motion='cd ~/pandora_ws && catkin_make --only-pkg-with-deps pandora_v
 ################################################################################
 # List Directories
 alias ls='ls --group-directories-first --color=auto'
-alias l='ls -1NF'
-alias ll='ls -lNh'
-alias la='ls -lNhA'
-alias lr='ls -lNhR'
+alias l='ls -1NHF'
+alias ll='ls -lNHh'
+alias la='ls -lNHhA'
+alias lr='ls -lNHhR'
 
 # Make Directories
 alias md='mkdir -p'
