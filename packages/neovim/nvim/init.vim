@@ -292,7 +292,7 @@ set synmaxcol=250
 " let g:python_host_prog = '/usr/bin/python2.7'
 " let g:python3_host_prog = '/usr/bin/python3.4'
 let g:python_host_prog = '/home/miltos/.virtualenvs/neovim-python2/bin/python2.7'
-let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3.6/bin/python3.6'
+let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3/bin/python3.6'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -743,6 +743,6 @@ silent! colorscheme base16-atelier-forest
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set guicursor=
+set guicursor=
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
