@@ -22,6 +22,7 @@ dotfiles_packages["ipython"]=${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile
 dotfiles_packages["cmus"]=${XDG_CONFIG_HOME:-${HOME}/.config}/cmus
 dotfiles_packages["translate-shell"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["direnv"]=${HOME}
+dotfiles_packages["urlview"]=${HOME}
 # 1}}}
 ################################################################################
 
