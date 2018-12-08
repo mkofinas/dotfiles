@@ -65,3 +65,4 @@ macro index,pager gb "<change-folder>=[Gmail]/Bin<enter>" "Go to bin"
 
 macro index,pager b "<save-message>=[Gmail]/Bin<enter><refresh>" "Move message to Bin"
 
+bind index,pager N search-opposite
