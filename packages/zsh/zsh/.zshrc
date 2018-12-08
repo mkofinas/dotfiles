@@ -196,7 +196,7 @@ unset keymap
 ################################################################################
 # Syntax Highlighting {{{2
 ################################################################################
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 # 2}}}
 ################################################################################
 
