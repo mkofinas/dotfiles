@@ -84,11 +84,29 @@ done
 ################################################################################
 # Nerd Fonts {{{1
 ################################################################################
-# Download Desired Nerd Font
+# Download Desired Nerd Fonts
 echo "Download Nerd Fonts"
-mkdir -p ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts
-curl -fLo ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts/"DejaVu Sans Mono for Powerline Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/1.0.0/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.ttf
-curl -fLo ${XDG_DATA_HOME:-${HOME}/.local/share}/fonts/"Fura Mono Regular Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
+fonts_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/fonts"
+mkdir -p "${fonts_dir}"
+
+fonts_version="1.0.0"
+affix="for%20Powerline%20"
+# affix=
+name_affix="for Powerline "
+# name_affix=
+fonts_repo="https://github.com/ryanoasis/nerd-fonts/raw/${fonts_version}/patched-fonts/"
+curl -fLo "${fonts_dir}/DejaVu Sans Mono ${name_affix}Nerd Font Complete.ttf" \
+  "${fonts_repo}/DejaVuSansMono/Regular/complete/DejaVa%20Sans%20Mono%20${affix}Nerd%20Font%20Complete.ttf"
+curl -fLo "${fonts_dir}/DejaVu Sans Mono ${name_affix}Nerd Font Complete Mono.ttf" \
+  "${fonts_repo}/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20${affix}Nerd%20Font%20Complete%20Mono.ttf"
+curl -fLo "${fonts_dir}/Fura Mono ${name_affix}Regular Nerd Font Complete.otf" \
+  "${fonts_repo}/FiraMono/Regular/complete/Fura%20Mono%20${affix}Regular%20Nerd%20Font%20Complete.otf"
+curl -fLo "${fonts_dir}/Fura Mono ${name_affix}Regular Nerd Font Complete Mono.otf" \
+  "${fonts_repo}/FiraMono/Regular/complete/Fura%20Mono%20${affix}Regular%20Nerd%20Font%20Complete%20Mono.otf"
+curl -fLo "${fonts_dir}/Fura Code Regular Nerd Font Complete.otf" \
+  "${fonts_repo}/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.otf"
+curl -fLo "${fonts_dir}/Fura Code Regular Nerd Font Complete Mono.otf" \
+  "${fonts_repo}/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf"
 echo "Done!"
 # 1}}}
 ################################################################################
