@@ -85,6 +85,7 @@ alias mutt="mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 alias latexmk="latexmk -r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
 alias tmux="tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
 alias vim="vim -u ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
+alias wget="wget --hsts-file=${XDG_CACHE_HOME:-${HOME}/.cache}/wget-hsts"
 # 1}}}
 ################################################################################
 
