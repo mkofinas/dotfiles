@@ -23,6 +23,7 @@ dotfiles_packages["cmus"]=${XDG_CONFIG_HOME:-${HOME}/.config}/cmus
 dotfiles_packages["translate-shell"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["direnv"]=${HOME}
 dotfiles_packages["urlview"]=${HOME}
+dotfiles_packages["user_dirs"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 # 1}}}
 ################################################################################
 
