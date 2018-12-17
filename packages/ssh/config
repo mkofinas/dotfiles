@@ -1,0 +1,7 @@
+Host mug
+    HostName mug7.ee.auth.gr
+    Port 6622
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_1
+
