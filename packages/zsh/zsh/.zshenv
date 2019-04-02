@@ -83,3 +83,8 @@ export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
 export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
 export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
+
+# Tmux
+export TMUX_TMPDIR=$XDG_RUNTIME_DIR

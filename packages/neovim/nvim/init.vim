@@ -743,6 +743,6 @@ silent! colorscheme base16-atelier-forest
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set guicursor=
+" set guicursor=
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

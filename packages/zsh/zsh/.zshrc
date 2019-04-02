@@ -59,6 +59,7 @@ zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd"
 # zplug "b4b4r07/zsh-vimode-visual", use:"zsh-vimode-visual.sh", nice:19
 zplug "soimort/translate-shell", at:"develop"
+zplug "MichaelAquilina/zsh-you-should-use"
 # 2}}}
 ################################################################################
 
@@ -140,6 +141,15 @@ fi
 ################################################################################
 if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/desktop_scripts/config" ]; then
   . "${XDG_CONFIG_HOME:-${HOME}/.config}/desktop_scripts/config"
+fi
+# 2}}}
+################################################################################
+
+################################################################################
+# Conda {{{2
+################################################################################
+if [[ -f "${HOME}/Software/Libraries/anaconda3/etc/profile.d/conda.sh" ]]; then
+  source "${HOME}/Software/Libraries/anaconda3/etc/profile.d/conda.sh"
 fi
 # 2}}}
 ################################################################################
