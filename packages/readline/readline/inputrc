@@ -2,7 +2,7 @@
 
 # Controls whether readline begins with a set of key bindings similar to Emacs
 # or Vi. Editing-mode can be set to either emacs or Vi.
-set editing-mode vi
+set editing-mode emacs
 
 # If set to On, readline performs filename matching and completion in a
 # case-insensitive fashion.
@@ -14,7 +14,7 @@ set completion-ignore-case On
 set completion-map-case On
 
 # List all matches in case multiple possible completions are possible
-set show-all-if-ambiguous On
+set show-all-if-ambiguous off
 
 # If set to On, menu completion displays the common prefix of the list of
 # possible completions (which may be empty) before cycling through the list.
