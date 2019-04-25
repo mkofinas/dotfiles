@@ -3,5 +3,23 @@ Host mug
     Port 6622
     User mkofinas
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_1
-
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+Host das4
+    Hostname fs4.das4.science.uva.nl
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+Host das5
+    Hostname fs4.das5.science.uva.nl
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+Host lisa
+    Hostname lisa.surfsara.nl
+    User lgpu0296
+Host lisag
+    Hostname login-gpu.lisa.surfsara.nl
+    User lgpu0296
