@@ -19,7 +19,7 @@
 # Print a random, hopefully interesting, adage.
 if (( $+commands[python] )); then
   if [[ -t 0 || -t 1 ]]; then
-    if [[ -f ${HOME}/Software/My-Repos/random-quotes/print_random_quote.py ]]; then
+    if [[ -f ${HOME}/Software/My-Repos/random-quotes/print_random_quote.sh ]]; then
       bash ${HOME}/Software/My-Repos/random-quotes/print_random_quote.sh
       # python ${HOME}/My-Repos/random-quotes/print_random_quote.py
     fi

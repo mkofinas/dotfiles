@@ -55,6 +55,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'godlygeek/tabular'
 " Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 " Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/vim-easy-align'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

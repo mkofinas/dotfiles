@@ -80,7 +80,7 @@ alias gdf='git diff'
 # Execute with Configuration File - XDG Specification {{{1
 ################################################################################
 alias itorch="jupyter console --kernel=itorch --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/itorch_console_config.py"
-alias ijulia="jupyter console --kernel=julia-0.4 --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/ijulia_console_config.py"
+alias ijulia="jupyter console --kernel=julia-1.1 --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/ijulia_console_config.py"
 alias mutt="mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 alias latexmk="latexmk -r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
 alias tmux="tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"

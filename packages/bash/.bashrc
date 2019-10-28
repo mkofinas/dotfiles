@@ -20,6 +20,11 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 export HISTFILE="${XDG_DATA_HOME:-${HOME}/.local/share}/bash/history"
 export INPUTRC="${XDG_CONFIG_HOME:-${HOME}/.config}/readline/inputrc"
+if [[ $- == *i* ]]
+then
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -167,6 +172,26 @@ export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
 export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
 export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
+
+# Tmux
+export TMUX_TMPDIR=$XDG_RUNTIME_DIR
+
+# Pyenv
+export PYENV_ROOT="${HOME}/Software/Libraries/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# PyTorch
+export TORCH_MODEL_ZOO="${XDG_CACHE_HOME:-${HOME}/.cache}/torch/checkpoints"
+
+# Keras
+export KERAS_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}/keras"
+
+# Wget
+export WGETRC="${XDG_CONFIG_HOME:-${HOME}/.config}/wgetrc"
 # 1}}}
 ################################################################################
 

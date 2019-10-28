@@ -85,6 +85,22 @@ export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
+export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
 
 # Tmux
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
+
+# Pyenv
+export PYENV_ROOT="${HOME}/Software/Libraries/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# PyTorch
+export TORCH_MODEL_ZOO="${XDG_CACHE_HOME:-${HOME}/.cache}/torch/checkpoints"
+
+# Keras
+export KERAS_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}/keras"
+
+# Wget
+export WGETRC="${XDG_CONFIG_HOME:-${HOME}/.config}/wgetrc"
