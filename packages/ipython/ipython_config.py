@@ -37,12 +37,25 @@ c.InteractiveShellApp.exec_lines = [
     'from __future__ import print_function',
     'import math',
     'from pprint import pprint as pp',
-    'import numpy as np',
-    'import matplotlib.pyplot as plt',
 ]
 
+mods_to_load = {'numpy': 'np', 'matplotlib.pyplot': 'plt', 'pandas': 'pd'}
+try:
+    from importlib import import_module
+    for k, v in mods_to_load.items():
+        import_module(k)
+        c.InteractiveShellApp.exec_lines.append(
+            'import {0}'.format(k) + (' as {1}'.format(v) if v else ''))
+except ImportError as e:
+    pass
+
 ## A list of dotted module names of IPython extensions to load.
-c.InteractiveShellApp.extensions = ['h5py.ipy_completer']
+c.InteractiveShellApp.extensions = []
+try:
+    import h5py
+    c.InteractiveShellApp.extensions.append('h5py.ipy_completer')
+except ImportError:
+    pass
 
 ## dotted module name of an IPython extension to load.
 #c.InteractiveShellApp.extra_extension = ''
