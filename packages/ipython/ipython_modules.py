@@ -26,7 +26,7 @@ def group_print_modules(imported_modules):
         else:
             printed_modules[g.group(4)] = g.group(3)
 
-    l = 'Import Modules:\n'
+    l = 'Imported Modules:\n'
     for name, modules in printed_modules.items():
         if isinstance(modules, list):
             l += '|-> {0} ({1})\n'.format(name, ', '.join(modules))

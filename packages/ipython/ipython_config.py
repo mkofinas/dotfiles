@@ -45,7 +45,7 @@ try:
     for k, v in mods_to_load.items():
         import_module(k)
         c.InteractiveShellApp.exec_lines.append(
-            'import {0}'.format(k) + (' as {1}'.format(v) if v else ''))
+            'import {0}'.format(k) + (' as {0}'.format(v) if v else ''))
 except ImportError as e:
     pass
 

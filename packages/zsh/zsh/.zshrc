@@ -56,7 +56,7 @@ source "${ZPLUG_HOME}/init.zsh"
 ################################################################################
 zplug "rupa/z", use:z.sh
 zplug "supercrabtree/k"
-zplug "Tarrasch/zsh-bd"
+# zplug "Tarrasch/zsh-bd"
 # zplug "b4b4r07/zsh-vimode-visual", use:"zsh-vimode-visual.sh", nice:19
 zplug "soimort/translate-shell", at:"develop"
 zplug "MichaelAquilina/zsh-you-should-use"
