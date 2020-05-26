@@ -75,7 +75,7 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 " Plug 'zchee/deoplete-clang'
-" Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,7 +83,8 @@ Plug 'zchee/deoplete-jedi'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrations {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
+Plug 'dense-analysis/ale'
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
@@ -114,12 +115,15 @@ Plug 'vim-airline/vim-airline-themes'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
 Plug 'JuliaLang/julia-vim'
+Plug 'cespare/vim-toml'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 Plug 'ryanoasis/vim-devicons'
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -171,6 +175,8 @@ set lazyredraw
 
 set foldmethod=indent
 set nofoldenable
+
+au FileType vim setlocal fo-=o
 
 set clipboard+=unnamedplus
 " 2}}}
@@ -292,8 +298,10 @@ set synmaxcol=250
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:python_host_prog = '/usr/bin/python2.7'
 " let g:python3_host_prog = '/usr/bin/python3.4'
-let g:python_host_prog = '/home/miltos/.virtualenvs/neovim-python2/bin/python2.7'
-let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3/bin/python3.6'
+" let g:python_host_prog = '/home/miltos/.virtualenvs/neovim-python2/bin/python2.7'
+" let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3/bin/python3.6'
+let g:python_host_prog = '/home/miltos/Software/Libraries/pyenv/versions/neovim-python2/bin/python'
+let g:python3_host_prog = '/home/miltos/Software/Libraries/pyenv/versions/neovim-python3/bin/python'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -417,6 +425,7 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline_right_alt_sep = '|'
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
+let g:airline#extensions#ale#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -425,7 +434,7 @@ let g:airline_symbols.space = "\ua0"
 " Enable powerline symbols
 let g:airline_powerline_fonts = 1
 let g:airline_exclude_preview=1
-let g:airline_theme = 'base16_atelierforest'
+let g:airline_theme = 'gruvbox'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -433,13 +442,13 @@ let g:airline_theme = 'base16_atelierforest'
 " indentLine {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_enabled = 1
-let g:indentLine_char = '┊'  " │ 
+let g:indentLine_char =   '│'  " '┊' '│' ''
 " let g:indentLine_leadingSpaceEnabled = 1
 " let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
 let g:indentLine_noConcealCursor=""
 let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_first_char = '┊'
+let g:indentLine_first_char = '|'  " '┊'
 " let g:indentLine_indentLevel = 20
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -512,9 +521,11 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call neomake#configure#automake('rw', 1000)
+if exists(':Neomake')
+  call neomake#configure#automake('rw', 1000)
+endif
 
-let g:neomake_error_sign = { 'text': ' ', 'texthl': 'ErrorMsg' }
+let g:neomake_error_sign = { 'text': '', 'texthl': 'ErrorMsg' }
 let g:neomake_warning_sign = { 'text': '', 'texthl': 'WarningMsg' }
 
 let g:neomake_c_enabled_makers = ['clang']
@@ -528,6 +539,17 @@ let g:neomake_list_height = 3
 " let g:syntastic_c_check_header = 1
 " let g:syntastic_cpp_include_dirs = ['../../../include', '../../include', '../include', 'include']
 " let g:syntastic_cpp_check_header = 1
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ale {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+
+hi! link ALEErrorSign ErrorMsg
+hi! link ALEWarningSign WarningMsg
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -700,6 +722,13 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Jedi-vim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jedi#completions_enabled = 0
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python-Mode {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode_syntax_print_as_function = 1
@@ -724,23 +753,30 @@ let g:AutoPairsMapSpace = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:base16_shell_path="$ZDOTDIR/.zplug/repos/chriskempson/base16-shell"
 " let base16colorspace=256
+
 set background=dark
 set termguicolors
-function! s:base16_customize() abort
-  call Base16hi("VertSplit", g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
-  call Base16hi("ErrorMsg", g:base16_gui08, g:base16_gui01, g:base16_cterm08, g:base16_cterm01, "", "")
-  call Base16hi("WarningMsg", g:base16_gui0A, g:base16_gui01, g:base16_cterm0A, g:base16_cterm01, "", "")
-  call Base16hi("SpellBad", g:base16_gui06, g:base16_gui08, g:base16_cterm06, g:base16_cterm08, "", "")
-  call Base16hi("ExtraWhitespace", "", g:base16_gui08, "", g:base16_cterm08, "", "")
-  call Base16hi("pythonStatement", g:base16_gui08, "", g:base16_cterm08, "", "bold", "")
-endfunction
+" function! s:base16_customize() abort
+  " call Base16hi("VertSplit", g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
+  " call Base16hi("ErrorMsg", g:base16_gui08, g:base16_gui01, g:base16_cterm08, g:base16_cterm01, "", "")
+  " call Base16hi("WarningMsg", g:base16_gui0A, g:base16_gui01, g:base16_cterm0A, g:base16_cterm01, "", "")
+  " call Base16hi("SpellBad", g:base16_gui06, g:base16_gui08, g:base16_cterm06, g:base16_cterm08, "", "")
+  " call Base16hi("ExtraWhitespace", "", g:base16_gui08, "", g:base16_cterm08, "", "")
+  " call Base16hi("pythonStatement", g:base16_gui08, "", g:base16_cterm08, "", "bold", "")
+" endfunction
 
-augroup on_change_colorschema
-  autocmd!
-  autocmd ColorScheme * call s:base16_customize()
-augroup END
+" augroup on_change_colorschema
+  " autocmd!
+  " autocmd ColorScheme * call s:base16_customize()
+" augroup END
 
-silent! colorscheme base16-atelier-forest
+" silent! colorscheme base16-atelier-forest
+
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+hi! link ExtraWhitespace GruvboxRed
+hi! link ErrorMsg GruvboxRedSign
+hi! link WarningMsg GruvboxYellowSign
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

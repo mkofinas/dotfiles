@@ -176,10 +176,16 @@ mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/less"
 ################################################################################
 # Neovim Python Hosts {{{1
 ################################################################################
-mkvirtualenv neovim-python2 --python=python2
-workon neovim-python2 && pip install pynvim && deactivate
-mkvirtualenv neovim-python3 --python=python3
-workon neovim-python3 && pip install pynvim && deactivate
+if [[ -z `which pyenv` ]]; then
+  git clone git@github.com:pyenv/pyenv.git ${HOME}/Software/Libraries/pyenv
+  source "${ZDOTDIR}/.zshrc"
+fi
+
+pyenv install 2.7.17
+pyenv install 3.8.2
+
+pyenv virtualenv 2.7.17 neovim-python2 && pyenv activate neovim-python2 && pip install pynvim && pyenv deactivate
+pyenv virtualenv 3.8.2 neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
 # 1}}}
 ################################################################################
 
