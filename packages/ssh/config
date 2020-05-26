@@ -17,6 +17,12 @@ Host das5
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa
     ForwardAgent yes
+Host ivi
+    Hostname ivi-h0.science.uva.nl
+    User mkofina
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
 Host lisa
     Hostname lisa.surfsara.nl
     User lgpu0296
