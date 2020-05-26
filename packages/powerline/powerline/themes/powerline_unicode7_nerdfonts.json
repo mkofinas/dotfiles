@@ -30,7 +30,7 @@
 			"args": {
 				"state_symbols": {
 					"fallback": "♫",
-					"play":     " ⏵",
+					"play":     " ",
 					"pause":    " ",
 					"stop":     " "
 				}

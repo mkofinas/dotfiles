@@ -21,7 +21,7 @@
         "function": "powerline.segments.common.wthr.weather",
         "args": {
           "unit": "C",
-          "location_query": "Thessaloniki, Greece"
+          "location_query": "Amsterdam, Netherlands"
         }
       },
       {
