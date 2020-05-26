@@ -1,7 +1,7 @@
 ################################################################################
 # Zsh Configuration                                                            #
 # -------------------------                                                    #
-# 1. Print Random Quote                                                        #
+# 1. Tmux                                                                      #
 # 2. Source Prezto                                                             #
 # 3. Plugin Manager: Zplug                                                     #
 # 4. Source Files                                                              #
@@ -14,22 +14,15 @@
 ################################################################################
 
 ################################################################################
-# Print Random Quote {{{1
-################################################################################
-# Print a random, hopefully interesting, adage.
-if (( $+commands[python] )); then
-  if [[ -t 0 || -t 1 ]]; then
-    if [[ -f ${HOME}/Software/My-Repos/random-quotes/print_random_quote.sh ]]; then
-      bash ${HOME}/Software/My-Repos/random-quotes/print_random_quote.sh
-      # python ${HOME}/My-Repos/random-quotes/print_random_quote.py
-    fi
-  fi
-fi
-# 1}}}
+# Tmux {{{1
 ################################################################################
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf
+[[ -z "$TMUX" ]] && exec tmux  # Tmux >=3.1 searches at .config/tmux/tmux.conf
+# [[ -z "$TMUX" ]] && exec tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf
+# 1}}}
+################################################################################
+
 ################################################################################
 # Source Prezto {{{1
 ################################################################################
@@ -67,7 +60,7 @@ zplug "MichaelAquilina/zsh-you-should-use"
 # Display {{{2
 ################################################################################
 # zplug "mkofinas/zeta-sigma-zsh-theme"
-zplug "chriskempson/base16-shell", use:"scripts/base16-atelier-forest.sh"
+# zplug "chriskempson/base16-shell", use:"scripts/base16-atelier-forest.sh"
 # zplug "zsh-users/zsh-syntax-highlighting", nice:10
 # 2}}}
 ################################################################################
@@ -119,20 +112,9 @@ fi
 ################################################################################
 
 ################################################################################
-# Torch {{{2
-################################################################################
-if [ -f ~/Libraries/torch/install/bin/torch-activate ]; then
-  . ~/Libraries/torch/install/bin/torch-activate
-fi
-# 2}}}
-################################################################################
-
-################################################################################
 # Fzf {{{2
 ################################################################################
-if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/fzf/fzf.zsh" ]; then
-  source "${XDG_CONFIG_HOME:-${HOME}/.config}/fzf/fzf.zsh"
-fi
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 # 2}}}
 ################################################################################
 

@@ -83,7 +83,7 @@ alias itorch="jupyter console --kernel=itorch --config=${XDG_CONFIG_HOME:-${HOME
 alias ijulia="jupyter console --kernel=julia-1.1 --config=${XDG_CONFIG_HOME:-${HOME}/.config}/jupyter/ijulia_console_config.py"
 alias mutt="mutt -F ${XDG_CONFIG_HOME:-${HOME}/.config}/mutt/muttrc"
 alias latexmk="latexmk -r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
-alias tmux="tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
+# alias tmux="tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf"
 alias vim="vim -u ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/vimrc"
 alias wget="wget --hsts-file=${XDG_CACHE_HOME:-${HOME}/.cache}/wget-hsts"
 # 1}}}

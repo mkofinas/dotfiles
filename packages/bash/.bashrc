@@ -237,9 +237,7 @@ source "${XDG_CONFIG_HOME:-${HOME}/.config}/common_aliases/aliases"
 ################################################################################
 # Fzf {{{1
 ################################################################################
-if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/fzf/fzf.bash" ]; then
-  source "${XDG_CONFIG_HOME:-${HOME}/.config}/fzf/fzf.bash"
-fi
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 # 1}}}
 ################################################################################
 

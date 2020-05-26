@@ -20,9 +20,10 @@ export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export PROJECT_HOME=$HOME/Software/Virtual\ Environments
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
-if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
-  source "${VIRTUAL_ENV}/bin/activate"
-fi
+source $HOME/.local/bin/virtualenvwrapper.sh
+# if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  # source "${VIRTUAL_ENV}/bin/activate"
+# fi
 
 # CMUS - XDG Specification
 export CMUS_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
@@ -80,9 +81,10 @@ export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
 
 # CUDA
-export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
+export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
 export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
 export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
@@ -104,3 +106,11 @@ export KERAS_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}/keras"
 
 # Wget
 export WGETRC="${XDG_CONFIG_HOME:-${HOME}/.config}/wgetrc"
+
+# Bat
+export BAT_THEME="TwoDark"
+
+# Fzf
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview="bat --style=numbers --color=always {} | head -500"'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
