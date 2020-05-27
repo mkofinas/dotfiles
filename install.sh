@@ -21,6 +21,7 @@ dotfiles_packages["jupyter"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["ipython"]=${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile_default
 dotfiles_packages["cmus"]=${XDG_CONFIG_HOME:-${HOME}/.config}/cmus
 dotfiles_packages["translate-shell"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["alacritty"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["direnv"]=${HOME}
 dotfiles_packages["urlview"]=${HOME}
 dotfiles_packages["ssh"]=${HOME}/.ssh
@@ -157,13 +158,6 @@ echo "WARNING! You have to set up your credentials in order for mutt to work!"
 ################################################################################
 
 ################################################################################
-# Tmux - Tmux Plugin Manager {{{1
-################################################################################
-git clone https://github.com/tmux-plugins/tpm ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/plugins/tpm
-# 1}}}
-################################################################################
-
-################################################################################
 # Create Directories {{{1
 ################################################################################
 # rupa/z
@@ -192,7 +186,7 @@ pyenv virtualenv 3.8.2 neovim-python3 && pyenv activate neovim-python3 && pip in
 ################################################################################
 # Diff-so-fancy {{{1
 ################################################################################
-mkdir -p Software/Repos
+mkdir -p ${HOME}/Software/Repos
 git clone git@github.com:so-fancy/diff-so-fancy.git ${HOME}/Software/Repos
 # 1}}}
 ################################################################################
@@ -203,7 +197,6 @@ git clone git@github.com:so-fancy/diff-so-fancy.git ${HOME}/Software/Repos
 chsh -s /bin/zsh
 # 1}}}
 ################################################################################
-
 
 unset dotfiles_packages
 echo "Installation completed successfully!"
