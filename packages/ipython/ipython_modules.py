@@ -27,9 +27,10 @@ def group_print_modules(imported_modules):
             printed_modules[g.group(4)] = g.group(3)
 
     l = 'Imported Modules:\n'
-    for name, modules in printed_modules.items():
+    for i, (name, modules) in enumerate(printed_modules.items()):
+        arrow = '└─>' if i == len(printed_modules)-1 else '├─>'
         if isinstance(modules, list):
-            l += '|-> {0} ({1})\n'.format(name, ', '.join(modules))
+            l += '{0} {1} ({2})\n'.format(arrow, name, ', '.join(modules))
         else:
-            l += '|-> {0}\n'.format(modules)
+            l += '{0} {1}\n'.format(arrow, modules)
     return l

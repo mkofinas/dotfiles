@@ -55,6 +55,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'godlygeek/tabular'
 " Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 " Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,7 +84,6 @@ Plug 'davidhalter/jedi-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrations {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'neomake/neomake'
 Plug 'dense-analysis/ale'
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -101,7 +101,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 " Interface {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
-" Plug 'majutsushi/tagbar', { 'do': 'sudo apt-get install exuberant-ctags' }
+Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -115,7 +115,6 @@ Plug 'vim-airline/vim-airline-themes'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
-" Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
 Plug 'JuliaLang/julia-vim'
@@ -123,6 +122,7 @@ Plug 'cespare/vim-toml'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -300,8 +300,8 @@ set synmaxcol=250
 " let g:python3_host_prog = '/usr/bin/python3.4'
 " let g:python_host_prog = '/home/miltos/.virtualenvs/neovim-python2/bin/python2.7'
 " let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3/bin/python3.6'
-let g:python_host_prog = '/home/miltos/Software/Libraries/pyenv/versions/neovim-python2/bin/python'
-let g:python3_host_prog = '/home/miltos/Software/Libraries/pyenv/versions/neovim-python3/bin/python'
+let g:python_host_prog = '/home/miltos/.local/pyenv/versions/neovim-python2/bin/python'
+let g:python3_host_prog = '/home/miltos/.local/pyenv/versions/neovim-python3/bin/python'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -383,31 +383,6 @@ let NERDTreeShowHidden=1
 
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
-
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', 'none')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', 'none')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', 'none')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', 'none')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', 'none')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', 'none')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', 'none')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', 'none')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', 'none')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', 'none')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', 'none')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', 'none')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', 'none')
-call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', 'none')
-call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', 'none')
-call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', 'none')
-call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', 'none')
-call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', 'none')
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -442,7 +417,7 @@ let g:airline_theme = 'gruvbox'
 " indentLine {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_enabled = 1
-let g:indentLine_char =   '│'  " '┊' '│' ''
+let g:indentLine_char =   '|'  " '┊' '│' ''
 " let g:indentLine_leadingSpaceEnabled = 1
 " let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
@@ -479,7 +454,7 @@ let g:ycm_filetype_blacklist = {
 let g:startify_session_dir = "~/.config/nvim/sessions"
 let g:startify_change_to_vcs_root = 1
 let g:startify_show_sessions = 1
-let g:startify_bookmarks = ['~/.config/nvim/init.vim', '~/.vimrc', '~/.bashrc', '~/.zshrc', '~/.tmux.conf']
+let g:startify_bookmarks = ['~/.config/nvim/init.vim', '~/.vimrc', '~/.bashrc', '~/.zshrc', '~/.config/tmux.conf']
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -519,30 +494,6 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neomake {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if exists(':Neomake')
-  call neomake#configure#automake('rw', 1000)
-endif
-
-let g:neomake_error_sign = { 'text': '', 'texthl': 'ErrorMsg' }
-let g:neomake_warning_sign = { 'text': '', 'texthl': 'WarningMsg' }
-
-let g:neomake_c_enabled_makers = ['clang']
-let g:neomake_cpp_enabled_makers = ['clang']
-let g:neomake_python_enabled_makers = ['flake8']
-
-let g:neomake_list_height = 3
-
-" TODO: Search for header files for C-family languages (like Syntastic)
-" let g:syntastic_c_include_dirs = ['../../../include', '../../include', '../include', 'include']
-" let g:syntastic_c_check_header = 1
-" let g:syntastic_cpp_include_dirs = ['../../../include', '../../include', '../include', 'include']
-" let g:syntastic_cpp_check_header = 1
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ale {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_sign_error = ''
@@ -558,7 +509,7 @@ hi! link ALEWarningSign WarningMsg
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
 
-let g:tagbar_width = 40
+let g:tagbar_width = 60
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -739,6 +690,28 @@ let g:quickfixsigns_protect_sign_rx = '^neomake_'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Easymotion {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto-pairs {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsMapSpace = 0
@@ -751,26 +724,8 @@ let g:AutoPairsMapSpace = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:base16_shell_path="$ZDOTDIR/.zplug/repos/chriskempson/base16-shell"
-" let base16colorspace=256
-
 set background=dark
 set termguicolors
-" function! s:base16_customize() abort
-  " call Base16hi("VertSplit", g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
-  " call Base16hi("ErrorMsg", g:base16_gui08, g:base16_gui01, g:base16_cterm08, g:base16_cterm01, "", "")
-  " call Base16hi("WarningMsg", g:base16_gui0A, g:base16_gui01, g:base16_cterm0A, g:base16_cterm01, "", "")
-  " call Base16hi("SpellBad", g:base16_gui06, g:base16_gui08, g:base16_cterm06, g:base16_cterm08, "", "")
-  " call Base16hi("ExtraWhitespace", "", g:base16_gui08, "", g:base16_cterm08, "", "")
-  " call Base16hi("pythonStatement", g:base16_gui08, "", g:base16_cterm08, "", "bold", "")
-" endfunction
-
-" augroup on_change_colorschema
-  " autocmd!
-  " autocmd ColorScheme * call s:base16_customize()
-" augroup END
-
-" silent! colorscheme base16-atelier-forest
 
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
@@ -779,7 +734,5 @@ hi! link ErrorMsg GruvboxRedSign
 hi! link WarningMsg GruvboxYellowSign
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" set guicursor=
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
