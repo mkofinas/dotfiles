@@ -73,7 +73,7 @@ export PATH=$PATH:$CARGO_HOME/bin
 export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 
 # Diff so Fancy
-export PATH=$PATH:$HOME/Software/Repos/diff-so-fancy
+export PATH=$PATH:$HOME/.local/diff-so-fancy
 
 # TeX Live
 export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
@@ -93,7 +93,7 @@ export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
 
 # Pyenv
-export PYENV_ROOT="${HOME}/Software/Libraries/pyenv"
+export PYENV_ROOT="${HOME}/.local/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"

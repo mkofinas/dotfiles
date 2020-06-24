@@ -29,3 +29,9 @@ Host lisa
 Host lisag
     Hostname login-gpu.lisa.surfsara.nl
     User lgpu0296
+Host uvadesktop
+    Hostname dta200096.science.uva.nl
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes

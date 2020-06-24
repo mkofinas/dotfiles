@@ -53,6 +53,7 @@ zplug "supercrabtree/k"
 # zplug "b4b4r07/zsh-vimode-visual", use:"zsh-vimode-visual.sh", nice:19
 zplug "soimort/translate-shell", at:"develop"
 zplug "MichaelAquilina/zsh-you-should-use"
+zplug "esc/conda-zsh-completion", use:"conda-zsh-completion.plugin.zsh"
 # 2}}}
 ################################################################################
 

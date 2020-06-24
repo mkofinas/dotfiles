@@ -92,24 +92,12 @@ echo "Download Nerd Fonts"
 fonts_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/fonts"
 mkdir -p "${fonts_dir}"
 
-fonts_version="1.0.0"
-affix="for%20Powerline%20"
-# affix=
-name_affix="for Powerline "
-# name_affix=
+fonts_version="2.1.0"
 fonts_repo="https://github.com/ryanoasis/nerd-fonts/raw/${fonts_version}/patched-fonts/"
-curl -fLo "${fonts_dir}/DejaVu Sans Mono ${name_affix}Nerd Font Complete.ttf" \
-  "${fonts_repo}/DejaVuSansMono/Regular/complete/DejaVa%20Sans%20Mono%20${affix}Nerd%20Font%20Complete.ttf"
-curl -fLo "${fonts_dir}/DejaVu Sans Mono ${name_affix}Nerd Font Complete Mono.ttf" \
-  "${fonts_repo}/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20${affix}Nerd%20Font%20Complete%20Mono.ttf"
-curl -fLo "${fonts_dir}/Fura Mono ${name_affix}Regular Nerd Font Complete.otf" \
-  "${fonts_repo}/FiraMono/Regular/complete/Fura%20Mono%20${affix}Regular%20Nerd%20Font%20Complete.otf"
-curl -fLo "${fonts_dir}/Fura Mono ${name_affix}Regular Nerd Font Complete Mono.otf" \
-  "${fonts_repo}/FiraMono/Regular/complete/Fura%20Mono%20${affix}Regular%20Nerd%20Font%20Complete%20Mono.otf"
-curl -fLo "${fonts_dir}/Fura Code Regular Nerd Font Complete.otf" \
-  "${fonts_repo}/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.otf"
-curl -fLo "${fonts_dir}/Fura Code Regular Nerd Font Complete Mono.otf" \
-  "${fonts_repo}/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf"
+curl -fLo "${fonts_dir}/Fira Code Medium Nerd Font Complete.otf" \
+  "${fonts_repo}/FiraCode/Medium/complete/Fira%20Code%20Medium%20Nerd%20Font%20Complete.otf"
+curl -fLo "${fonts_dir}/Fira Code Bold Nerd Font Complete.otf" \
+  "${fonts_repo}/FiraCode/Bold/complete/Fira%20Code%20Bold%20Nerd%20Font%20Complete.otf"
 echo "Done!"
 # 1}}}
 ################################################################################
@@ -171,23 +159,25 @@ mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/less"
 # Neovim Python Hosts {{{1
 ################################################################################
 if [[ -z `which pyenv` ]]; then
-  git clone git@github.com:pyenv/pyenv.git ${HOME}/Software/Libraries/pyenv
+  git clone git@github.com:pyenv/pyenv.git ${HOME}/.local/pyenv
   source "${ZDOTDIR}/.zshrc"
 fi
 
-pyenv install 2.7.17
-pyenv install 3.8.2
+pyenv install 2.7.18
+pyenv install 3.8.3
+pyenv install 3.7.7
 
-pyenv virtualenv 2.7.17 neovim-python2 && pyenv activate neovim-python2 && pip install pynvim && pyenv deactivate
-pyenv virtualenv 3.8.2 neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
+pyenv virtualenv 2.7.18 neovim-python2 && pyenv activate neovim-python2 && pip install pynvim && pyenv deactivate
+pyenv virtualenv 3.8.3 neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
+pyenv global 3.8.3 2.7.18 3.7.7 neovim-python3
 # 1}}}
 ################################################################################
 
 ################################################################################
 # Diff-so-fancy {{{1
 ################################################################################
-mkdir -p ${HOME}/Software/Repos
-git clone git@github.com:so-fancy/diff-so-fancy.git ${HOME}/Software/Repos
+mkdir -p ${HOME}/.local
+git clone git@github.com:so-fancy/diff-so-fancy.git ${HOME}/.local
 # 1}}}
 ################################################################################
 

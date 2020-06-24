@@ -129,7 +129,7 @@ alias jn='jupyter notebook'
 ################################################################################
 alias ght='gh trending --pager'
 alias ghf='gh feed --pager'
-alias weather='curl -s wttr.in/Thessaloniki | less'
+alias weather='curl -s wttr.in/Amsterdam | less'
 # 1}}}
 ################################################################################
 
