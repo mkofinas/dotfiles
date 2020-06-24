@@ -300,8 +300,8 @@ set synmaxcol=250
 " let g:python3_host_prog = '/usr/bin/python3.4'
 " let g:python_host_prog = '/home/miltos/.virtualenvs/neovim-python2/bin/python2.7'
 " let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3/bin/python3.6'
-let g:python_host_prog = '/home/miltos/.local/pyenv/versions/neovim-python2/bin/python'
-let g:python3_host_prog = '/home/miltos/.local/pyenv/versions/neovim-python3/bin/python'
+let g:python_host_prog = expand('$HOME/.local/pyenv/versions/neovim-python2/bin/python')
+let g:python3_host_prog = expand('$HOME/.local/pyenv/versions/neovim-python3/bin/python')
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
