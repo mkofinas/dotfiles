@@ -170,6 +170,9 @@ if [[ -z `which pyenv` ]]; then
   git clone git@github.com:pyenv/pyenv.git ${HOME}/.local/pyenv
   source "${ZDOTDIR}/.zshrc"
 fi
+sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
+  libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+  libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
 
 pyenv install 2.7.18
 pyenv install 3.8.3
