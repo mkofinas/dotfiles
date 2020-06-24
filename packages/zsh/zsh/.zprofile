@@ -18,7 +18,7 @@ fi
 #
 
 # Set editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n $SSH_CONNECTION && -n `which nvim > /dev/null` ]]; then
   export EDITOR='vim'
   export VISUAL='vim'
 else
