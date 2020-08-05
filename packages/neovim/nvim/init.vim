@@ -88,7 +88,7 @@ Plug 'dense-analysis/ale'
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'sudo npm -g install instant-markdown-d' }
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'npm -g install instant-markdown-d' }
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
@@ -602,6 +602,7 @@ let g:gitgutter_sign_modified_removed = ' '
 " Vim-Instant-Markdown {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:instant_markdown_autostart = 0
+let g:instant_markdown_mathjax = 1
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
