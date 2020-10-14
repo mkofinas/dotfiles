@@ -108,7 +108,7 @@ export KERAS_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}/keras"
 export WGETRC="${XDG_CONFIG_HOME:-${HOME}/.config}/wgetrc"
 
 # Bat
-export BAT_THEME="TwoDark"
+export BAT_THEME="gruvbox"
 
 # Fzf
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview="bat --style=numbers --color=always {} | head -500"'
