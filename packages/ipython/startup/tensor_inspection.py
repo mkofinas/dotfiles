@@ -1,6 +1,6 @@
 import IPython
 from IPython.core.magic import register_line_magic
-from numpy import ndarray as numpy.ndarray
+from numpy import ndarray
 from torch import Tensor
 
 from rich.table import Table
