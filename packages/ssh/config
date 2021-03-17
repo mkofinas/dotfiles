@@ -25,10 +25,10 @@ Host ivi
     ForwardAgent yes
 Host lisa
     Hostname lisa.surfsara.nl
-    User lgpu0296
+    User kofinas
 Host lisag
     Hostname login-gpu.lisa.surfsara.nl
-    User lgpu0296
+    User kofinas
 Host uvadesktop
     Hostname dta200096.science.uva.nl
     User mkofinas
@@ -36,3 +36,4 @@ Host uvadesktop
     IdentityFile ~/.ssh/id_rsa
     ForwardAgent yes
     ForwardX11 yes
+    ForwardX11Trusted yes
