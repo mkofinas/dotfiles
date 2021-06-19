@@ -1,7 +1,11 @@
+import sys
 import IPython
 from IPython.core.magic import register_line_magic
-from numpy import ndarray, asarray
-from torch import Tensor
+try:
+    from numpy import ndarray, asarray
+    from torch import Tensor
+except Exception:
+    pass
 
 
 @register_line_magic
@@ -16,10 +20,15 @@ def tins(inp):
     columns = ["Name", "Size", "Type", "Device"]
     column_widths = [[len(c) for c in columns]]
 
+    tensor_instances = tuple(
+        [Tensor] if 'torch' in sys.modules else []
+        + [ndarray] if 'numpy' in sys.modules else []
+    )
+
     who_info = []
     for k in who_list:
         v = globals()[k]
-        if isinstance(v, (Tensor, ndarray)):
+        if isinstance(v, tensor_instances):
             who_info.append((k, "×".join(str(si) for si in v.shape), v.dtype,
                              str(v.device) if hasattr(v, "device") else "-"))
             column_widths.append([len(str(s)) for s in who_info[-1]])

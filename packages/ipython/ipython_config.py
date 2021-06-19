@@ -49,11 +49,28 @@ try:
 except ImportError as e:
     pass
 
+submods_to_load = [('rich', 'inspect'), ('rich', 'print')]
+try:
+    from importlib import import_module
+    for mod in submods_to_load:
+        k, v = mod
+        import_module(k)
+        c.InteractiveShellApp.exec_lines.append(
+            'from {0} import {1}'.format(k, v))
+except ImportError as e:
+    pass
+
 ## A list of dotted module names of IPython extensions to load.
 c.InteractiveShellApp.extensions = []
 try:
     import h5py
     c.InteractiveShellApp.extensions.append('h5py.ipy_completer')
+except ImportError:
+    pass
+
+try:
+    import rich
+    c.InteractiveShellApp.extensions.append('rich')
 except ImportError:
     pass
 
