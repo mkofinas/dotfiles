@@ -36,6 +36,7 @@ alias l='ls -1NHF'
 alias ll='ls -lNHh'
 alias la='ls -lNHhA'
 alias lr='ls -lNHhR'
+alias lt="ls -lNHhAtr"
 
 # Make Directories
 alias md='mkdir -p'
@@ -121,6 +122,9 @@ alias ipy='ipython'
 alias ith='itorch'
 alias ijl='ijulia'
 alias jn='jupyter notebook'
+
+alias sq='squeue -u $USER'
+alias stest='srun -u --pty -n 1 --ntasks=1 --gres=gpu:1 --partition=gpu -t 0:30:00 bash -i'
 # 1}}}
 ################################################################################
 

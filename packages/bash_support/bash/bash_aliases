@@ -19,3 +19,8 @@ alias e='${VISUAL:-${EDITOR}}'
 ############################## Configuration Files #############################
 alias bash_theme="${EDITOR} ~/.dotfiles/.bash/themes/${BASH_THEME}.theme.bash"
 
+################################ Git ###########################################
+alias g='git'
+alias ga='git add'
+alias gcm='git commit -m'
+alias gp='git push'
