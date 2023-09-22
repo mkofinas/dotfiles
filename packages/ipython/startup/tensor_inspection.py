@@ -48,6 +48,14 @@ def tins(inp):
     for row in who_info:
         print(table_format.format(*[str(s) for s in row]))
     print(separator)
-
+    # table = Table(show_header=True, header_style="bold")
+    # table.add_column("Name", style="dim", justify="right")
+    # table.add_column("Size", style="dim", justify="right")
+    # table.add_column("Type", style="dim", justify="right")
+    # for x in who_info:
+        # table.add_row(*[str(xi) for xi in x])
+    # if table._row_count:
+        # Console().print(table)
+    # # return table
 
 del tins

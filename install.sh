@@ -153,6 +153,8 @@ echo "WARNING! You have to set up your credentials in order for mutt to work!"
 mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/z"
 # Less History
 mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/less"
+# Bash History
+mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/bash"
 # 1}}}
 ################################################################################
 

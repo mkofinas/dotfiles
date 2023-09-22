@@ -17,6 +17,12 @@ Host das5
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa
     ForwardAgent yes
+Host das6
+    Hostname fs4.das6.science.uva.nl
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
 Host ivi
     Hostname ivi-h0.science.uva.nl
     User mkofina
@@ -26,9 +32,34 @@ Host ivi
 Host lisa
     Hostname lisa.surfsara.nl
     User kofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
 Host lisag
     Hostname login-gpu.lisa.surfsara.nl
     User kofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+Host snel
+    Hostname snellius.surf.nl
+    User kofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    RequestTTY yes
+    RemoteCommand tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf at || tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
+Host snelg
+    Hostname snellius.surf.nl
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+    ForwardX11 yes
+    # RequestTTY yes
+    # RemoteCommand tmux -u  -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf at -t foobar || tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
 Host uvadesktop
     Hostname dta200096.science.uva.nl
     User mkofinas

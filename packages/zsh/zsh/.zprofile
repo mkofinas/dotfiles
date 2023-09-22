@@ -93,3 +93,5 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 # pip zsh completion end
+
+export PATH="/home/mkofinas/.local/share/cargo/bin:$PATH"

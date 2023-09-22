@@ -158,11 +158,11 @@ export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 export PATH=$PATH:$HOME/Software/Repos/diff-so-fancy
 
 # Virtual Environments
-export PROJECT_HOME=$HOME/Software/Virtual\ Environments
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
-source $HOME/.local/bin/virtualenvwrapper.sh
+# export PROJECT_HOME=$HOME/Software/Virtual\ Environments
+# export WORKON_HOME=$HOME/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
+# source $HOME/.local/bin/virtualenvwrapper.sh
 
 export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
@@ -179,10 +179,10 @@ export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
 
 # Pyenv
-export PYENV_ROOT="${HOME}/Software/Libraries/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PYENV_ROOT="${HOME}/Software/Libraries/pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # PyTorch
 export TORCH_MODEL_ZOO="${XDG_CACHE_HOME:-${HOME}/.cache}/torch/checkpoints"
@@ -245,3 +245,19 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # vim:foldmethod=marker:foldlevel=0:foldenable
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/mkofinas/.local/lib/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/mkofinas/.local/lib/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

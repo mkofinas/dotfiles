@@ -17,10 +17,10 @@ export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 
 # Virtual Environments
-export PROJECT_HOME=$HOME/Software/Virtual\ Environments
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
-source $HOME/.local/bin/virtualenvwrapper.sh
+# export PROJECT_HOME=$HOME/Software/Virtual\ Environments
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
+# source $HOME/.local/bin/virtualenvwrapper.sh
 # if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   # source "${VIRTUAL_ENV}/bin/activate"
 # fi
@@ -51,6 +51,7 @@ export GIMP2_DIRECTORY="${XDG_CONFIG_HOME:-${HOME}/.config}/gimp"
 
 # Npm
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/npm/npmrc"
+export PATH=$PATH:$HOME/.local/node-v14.16.0-linux-x64/bin
 
 # Docker
 export DOCKER_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/docker/config.json"
@@ -108,7 +109,7 @@ export KERAS_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}/keras"
 export WGETRC="${XDG_CONFIG_HOME:-${HOME}/.config}/wgetrc"
 
 # Bat
-export BAT_THEME="gruvbox"
+export BAT_THEME="gruvbox-dark"
 
 # Fzf
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview="bat --style=numbers --color=always {} | head -500"'

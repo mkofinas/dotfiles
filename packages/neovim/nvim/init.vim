@@ -78,6 +78,7 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 " Plug 'zchee/deoplete-clang'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'davidhalter/jedi-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'github/copilot.vim', {'branch': 'release'}
 " 3}}}
@@ -90,7 +91,7 @@ Plug 'dense-analysis/ale'
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown', 'do': 'npm -g install instant-markdown-d' }
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'rhysd/vim-grammarous', { 'for': 'tex' }
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
@@ -729,6 +730,14 @@ let g:AutoPairsMapSpace = 0
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Co-Pilot {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:copilot_filetypes = {
+   \ 'markdown': v:true,
+   \ }
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

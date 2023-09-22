@@ -52,7 +52,7 @@
 			}
 		},
 		"powerline.segments.common.net.hostname": {
-			"before": "🏠 "
+			"before": " "
 		},
 		"powerline.segments.common.bat.battery": {
 			"args": {

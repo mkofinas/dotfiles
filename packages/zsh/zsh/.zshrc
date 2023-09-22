@@ -18,7 +18,7 @@
 ################################################################################
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux  # Tmux >=3.1 searches at .config/tmux/tmux.conf
+[[ -z "$TMUX" ]] && exec tmux # Tmux >=3.1 searches at .config/tmux/tmux.conf
 # [[ -z "$TMUX" ]] && exec tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf
 # 1}}}
 ################################################################################
@@ -131,8 +131,8 @@ fi
 ################################################################################
 # Conda {{{2
 ################################################################################
-if [[ -f "${HOME}/Software/Libraries/anaconda3/etc/profile.d/conda.sh" ]]; then
-  source "${HOME}/Software/Libraries/anaconda3/etc/profile.d/conda.sh"
+if [[ -f "${HOME}/.local/lib/anaconda3/etc/profile.d/conda.sh" ]]; then
+# source "${HOME}/.local/lib/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
 fi
 # 2}}}
 ################################################################################
@@ -227,3 +227,43 @@ eval "$(direnv hook zsh)"
 ################################################################################
 
 # vim:foldmethod=marker:foldlevel=0:foldenable
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/mkofinas/.local/lib/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/mkofinas/.local/lib/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mkofinas/.local/lib/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/mkofinas/.local/lib/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/mkofinas/.local/lib/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/mkofinas/.local/lib/anaconda3/etc/profile.d/conda.sh"
+fi
+# <<< conda initialize <<<
+#
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/mkofinas/.local/lib/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+    # eval "$__conda_setup"
+# else
+    # if [ -f "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh" ]; then
+        # . "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh"
+    # else
+        # export PATH="/home/mkofinas/.local/lib/mambaforge/bin:$PATH"
+    # fi
+# fi
+# unset __conda_setup
+
+# if [ -f "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
+    # . "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/mamba.sh"
+# fi
+# <<< conda initialize <<<
+
