@@ -74,11 +74,11 @@ cat "${dotfiles_dir}/.gitconfiglocal" >> "${dotfiles_dir}/.git/config"
 # GNU Stow {{{1
 ################################################################################
 echo "Install GNU Stow"
-if type "stow" > /dev/null; then
-  echo "GNU Stow is already installed"
-else
-  sudo apt-get update && sudo apt-get install -y stow
-fi
+# if type "stow" > /dev/null; then
+#   echo "GNU Stow is already installed"
+# else
+#   sudo apt-get update && sudo apt-get install -y stow
+# fi
 echo "Symlink dotfiles using GNU Stow:"
 cd "${dotfiles_dir}/packages"
 for package in ${!dotfiles_packages[@]}; do
@@ -135,16 +135,16 @@ nvim -c 'PlugInstall | qa'
 ################################################################################
 # Zsh - Prezto {{{1
 ################################################################################
-zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTDIR}/.zprezto/bootstrap/zshenv" "${HOME}/.zshenv"; source "${ZDOTDIR}/.zshrc"'
+# zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTDIR}/.zprezto/bootstrap/zshenv" "${HOME}/.zshenv"; source "${ZDOTDIR}/.zshrc"'
 # 1}}}
 ################################################################################
 
 ################################################################################
 # Mutt {{{1
 ################################################################################
-mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
-mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
-echo "WARNING! You have to set up your credentials in order for mutt to work!"
+# mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
+# mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
+# echo "WARNING! You have to set up your credentials in order for mutt to work!"
 # 1}}}
 ################################################################################
 
@@ -163,8 +163,8 @@ mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/bash"
 ################################################################################
 # Make Zsh the default shell {{{1
 ################################################################################
-echo "Make Zsh the default shell. Input password:"
-chsh -s $(which zsh)
+# echo "Make Zsh the default shell. Input password:"
+# chsh -s $(which zsh)
 # 1}}}
 ################################################################################
 
@@ -175,9 +175,9 @@ if [[ -z `which pyenv` ]]; then
   git clone git@github.com:pyenv/pyenv.git ${HOME}/.local/pyenv
   source "${ZDOTDIR}/.zshrc"
 fi
-sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev curl git \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+# sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
+# libbz2-dev libreadline-dev libsqlite3-dev curl git \
+# libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 git clone git@github.com:pyenv/pyenv-virtualenv.git ${HOME}/.local/pyenv/plugins/pyenv-virtualenv
 

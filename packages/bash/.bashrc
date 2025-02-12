@@ -3,10 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+# case $- in
+#     *i*) ;;
+#       *) return;;
+# esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -179,10 +179,10 @@ export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
 
 # Pyenv
-# export PYENV_ROOT="${HOME}/.local/pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="${HOME}/.local/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # PyTorch
 export TORCH_MODEL_ZOO="${XDG_CACHE_HOME:-${HOME}/.cache}/torch/checkpoints"
@@ -224,6 +224,7 @@ fi
 ################################################################################
 BASH_THEME="basic"
 
+source /usr/share/git-core/contrib/completion/git-prompt.sh
 if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash ]; then
     . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash
 fi
@@ -251,22 +252,26 @@ source "${XDG_CONFIG_HOME:-${HOME}/.config}/common_aliases/aliases"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# vim:foldmethod=marker:foldlevel=0:foldenable
-
-# >>> conda initialize >>>
+# >>> mamba initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mkofinas/.local/lib/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/mkofinas/.local/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/home/mkofinas/.local/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/mkofinas/.local/mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="/home/mkofinas/.local/lib/mambaforge/bin:$PATH"
+        export PATH="/home/mkofinas/.local/mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
 . "/home/mkofinas/.local/share/cargo/env"
 
+# <<< mamba initialize <<<
+
+#
+# disable init of env "base"
+conda config --set auto_activate_base false
+
+# vim:foldmethod=marker:foldlevel=0:foldenable

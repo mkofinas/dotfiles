@@ -4,42 +4,6 @@
     ],
     "right": [
       {
-        "function": "powerline.segments.common.players.cmus",
-        "name": "player",
-        "args": {
-          "format": "{state_symbol}{artist} - {title}"
-        }
-      },
-      {
-        "function": "powerline.segments.common.mail.email_imap_alert",
-        "args": {
-          "username": "",
-          "password": ""
-        }
-      },
-      {
-        "function": "powerline.segments.common.wthr.weather",
-        "args": {
-          "unit": "C",
-          "location_query": "Amsterdam, Netherlands"
-        }
-      },
-      {
-        "function": "powerline.segments.common.time.date",
-        "name": "date",
-        "args": {
-          "format": "%a %d %b %Y"
-        }
-      },
-      {
-        "function": "powerline.segments.common.time.date",
-        "name": "time",
-        "args": {
-          "format": "%H:%M",
-          "istime": true
-        }
-      },
-      {
         "function": "powerline.segments.common.net.hostname",
         "args": {
           "only_if_ssh": true
