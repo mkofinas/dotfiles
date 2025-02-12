@@ -98,6 +98,8 @@ Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
 Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'python-mode/python-mode'
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -117,7 +119,7 @@ Plug 'vim-airline/vim-airline-themes'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Code Display {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'morhetz/gruvbox'
 Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
@@ -222,7 +224,7 @@ set nobackup " No backup (*~) files
 set noswapfile " No swap (*.swp) files
 
 " Maximum width of text that is being inserted.
-set textwidth=80
+set textwidth=88
 
 let g:load_doxygen_syntax=1
 
@@ -414,21 +416,6 @@ let g:airline_symbols.space = "\ua0"
 let g:airline_powerline_fonts = 1
 let g:airline_exclude_preview=1
 let g:airline_theme = 'gruvbox'
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" indentLine {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_enabled = 1
-let g:indentLine_char =   '|'  " '┊' '│' ''
-" let g:indentLine_leadingSpaceEnabled = 1
-" let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_bufNameExclude = ['NERD_tree.*']
-let g:indentLine_noConcealCursor=""
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_first_char = '|'  " '┊'
-" let g:indentLine_indentLevel = 20
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -733,11 +720,13 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Co-Pilot {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copilot {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:copilot_filetypes = {
-   \ 'markdown': v:true,
-   \ }
+      \ 'markdown': 1,
+      \ 'yaml': 1,
+      \ }
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -757,5 +746,15 @@ hi! link ErrorMsg GruvboxRedSign
 hi! link WarningMsg GruvboxYellowSign
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" indent-blankline.nvim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require("ibl").setup()
+EOF
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
