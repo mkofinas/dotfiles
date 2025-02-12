@@ -72,11 +72,11 @@ cat "${dotfiles_dir}/.gitconfiglocal" >> "${dotfiles_dir}/.git/config"
 # GNU Stow {{{1
 ################################################################################
 echo "Install GNU Stow"
-if type "stow" > /dev/null; then
-  echo "GNU Stow is already installed"
-else
-  sudo apt-get update && sudo apt-get install -y stow
-fi
+# if type "stow" > /dev/null; then
+#   echo "GNU Stow is already installed"
+# else
+#   sudo apt-get update && sudo apt-get install -y stow
+# fi
 echo "Symlink dotfiles using GNU Stow:"
 cd "${dotfiles_dir}/packages"
 for package in ${!dotfiles_packages[@]}; do
@@ -133,16 +133,16 @@ nvim -c 'PlugInstall | qa'
 ################################################################################
 # Zsh - Prezto {{{1
 ################################################################################
-zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTDIR}/.zprezto/bootstrap/zshenv" "${HOME}/.zshenv"; source "${ZDOTDIR}/.zshrc"'
+# zsh -c 'export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; ln -s "${ZDOTDIR}/.zprezto/bootstrap/zshenv" "${HOME}/.zshenv"; source "${ZDOTDIR}/.zshrc"'
 # 1}}}
 ################################################################################
 
 ################################################################################
 # Mutt {{{1
 ################################################################################
-mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
-mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
-echo "WARNING! You have to set up your credentials in order for mutt to work!"
+# mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/mutt/headers"
+# mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/mutt/messages"
+# echo "WARNING! You have to set up your credentials in order for mutt to work!"
 # 1}}}
 ################################################################################
 
@@ -161,8 +161,8 @@ mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/bash"
 ################################################################################
 # Make Zsh the default shell {{{1
 ################################################################################
-echo "Make Zsh the default shell. Input password:"
-chsh -s /bin/zsh
+# echo "Make Zsh the default shell. Input password:"
+# chsh -s /bin/zsh
 # 1}}}
 ################################################################################
 
@@ -173,27 +173,24 @@ if [[ -z `which pyenv` ]]; then
   git clone git@github.com:pyenv/pyenv.git ${HOME}/.local/pyenv
   source "${ZDOTDIR}/.zshrc"
 fi
-sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
-  libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
-  libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+# sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
+#   libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+#   libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
 
 git clone git@github.com:pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 
 PYENV_PY27_VERSION=2.7.18
-PYENV_PY37_VERSION=3.7.9
-PYENV_PY38_VERSION=3.8.9
+PYENV_PY38_VERSION=3.8.16
 pyenv install $PYENV_PY27_VERSION
-pyenv install $PYENV_PY37_VERSION
 pyenv install $PYENV_PY38_VERSION
 
 pyenv virtualenv $PYENV_PY27_VERSION neovim-python2 && pyenv activate neovim-python2 && pip install pynvim && pyenv deactivate
 mkdir -p ${HOME}/.local/bin
 pyenv virtualenv $PYENV_PY38_VERSION neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
 pyenv virtualenv $PYENV_PY38_VERSION powerline-status && pyenv activate powerline-status && pip install powerline-status && pyenv deactivate
-pyenv global $PYENV_PY38_VERSION $PYENV_PY27_VERSION $PYENV_PY37_VERSION neovim-python3
+pyenv global $PYENV_PY38_VERSION $PYENV_PY27_VERSION neovim-python3
 
 unset PYENV_PY27_VERSION
-unset PYENV_PY37_VERSION
 unset PYENV_PY38_VERSION
 # 1}}}
 ################################################################################

@@ -17,8 +17,8 @@
 # Tmux {{{1
 ################################################################################
 # If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux # Tmux >=3.1 searches at .config/tmux/tmux.conf
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && exec tmux  # Tmux >=3.1 searches at .config/tmux/tmux.conf
 # [[ -z "$TMUX" ]] && exec tmux -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf
 # 1}}}
 ################################################################################
