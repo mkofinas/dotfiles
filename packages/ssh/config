@@ -3,68 +3,83 @@ Host mug
     Port 6622
     User mkofinas
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
     ForwardAgent yes
 Host das4
     Hostname fs4.das4.science.uva.nl
     User mkofinas
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
     ForwardAgent yes
+    ForwardX11 yes
 Host das5
     Hostname fs4.das5.science.uva.nl
     User mkofinas
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
     ForwardAgent yes
+    ForwardX11 yes
 Host das6
     Hostname fs4.das6.science.uva.nl
     User mkofinas
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-Host ivi
-    Hostname ivi-h0.science.uva.nl
-    User mkofina
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-Host lisa
-    Hostname lisa.surfsara.nl
-    User kofinas
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-Host lisag
-    Hostname login-gpu.lisa.surfsara.nl
-    User kofinas
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-Host snel
-    Hostname snellius.surf.nl
-    User kofinas
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
-    ForwardAgent yes
-    ForwardX11 yes
-    ForwardX11Trusted yes
-    RequestTTY yes
-    RemoteCommand tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf at || tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
-Host snelg
-    Hostname snellius.surf.nl
-    User mkofinas
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
     ForwardAgent yes
     ForwardX11 yes
     # RequestTTY yes
     # RemoteCommand tmux -u  -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf at -t foobar || tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
+Host ivi
+    Hostname ivi-h0.science.uva.nl
+    User mkofina
+    # PreferredAuthentications publickey
+    # IdentityFile ~/.ssh/id_ed25519
+    # ForwardAgent yes
+Host snel
+    Hostname snellius.surf.nl
+    User kofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ForwardX11 yes
+    RequestTTY yes
+    # RemoteCommand tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
+    RemoteCommand tmux -u  -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf at -t foobar || tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
+Host snelg
+    Hostname snellius.surf.nl
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ForwardX11 yes
+    RequestTTY yes
+    RemoteCommand tmux -u  -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf at -t foobar || tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
+Host snelgplain
+    Hostname snellius.surf.nl
+    User mkofinas
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ForwardX11 yes
 Host uvadesktop
     Hostname dta200096.science.uva.nl
     User mkofinas
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
     ForwardAgent yes
     ForwardX11 yes
     ForwardX11Trusted yes
+Host stepan
+    Hostname dta160000.science.uva.nl
+    User skonev
+    # RemoteCommand tmux -u at -t foobar || tmux -u new
+    #
+Host vu
+    Hostname snellius.surf.nl
+    User mkofinas1
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ForwardX11 yes
+    RequestTTY yes
+    # RemoteCommand tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new
+    RemoteCommand tmux -u  -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf at -t foobar || tmux -u -f ${XDG_CONFIG_HOME:-${HOME}/.config}/tmux/tmux.conf new

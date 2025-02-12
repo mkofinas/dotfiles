@@ -78,7 +78,6 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 " Plug 'zchee/deoplete-clang'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'davidhalter/jedi-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'github/copilot.vim', {'branch': 'release'}
 " 3}}}
@@ -122,7 +121,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'morhetz/gruvbox'
-Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
+" Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'JuliaLang/julia-vim'
 Plug 'cespare/vim-toml'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
@@ -567,6 +567,28 @@ let g:LatexBox_latexmk_options="-r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.la
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimtex {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:vimtex_syntax_conceal_default = 0
+let g:vimtex_syntax_conceal_disable = 0
+let g:vimtex_syntax_conceal = {
+\ 'accents': 1,
+\ 'ligatures': 1,
+\ 'cites': 1,
+\ 'fancy': 1,
+\ 'greek': 1,
+\ 'math_bounds': 0,
+\ 'math_delimiters': 1,
+\ 'math_fracs': 1,
+\ 'math_super_sub': 0,
+\ 'math_symbols': 0,
+\ 'sections': 0,
+\ 'styles': 1,
+\}
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Devicons {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
@@ -707,6 +729,17 @@ map <Leader>k <Plug>(easymotion-k)
 " Auto-pairs {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsMapSpace = 0
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copilot {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:copilot_filetypes = {
+      \ 'markdown': 1,
+      \ 'yaml': 1,
+      \ 'tex': 1,
+      \ }
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

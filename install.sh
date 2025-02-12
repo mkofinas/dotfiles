@@ -48,7 +48,7 @@ dotfiles_backup_dir="${dotfiles_dir}.bak"
 echo "Create backup directory ${dotfiles_backup_dir}"
 mkdir -p ${dotfiles_backup_dir}
 
-echo "The following files will be backup-ed:"
+echo "The following files will be backed-up:"
 for package in ${!dotfiles_packages[@]}; do
   for file in $(ls -1A ${dotfiles_dir}/packages/${package}); do
     full_file_name="${dotfiles_packages[$package]}/${file}"
@@ -179,14 +179,22 @@ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
 
 git clone git@github.com:pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 
-pyenv install 2.7.18
-pyenv install 3.8.3
-pyenv install 3.7.7
+PYENV_PY27_VERSION=2.7.18
+PYENV_PY37_VERSION=3.7.9
+PYENV_PY38_VERSION=3.8.9
+pyenv install $PYENV_PY27_VERSION
+pyenv install $PYENV_PY37_VERSION
+pyenv install $PYENV_PY38_VERSION
 
-pyenv virtualenv 2.7.18 neovim-python2 && pyenv activate neovim-python2 && pip install pynvim && pyenv deactivate
+pyenv virtualenv $PYENV_PY27_VERSION neovim-python2 && pyenv activate neovim-python2 && pip install pynvim && pyenv deactivate
 mkdir -p ${HOME}/.local/bin
-pyenv virtualenv 3.8.3 neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
-pyenv global 3.8.3 2.7.18 3.7.7 neovim-python3
+pyenv virtualenv $PYENV_PY38_VERSION neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
+pyenv virtualenv $PYENV_PY38_VERSION powerline-status && pyenv activate powerline-status && pip install powerline-status && pyenv deactivate
+pyenv global $PYENV_PY38_VERSION $PYENV_PY27_VERSION $PYENV_PY37_VERSION neovim-python3
+
+unset PYENV_PY27_VERSION
+unset PYENV_PY37_VERSION
+unset PYENV_PY38_VERSION
 # 1}}}
 ################################################################################
 

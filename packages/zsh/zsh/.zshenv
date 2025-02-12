@@ -77,9 +77,9 @@ export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 export PATH=$PATH:$HOME/.local/diff-so-fancy
 
 # TeX Live
-export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
-export INFOPATH=$INFOPATH:/usr/local/texlive/2018/texmf-dist/doc/info
-export MANPATH=$MANPATH:/usr/local/texlive/2018/texmf-dist/doc/man
+export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
+export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
+export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 
 # CUDA
 export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
@@ -92,6 +92,7 @@ export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
 
 # Tmux
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
+export PATH=$PATH:$HOME/.local/bin
 
 # Pyenv
 export PYENV_ROOT="${HOME}/.local/pyenv"
