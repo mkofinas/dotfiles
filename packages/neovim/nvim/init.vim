@@ -79,7 +79,8 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'davidhalter/jedi-vim'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'github/copilot.vim', {'branch': 'release'}
+" Plug 'github/copilot.vim', {'branch': 'release'}
+Plug 'Exafunction/codeium.vim'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -95,7 +96,7 @@ Plug 'rhysd/vim-grammarous', { 'for': 'tex' }
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
-Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'python-mode/python-mode'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -492,6 +493,10 @@ let g:ale_sign_warning = ''
 
 hi! link ALEErrorSign ErrorMsg
 hi! link ALEWarningSign WarningMsg
+
+" let g:ale_fixers = {}
+" let g:ale_fixers.python = ['black']
+" let g:ale_fixers = {'python': ['isort']}
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
