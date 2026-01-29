@@ -73,14 +73,10 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 " endfunction
 " Plug 'junegunn/fzf', { 'dir': '~/.local/opt/fzf', 'do': function('MoveFzfConfig') }
 " Plug 'junegunn/fzf.vim'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-jedi'
-" Plug 'zchee/deoplete-clang'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'davidhalter/jedi-vim'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " Plug 'github/copilot.vim', {'branch': 'release'}
-Plug 'Exafunction/codeium.vim'
+Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -100,6 +96,7 @@ Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 
 " Plug 'python-mode/python-mode'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mbbill/undotree', { 'for': 'tidal' }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -113,6 +110,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'sjl/gundo.vim'
 " Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
+Plug 'tidalcycles/vim-tidal'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -127,7 +125,6 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'JuliaLang/julia-vim'
 Plug 'cespare/vim-toml'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
-Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -421,26 +418,6 @@ let g:airline_theme = 'gruvbox'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_complete_in_comments_and_strings  = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion=['<Down>']
-let g:ycm_key_list_previous_completion=['<Up>']
-let g:ycm_auto_trigger = 1
-let g:ycm_confirm_extra_conf = 0 "Don't ask for confirmation every time
-let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
-" Stop YCM from performing diagnostics
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_filetype_blacklist = {
-      \ 'python' : 1
-      \}
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Startify {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:startify_session_dir = "~/.config/nvim/sessions"
@@ -538,13 +515,6 @@ let g:gundo_width = 40
 let g:gundo_right = 1
 
 nnoremap <C-G> :GundoToggle<CR>
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MatchTagAlways {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:mta_use_matchparen_group = 0
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -676,18 +646,6 @@ noremap <C-P> :FZF<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Deoplete {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#server_timeout=500
-let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.4.so.1'
-let g:deoplete#sources#clang#clang_header='/usr/include/clang/3.4/include/'
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
