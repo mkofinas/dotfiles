@@ -1,11 +1,12 @@
 " Neovim Configuration
 " ----------------------------
 " 1. XDG Specification
-" 1. Plugin Manager: Vim-Plug
-" 2. Neovim Settings
-" 3. Custom Mappings
-" 4. Plugin Settings
-" 5. Colorscheme
+" 2. Disable netrw
+" 3. Plugin Manager: Vim-Plug
+" 4. Neovim Settings
+" 5. Custom Mappings
+" 6. Plugin Settings
+" 7. Colorscheme
 " ----------------------------
 " Author(s):
 " - Miltiadis Kofinas <mkofinas@gmail.com>
@@ -17,6 +18,14 @@
 if empty($XDG_CONFIG_HOME)
   let $XDG_CONFIG_HOME = expand('$HOME/.config')
 endif
+" 1}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable netrw (advised for nvim-tree) {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -57,13 +66,14 @@ Plug 'tpope/vim-repeat'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
+Plug 'nvim-lua/plenary.nvim'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Completion {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'  " Replaces 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 " function! MoveFzfConfig(arg)
   " !./install --all --no-update-rc
@@ -73,10 +83,10 @@ Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
 " endfunction
 " Plug 'junegunn/fzf', { 'dir': '~/.local/opt/fzf', 'do': function('MoveFzfConfig') }
 " Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'davidhalter/jedi-vim'
-" Plug 'github/copilot.vim', {'branch': 'release'}
-Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'davidhalter/jedi-vim'
+Plug 'github/copilot.vim', {'branch': 'release'}
+Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -87,7 +97,7 @@ Plug 'dense-analysis/ale'
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install'}
 Plug 'rhysd/vim-grammarous', { 'for': 'tex' }
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
@@ -95,7 +105,7 @@ Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 
 " Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'python-mode/python-mode'
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'}
 Plug 'mbbill/undotree', { 'for': 'tidal' }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -103,14 +113,18 @@ Plug 'mbbill/undotree', { 'for': 'tidal' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Interface {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
+Plug 'nvim-tree/nvim-tree.lua'  " Replaces 'scrooloose/nerdtree' and 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-startify'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'  " Replaces 'vim-airline/vim-airline' and 'vim-airline/vim-airline-themes'
 " Plug 'sjl/gundo.vim'
 " Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 Plug 'tidalcycles/vim-tidal'
+Plug 'olimorris/codecompanion.nvim', {'tag': 'v19.15.0'}
+Plug 'folke/noice.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'rcarriga/nvim-notify'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -119,15 +133,15 @@ Plug 'tidalcycles/vim-tidal'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'   " NOTE: Replaces 'morhetz/gruvbox'
 " Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'JuliaLang/julia-vim'
-Plug 'cespare/vim-toml'
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
+Plug 'nvim-tree/nvim-web-devicons'  " Replaces 'ryanoasis/vim-devicons'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Plug 'https://github.com/MeanderingProgrammer/render-markdown.nvim'
+Plug 'OXY2DEV/markview.nvim'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -174,8 +188,6 @@ let g:mapleader=","
 
 set modeline
 set modelines=1
-
-set lazyredraw
 
 set foldmethod=indent
 set nofoldenable
@@ -374,46 +386,57 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree {{{2
+" nvim-tree.lua {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle NERDTree with Ctrl+n
-map <C-n> :NERDTreeToggle<CR>
+" Toggle NvimTree with Ctrl+n
+map <C-n> :NvimTreeToggle<CR>
 
-" Find the current file in NERDTree
-nmap <leader>f :NERDTreeFind<CR>
+" Find the current file in NvimTree
+nmap <leader>f :NvimTreeFindFile<CR>
 
-let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
-let NERDTreeShowHidden=1
-
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+lua << END
+require('nvim-tree').setup({
+  filters = {
+    dotfiles = false,
+  },
+})
+END
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-Airline {{{2
+" lualine.nvim {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline#extensions#tabline#right_sep = ' '
-" let g:airline#extensions#tabline#right_alt_sep = '|'
-" let g:airline_left_sep = ' '
-" let g:airline_left_alt_sep = '|'
-" let g:airline_right_sep = ' '
-" let g:airline_right_alt_sep = '|'
-let g:airline_detect_modified = 1
-let g:airline_detect_paste = 1
-let g:airline#extensions#ale#enabled = 1
+lua << END
+require('lualine').setup({
+  options = {
+    theme = 'gruvbox',
+  },
+  sections = {
+    lualine_a = { 'mode' },                            -- airline_detect_paste (shows PASTE automatically)
+    lualine_b = {
+      'branch',
+      'diff',
+      { 'diagnostics', sources = { 'ale' } },          -- airline#extensions#ale#enabled = 1
+    },
+    lualine_c = {
+      { 'filename' },
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-" Enable powerline symbols
-let g:airline_powerline_fonts = 1
-let g:airline_exclude_preview=1
-let g:airline_theme = 'gruvbox'
+    },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = {
+      { function() return string.format(' %d/%d', vim.fn.line('.'), vim.fn.line('$')) end },
+      { function() return string.format(' %d', vim.fn.col('.')) end },
+    },
+  },
+  tabline = {                                          -- airline#extensions#tabline#enabled = 1
+    lualine_a = { 'buffers' },
+    lualine_z = { 'tabs' },
+  },
+  extensions = { 'nvim-tree', 'fugitive', 'quickfix' },
+})
+END
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -478,15 +501,6 @@ hi! link ALEWarningSign WarningMsg
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tagbar {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
-
-let g:tagbar_width = 60
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -499,12 +513,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "private-snippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:ultisnips_python_style="doxygen"
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-Cpp-Enhanced-Highlight {{{2
-let g:cpp_class_scope_highlight = 1
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -560,18 +568,6 @@ let g:vimtex_syntax_conceal = {
 \ 'sections': 0,
 \ 'styles': 1,
 \}
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-Devicons {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['bash'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['zsh'] = ''
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -649,11 +645,11 @@ autocmd! User GoyoLeave Limelight!
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Jedi-vim {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#completions_enabled = 0
-" 2}}}
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " Jedi-vim {{{2
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:jedi#completions_enabled = 0
+" " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -689,9 +685,12 @@ map <Leader>k <Plug>(easymotion-k)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Auto-pairs {{{2
+" nvim-autopairs {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:AutoPairsMapSpace = 0
+" let g:AutoPairsMapSpace = 0
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -707,39 +706,144 @@ let g:copilot_filetypes = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Coc {{{2
+" Vim-Grammarous {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+let g:grammarous#jar_url = 'https://languagetool.org/download/archive/LanguageTool-5.9.zip'
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Copilot {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:copilot_filetypes = {
-      \ 'markdown': 1,
-      \ 'yaml': 1,
-      \ }
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " Coc {{{2
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " Make <CR> to accept selected completion item or notify coc.nvim to format
+" " <C-g>u breaks current undo, please make your own choice
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" " 2}}}
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Treesitter {{{2
+" nvim-treesitter {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua << EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'python', 'bash', 'json', 'toml', 'yaml', 'markdown' 'c' 'cpp' },
+  callback = function(args)
+    -- highlighting
+    vim.treesitter.start()
+    -- folds (optional)
+    vim.wo.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    -- indentation (skip python, unreliable there)
+    if vim.bo[args.buf].filetype ~= 'python' then
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+EOF
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" indent-blankline.nvim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require("ibl").setup()
+EOF
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" codecompanion.nvim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require("codecompanion").setup({
+  adapters = {
+    acp = {
+      claude_code = function()
+        return require("codecompanion.adapters").extend("claude_code", {
+          env = {
+            CLAUDE_CODE_OAUTH_TOKEN = os.getenv("CLAUDE_CODE_OAUTH_TOKEN"),
+          },
+        })
+      end,
+    },
   },
-}
+})
+
+EOF
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markview.nvim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require("markview").setup({
+  preview = {
+    filetypes = { "markdown", "codecompanion" },
+    ignore_buftypes = {},
+  },
+})
+EOF
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" blink.cmp {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require('blink.cmp').setup({
+  keymap = { preset = 'default' },
+  appearance = {
+    nerd_font_variant = 'mono'
+  },
+  completion = {
+    menu = { border = "rounded" },
+    documentation = {
+      auto_show = false,
+    },
+  },
+  sources = {
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
+  },
+  fuzzy = {
+    implementation = "prefer_rust_with_warning"
+  }
+})
+EOF
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" noice.nvim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require("noice").setup({
+  lsp = {
+    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+    },
+  },
+  -- you can enable a preset for easier configuration
+  presets = {
+    bottom_search = true, -- use a classic bottom cmdline for search
+    command_palette = true, -- position the cmdline and popupmenu together
+    long_message_to_split = true, -- long messages will be sent to a split
+    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+    lsp_doc_border = false, -- add a border to hover docs and signature help
+  },
+  views = {
+    cmdline_popup = {
+      border = { style = "rounded" },
+    },
+    popupmenu = {
+      border = { style = "rounded" },
+    },
+  },
+})
 EOF
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -753,22 +857,18 @@ EOF
 set background=dark
 set termguicolors
 
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
-hi! link ExtraWhitespace GruvboxRed
-hi! link ErrorMsg GruvboxRedSign
-hi! link WarningMsg GruvboxYellowSign
+lua << EOF
+require("gruvbox").setup({
+  contrast = "hard",
+  overrides = {
+    ExtraWhitespace = { link = "GruvboxRed" },
+    ErrorMsg        = { link = "GruvboxRedSign" },
+    WarningMsg      = { link = "GruvboxYellowSign" },
+  },
+})
+vim.cmd("colorscheme gruvbox")
+EOF
 " 1}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" indent-blankline.nvim {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua << EOF
-require("ibl").setup()
-EOF
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

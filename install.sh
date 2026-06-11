@@ -93,12 +93,12 @@ echo "Download Nerd Fonts"
 fonts_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/fonts"
 mkdir -p "${fonts_dir}"
 
-fonts_version="2.1.0"
+fonts_version="v3.4.0"
 fonts_repo="https://github.com/ryanoasis/nerd-fonts/raw/${fonts_version}/patched-fonts/"
-curl -fLo "${fonts_dir}/Fira Code Medium Nerd Font Complete.otf" \
-  "${fonts_repo}/FiraCode/Medium/complete/Fira%20Code%20Medium%20Nerd%20Font%20Complete.otf"
-curl -fLo "${fonts_dir}/Fira Code Bold Nerd Font Complete.otf" \
-  "${fonts_repo}/FiraCode/Bold/complete/Fira%20Code%20Bold%20Nerd%20Font%20Complete.otf"
+curl -fLo "${fonts_dir}/FiraCodeNerdFont-Medium.ttf" \
+  "${fonts_repo}/FiraCode/Medium/FiraCodeNerdFont-Medium.ttf"
+curl -fLo "${fonts_dir}/FiraCodeNerdFont-Bold.ttf" \
+  "${fonts_repo}/FiraCode/Bold/FiraCodeNerdFont-Bold.ttf"
 echo "Done!"
 # 1}}}
 ################################################################################
@@ -181,20 +181,20 @@ git clone git@github.com:pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-
 
 PYENV_PY27_VERSION=2.7.18
 PYENV_PY37_VERSION=3.7.9
-PYENV_PY38_VERSION=3.8.9
+PYENV_PY313_VERSION=3.13.7
 pyenv install $PYENV_PY27_VERSION
 pyenv install $PYENV_PY37_VERSION
-pyenv install $PYENV_PY38_VERSION
+pyenv install $PYENV_PY313_VERSION
 
 pyenv virtualenv $PYENV_PY27_VERSION neovim-python2 && pyenv activate neovim-python2 && pip install pynvim && pyenv deactivate
 mkdir -p ${HOME}/.local/bin
-pyenv virtualenv $PYENV_PY38_VERSION neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
-pyenv virtualenv $PYENV_PY38_VERSION powerline-status && pyenv activate powerline-status && pip install powerline-status && pyenv deactivate
-pyenv global $PYENV_PY38_VERSION $PYENV_PY27_VERSION $PYENV_PY37_VERSION neovim-python3
+pyenv virtualenv $PYENV_PY313_VERSION neovim-python3 && pyenv activate neovim-python3 && pip install pynvim flake8 && ln -s `pyenv which flake8` ${HOME}/.local/bin/flake8 && pyenv deactivate
+pyenv virtualenv $PYENV_PY313_VERSION powerline-status && pyenv activate powerline-status && pip install powerline-status && pyenv deactivate
+pyenv global $PYENV_PY313_VERSION $PYENV_PY27_VERSION $PYENV_PY37_VERSION neovim-python3
 
 unset PYENV_PY27_VERSION
 unset PYENV_PY37_VERSION
-unset PYENV_PY38_VERSION
+unset PYENV_PY313_VERSION
 # 1}}}
 ################################################################################
 
