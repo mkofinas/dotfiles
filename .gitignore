@@ -7,3 +7,4 @@ autoload/
 sessions/
 bundle/
 .zcompdump*
+ruff-receipt.json
