@@ -60,8 +60,6 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-" Plug 'justinmk/vim-sneak'
-" Plug 'godlygeek/tabular'
 " Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
@@ -75,25 +73,19 @@ Plug 'nvim-lua/plenary.nvim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'windwp/nvim-autopairs'  " Replaces 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips' | Plug 'mkofinas/vim-snippets'
-" function! MoveFzfConfig(arg)
-  " !./install --all --no-update-rc
-  " !mkdir -p $XDG_CONFIG_HOME/fzf
-  " !mv $HOME/.fzf.bash $XDG_CONFIG_HOME/fzf/fzf.bash
-  " !mv $HOME/.fzf.zsh $XDG_CONFIG_HOME/fzf/fzf.zsh
-" endfunction
-" Plug 'junegunn/fzf', { 'dir': '~/.local/opt/fzf', 'do': function('MoveFzfConfig') }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'davidhalter/jedi-vim'
 Plug 'github/copilot.vim', {'branch': 'release'}
 Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
+Plug 'saghen/blink.compat', { 'tag': 'v2.*' }
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'neovim/nvim-lspconfig'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrations {{{3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'dense-analysis/ale'
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
@@ -101,10 +93,9 @@ Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'npm ins
 Plug 'rhysd/vim-grammarous', { 'for': 'tex' }
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Plug 'taketwo/vim-ros'
-Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt-get install clang-format-3.4', 'for': ['cpp', 'c'] }
+Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt install clang-format-3.4', 'for': ['cpp', 'c'] }
 " Plug 'Vimjas/vim-python-pep8-indent'
-" Plug 'python-mode/python-mode'
-Plug 'psf/black', { 'branch': 'stable' }
+Plug 'stevearc/conform.nvim'
 Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'}
 Plug 'mbbill/undotree', { 'for': 'tidal' }
 " 3}}}
@@ -115,10 +106,7 @@ Plug 'mbbill/undotree', { 'for': 'tidal' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'nvim-tree/nvim-tree.lua'  " Replaces 'scrooloose/nerdtree' and 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-startify'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-lualine/lualine.nvim'  " Replaces 'vim-airline/vim-airline' and 'vim-airline/vim-airline-themes'
-" Plug 'sjl/gundo.vim'
 " Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 Plug 'tidalcycles/vim-tidal'
 Plug 'olimorris/codecompanion.nvim', {'tag': 'v19.15.0'}
@@ -134,13 +122,9 @@ Plug 'rcarriga/nvim-notify'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ellisonleao/gruvbox.nvim'   " NOTE: Replaces 'morhetz/gruvbox'
-" Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'JuliaLang/julia-vim'
-" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
+Plug 'JuliaLang/julia-vim', { 'for': 'julia' }
 Plug 'nvim-tree/nvim-web-devicons'  " Replaces 'ryanoasis/vim-devicons'
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-" Plug 'https://github.com/MeanderingProgrammer/render-markdown.nvim'
 Plug 'OXY2DEV/markview.nvim'
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -312,10 +296,6 @@ set synmaxcol=250
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages Support {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:python_host_prog = '/usr/bin/python2.7'
-" let g:python3_host_prog = '/usr/bin/python3.4'
-" let g:python_host_prog = '/home/miltos/.virtualenvs/neovim-python2/bin/python2.7'
-" let g:python3_host_prog = '/home/miltos/.virtualenvs/neovim-python3/bin/python3.6'
 let g:python_host_prog = expand('$HOME/.local/pyenv/versions/neovim-python2/bin/python')
 let g:python3_host_prog = expand('$HOME/.local/pyenv/versions/neovim-python3/bin/python')
 " 2}}}
@@ -417,7 +397,7 @@ require('lualine').setup({
     lualine_b = {
       'branch',
       'diff',
-      { 'diagnostics', sources = { 'ale' } },          -- airline#extensions#ale#enabled = 1
+      { 'diagnostics', sources = { 'nvim_lsp' } },
     },
     lualine_c = {
       { 'filename' },
@@ -464,8 +444,8 @@ let g:clang_format#style_options = {
         \ "ConstructorInitializerIndentWidth" : 2,
         \ "ColumnLimit" : 80,
         \ "BreakBeforeBraces" : "Allman",
-        \ "Standard" : "C++03"}
-        \ "PointerAlignment" : "Left"
+        \ "Standard" : "C++03",
+        \ "PointerAlignment" : "Left",
         \ "IndentWidth" : 2,
         \ "MaxEmptyLinesToKeep" : 1,
         \ "ContinuationIndentWidth" : 4,
@@ -486,21 +466,6 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ale {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-
-hi! link ALEErrorSign ErrorMsg
-hi! link ALEWarningSign WarningMsg
-
-" let g:ale_fixers = {}
-" let g:ale_fixers.python = ['black']
-" let g:ale_fixers = {'python': ['isort']}
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -517,16 +482,6 @@ let g:ultisnips_python_style="doxygen"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Gundo {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gundo_width = 40
-let g:gundo_right = 1
-
-nnoremap <C-G> :GundoToggle<CR>
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Fugitive {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -535,17 +490,6 @@ nnoremap <silent> <leader>gb :Gbrowse<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LaTeX-Box {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:LatexBox_latexmk_async=1
-let g:LatexBox_latexmk_preview_continuously=1
-let g:LatexBox_quickfix=2
-let g:LaTeXBox_output_type='' "Let latexmkrc choose the type
-let g:LatexBox_latexmk_options="-r ${XDG_CONFIG_HOME:-${HOME}/.config}/latex/.latexmkrc"
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -645,23 +589,6 @@ autocmd! User GoyoLeave Limelight!
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Jedi-vim {{{2
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:jedi#completions_enabled = 0
-" " 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python-Mode {{{2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pymode_syntax_print_as_function = 1
-let g:pymode_lint = 0
-let g:pymode_lint_ignore = ["E501", "W391", ]
-let g:quickfixsigns_protect_sign_rx = '^neomake_'
-" 2}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easymotion {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -712,32 +639,86 @@ let g:grammarous#jar_url = 'https://languagetool.org/download/archive/LanguageTo
 " 2}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Coc {{{2
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Make <CR> to accept selected completion item or notify coc.nvim to format
-" " <C-g>u breaks current undo, please make your own choice
-" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" " 2}}}
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-lspconfig {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+vim.lsp.config('pyright', {
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
+    },
+  },
+})
+vim.lsp.enable('pyright')
+
+vim.lsp.config('ruff', {
+  init_options = {
+    settings = {
+      logLevel = 'debug',
+    }
+  }
+})
+vim.lsp.enable('ruff')
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client == nil then
+      return
+    end
+    if client.name == 'ruff' then
+      -- Disable hover in favor of Pyright
+      client.server_capabilities.hoverProvider = false
+    end
+  end,
+  desc = 'LSP: Disable hover capability from Ruff',
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local map = function(lhs, rhs)
+      vim.keymap.set('n', lhs, rhs, { buffer = args.buf, silent = true })
+    end
+    map('gd',         vim.lsp.buf.definition)
+    map('gr',         vim.lsp.buf.references)
+    map('K',          vim.lsp.buf.hover)
+    map('<leader>rn', vim.lsp.buf.rename)
+    map('<leader>ca', vim.lsp.buf.code_action)
+    map('[d', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+    map(']d', function() vim.diagnostic.jump({ count =  1, float = true }) end)
+  end,
+})
+
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN]  = '',
+    },
+  },
+})
+EOF
+
+hi! link DiagnosticSignError ErrorMsg
+hi! link DiagnosticSignWarn WarningMsg
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-treesitter {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua << EOF
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'python', 'bash', 'json', 'toml', 'yaml', 'markdown' 'c' 'cpp' },
+  pattern = { 'python', 'bash', 'json', 'toml', 'yaml', 'markdown', 'c', 'cpp' },
   callback = function(args)
     -- highlighting
     vim.treesitter.start()
     -- folds (optional)
     vim.wo.foldmethod = 'expr'
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    -- indentation (skip python, unreliable there)
-    if vim.bo[args.buf].filetype ~= 'python' then
-      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end
+    vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
 })
 EOF
@@ -793,8 +774,13 @@ EOF
 " blink.cmp {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua << EOF
+-- Register the UltiSnips source through blink.compat's nvim-cmp shim
+require('cmp_nvim_ultisnips').setup({})
 require('blink.cmp').setup({
-  keymap = { preset = 'default' },
+  keymap = {
+    preset = 'default',
+    ['<CR>'] = { 'accept', 'fallback' },
+  },
   appearance = {
     nerd_font_variant = 'mono'
   },
@@ -805,7 +791,13 @@ require('blink.cmp').setup({
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
+    default = { 'lsp', 'path', 'ultisnips', 'buffer' },
+    providers = {
+      ultisnips = {
+        name = 'ultisnips',
+        module = 'blink.compat.source',
+      },
+    },
   },
   fuzzy = {
     implementation = "prefer_rust_with_warning"
@@ -842,6 +834,27 @@ require("noice").setup({
     popupmenu = {
       border = { style = "rounded" },
     },
+  },
+})
+EOF
+" 2}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" conform.nvim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+require("conform").setup({
+  formatters_by_ft = {
+    python = {
+      "ruff_fix",
+      "ruff_format",
+      "ruff_organize_imports",
+    },
+  },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
   },
 })
 EOF

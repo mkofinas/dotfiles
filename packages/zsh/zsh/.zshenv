@@ -16,6 +16,11 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 
+# Secrets (tokens, API keys) — kept outside the dotfiles repo, never committed
+if [[ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/secrets.zsh" ]]; then
+  source "${XDG_CONFIG_HOME:-${HOME}/.config}/secrets.zsh"
+fi
+
 # Virtual Environments
 # export PROJECT_HOME=$HOME/Software/Virtual\ Environments
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
