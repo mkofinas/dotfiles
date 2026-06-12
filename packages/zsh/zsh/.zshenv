@@ -74,6 +74,7 @@ export RUSTUP_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/rustup"
 # Cargo
 export CARGO_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/cargo"
 export PATH=$PATH:$CARGO_HOME/bin
+. "/home/mkofinas/.local/share/cargo/env"
 
 # Python Pylint
 export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
@@ -121,3 +122,13 @@ export BAT_THEME="gruvbox-dark"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview="bat --style=numbers --color=always {} | head -500"'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+# Nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Texlive
+export PATH=$PATH:/usr/local/texlive/2025/bin/x86_64-linux

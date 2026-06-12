@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 ################################################################################
 # Packages & Directories {{{1
 ################################################################################
@@ -162,7 +163,7 @@ mkdir -p "${XDG_DATA_HOME:-${HOME}/.local/share}/bash"
 # Make Zsh the default shell {{{1
 ################################################################################
 echo "Make Zsh the default shell. Input password:"
-chsh -s /bin/zsh
+chsh -s $(which zsh)
 # 1}}}
 ################################################################################
 
@@ -173,11 +174,11 @@ if [[ -z `which pyenv` ]]; then
   git clone git@github.com:pyenv/pyenv.git ${HOME}/.local/pyenv
   source "${ZDOTDIR}/.zshrc"
 fi
-sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
-  libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
-  libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl git \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
-git clone git@github.com:pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+git clone git@github.com:pyenv/pyenv-virtualenv.git ${HOME}/.local/pyenv/plugins/pyenv-virtualenv
 
 PYENV_PY27_VERSION=2.7.18
 PYENV_PY37_VERSION=3.7.9

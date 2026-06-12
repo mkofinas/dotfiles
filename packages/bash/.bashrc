@@ -155,7 +155,7 @@ export PATH=$PATH:$CARGO_HOME/bin
 # Python Pylint
 export PYLINTHOME="${XDG_CACHE_HOME:-${HOME}/.cache}/pylint"
 
-export PATH=$PATH:$HOME/Software/Repos/diff-so-fancy
+export PATH=$PATH:$HOME/.local/diff-so-fancy
 
 # Virtual Environments
 # export PROJECT_HOME=$HOME/Software/Virtual\ Environments
@@ -179,7 +179,7 @@ export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-${HOME}/.cache}/nv"
 export TMUX_TMPDIR=$XDG_RUNTIME_DIR
 
 # Pyenv
-# export PYENV_ROOT="${HOME}/Software/Libraries/pyenv"
+# export PYENV_ROOT="${HOME}/.local/pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
@@ -192,6 +192,13 @@ export KERAS_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}/keras"
 
 # Wget
 export WGETRC="${XDG_CONFIG_HOME:-${HOME}/.config}/wgetrc"
+
+# Local Bin
+export PATH=${HOME}/.local/bin:$PATH
+
+export TERMINFO=/usr/share/terminfo
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 # 1}}}
 ################################################################################
 
@@ -260,4 +267,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+. "/home/mkofinas/.local/share/cargo/env"
 

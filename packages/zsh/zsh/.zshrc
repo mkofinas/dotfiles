@@ -1,4 +1,5 @@
 ################################################################################
+#
 # Zsh Configuration                                                            #
 # -------------------------                                                    #
 # 1. Tmux                                                                      #
@@ -230,20 +231,20 @@ eval "$(direnv hook zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mkofinas/.local/lib/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/mkofinas/.local/miniforge3/bin/mamba' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/home/mkofinas/.local/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/mkofinas/.local/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/mkofinas/.local/lib/mambaforge/bin:$PATH"
+        export PATH="/home/mkofinas/.local/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/home/mkofinas/.local/lib/mambaforge/etc/profile.d/mamba.sh"
+if [ -f "/home/mkofinas/.local/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/mkofinas/.local/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 
@@ -271,3 +272,5 @@ conda config --set auto_activate_base false
 
 # vim:foldmethod=marker:foldlevel=0:foldenable
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+. "/home/mkofinas/.local/share/cargo/env"
