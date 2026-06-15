@@ -180,8 +180,8 @@ export TMUX_TMPDIR=$XDG_RUNTIME_DIR
 
 # Pyenv
 export PYENV_ROOT="${HOME}/.local/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
 
 # PyTorch
@@ -254,24 +254,31 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mkofinas/.local/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/gpfs/home1/mkofinas1/.local/miniforge3/bin/mamba' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/mkofinas/.local/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/mkofinas/.local/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/gpfs/home1/mkofinas1/.local/miniforge3/etc/profile.d/mamba.sh" ]; then
+        . "/gpfs/home1/mkofinas1/.local/miniforge3/etc/profile.d/mamba.sh"
     else
-        export PATH="/home/mkofinas/.local/mambaforge/bin:$PATH"
+        export PATH="/gpfs/home1/mkofinas1/.local/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
 . "/home/mkofinas/.local/share/cargo/env"
 
-# <<< mamba initialize <<<
-
-#
 # disable init of env "base"
 conda config --set auto_activate_base false
 
+export POWERLINE_CONFIG_COMMAND="/gpfs/home1/mkofinas1/.local/pyenv/versions/powerline-status/bin/powerline-config"
+
 # vim:foldmethod=marker:foldlevel=0:foldenable
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/gpfs/home1/mkofinas1/google-cloud-sdk/path.bash.inc' ]; then . '/gpfs/home1/mkofinas1/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/gpfs/home1/mkofinas1/google-cloud-sdk/completion.bash.inc' ]; then . '/gpfs/home1/mkofinas1/google-cloud-sdk/completion.bash.inc'; fi
+
+. "$HOME/.local/share/../bin/env"

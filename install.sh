@@ -36,7 +36,7 @@ dotfiles_packages["ruff"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 # Create Package Directories {{{1
 ################################################################################
 mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/ipython/profile_default"
-mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
+# mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/cmus"
 # 1}}}
 ################################################################################
 
