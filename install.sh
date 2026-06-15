@@ -229,6 +229,14 @@ npm -g install @agentclientprotocol/claude-agent-acp
 # 1}}}
 ################################################################################
 
+################################################################################
+# Tree-sitter-cli {{{1
+################################################################################
+curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+cargo binstall tree-sitter-cli
+# 1}}}
+################################################################################
+
 unset dotfiles_packages
 echo "Installation completed successfully!"
 

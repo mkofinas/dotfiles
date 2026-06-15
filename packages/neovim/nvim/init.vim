@@ -96,7 +96,7 @@ Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'rhysd/vim-clang-format', { 'do': 'sudo apt install clang-format-3.4', 'for': ['cpp', 'c'] }
 " Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'stevearc/conform.nvim'
-Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter',  { 'branch': 'main' , 'do': ':TSUpdate'}
 Plug 'mbbill/undotree', { 'for': 'tidal' }
 " 3}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
