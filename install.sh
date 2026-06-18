@@ -29,6 +29,7 @@ dotfiles_packages["ssh"]=${HOME}/.ssh
 dotfiles_packages["user_dirs"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["wget"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 dotfiles_packages["ruff"]=${XDG_CONFIG_HOME:-${HOME}/.config}
+dotfiles_packages["ghostty"]=${XDG_CONFIG_HOME:-${HOME}/.config}
 # 1}}}
 ################################################################################
 
